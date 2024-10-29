@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
+use App\Models\CharityCa1Ca2;
+use App\Models\CharityCa3;
 use Illuminate\Http\Request;
 
 use App\Models\CharityProfile;
@@ -65,10 +67,10 @@ class CharityProfileController extends Controller
             }
 
             CharityProfile::create($allData);
+
+
+
             Session::flash('message', 'Record added successfully');
-
-            //return back();
-
             return redirect()->action('Admin\CharityProfileController@index');
 
     }
@@ -114,26 +116,35 @@ class CharityProfileController extends Controller
     {
 
 
-        $user=CharityProfile::find($id);
-        $user->title=$request->title;
-        $user->website=$request->website;
-        $user->link_to_cra_return=$request->link_to_cra_return;
-        $user->fiscal_year_end=$request->fiscal_year_end;
-        $user->auditors=$request->auditors;
-        $user->charitable_reg_since=$request->charitable_reg_since;
-        $user->notes=$request->notes;
+        $CharityProfile = CharityProfile::find($id);
+        $CharityProfile->title=$request->title;
+        $CharityProfile->website=$request->website;
+        $CharityProfile->link_to_cra_return=$request->link_to_cra_return;
+        $CharityProfile->fiscal_year_end=$request->fiscal_year_end;
+        $CharityProfile->auditors = $request->auditors;
+        $CharityProfile->charitable_reg_since = $request->charitable_reg_since;
+        $CharityProfile->notes=$request->notes;
         if ($request->file('logo')){
             $file=$request->file('logo');
             $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
             $destinationPath = 'images/' ;
             $file->move($destinationPath,$fileName);
             $image = $destinationPath.$fileName;
-            $user->logo=$image;
+            $CharityProfile->logo=$image;
         }
+        $CharityProfile->push();
+
+        $Charity_ca1_ca2 = CharityCa1Ca2::where('charity_id',$id)->first();
+        $Charity_ca1_ca2->ca1_registerd = $request->ca1_registerd;
+
+        $Charity_ca1_ca2->push();
+
+        $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
+        $Charity_ca3->ca1_registerd = $request->ca1_registerd;
+
+        $Charity_ca3->push();
 
 
-
-        $user->push();
         Session::flash('message', 'Record uddated successfully');
 
         return back();

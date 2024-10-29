@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CvRefInfo extends Model
+class CharityCa3 extends Model
 {
-    protected $table='cv_reference_summery';
+    protected $table='charities_ca3';
 }
