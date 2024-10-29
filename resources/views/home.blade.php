@@ -76,18 +76,18 @@
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='gravity_forms_theme_reset-css' href='assets/css/gravity-forms-theme-reset.min.css?ver=2.8.2'
+    <link rel='stylesheet' id='gravity_forms_theme_reset-css' href='assets_new/css/gravity-forms-theme-reset.min.css?ver=2.8.2'
           type='text/css' media='all' />
     <link rel='stylesheet' id='gravity_forms_theme_foundation-css'
-          href='assets/css/gravity-forms-theme-foundation.min.css?ver=2.8.2' type='text/css' media='all' />
+          href='assets_new/css/gravity-forms-theme-foundation.min.css?ver=2.8.2' type='text/css' media='all' />
     <link rel='stylesheet' id='gravity_forms_theme_framework-css'
-          href='assets/css/gravity-forms-theme-framework.min.css?ver=2.8.2'
+          href='assets_new/css/gravity-forms-theme-framework.min.css?ver=2.8.2'
           type='text/css' media='all' />
     <link rel='stylesheet' id='gravity_forms_orbital_theme-css'
-          href='assets/css/gravity-forms-orbital-theme.min.css?ver=2.8.2'
+          href='assets_new/css/gravity-forms-orbital-theme.min.css?ver=2.8.2'
           type='text/css' media='all' />
     <link rel='stylesheet' id='wp-block-library-css'
-          href='assets/css/block-library/style.min.css?ver=6.1' type='text/css'
+          href='assets_new/css/block-library/style.min.css?ver=6.1' type='text/css'
           media='all' />
     <style id='rank-math-toc-block-style-inline-css' type='text/css'>
         .wp-block-rank-math-toc-block nav ol {
@@ -104,13 +104,13 @@
         }
     </style>
     <link rel='stylesheet' id='mediaelement-css'
-          href='assets/css/mediaelementplayer-legacy.min.css?ver=4.2.17'
+          href='assets_new/css/mediaelementplayer-legacy.min.css?ver=4.2.17'
           type='text/css' media='all' />
     <link rel='stylesheet' id='wp-mediaelement-css'
-          href='assets/css/wp-mediaelement.min.css?ver=6.1' type='text/css'
+          href='assets_new/css/wp-mediaelement.min.css?ver=6.1' type='text/css'
           media='all' />
     <link rel='stylesheet' id='view_editor_gutenberg_frontend_assets-css'
-          href='assets/css/views-frontend.css?ver=3.6.14'
+          href='assets_new/css/views-frontend.css?ver=3.6.14'
           type='text/css' media='all' />
     <style id='view_editor_gutenberg_frontend_assets-inline-css' type='text/css'>
         .wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default>span.wpv-sort-list,
@@ -240,7 +240,7 @@
         }
     </style>
     <link rel='stylesheet' id='classic-theme-styles-css'
-          href='assets/css/classic-themes.min.css?ver=1' type='text/css' media='all' />
+          href='assets_new/css/classic-themes.min.css?ver=1' type='text/css' media='all' />
     <style id='global-styles-inline-css' type='text/css'>
         body {
             --wp--preset--color--black: #000000;
@@ -574,7 +574,7 @@
             line-height: 1.6;
         }
     </style>
-    <link rel='stylesheet' id='bt_bb_content_elements-css' href='assets/css/content_elements.crush.css?ver=5.1.6'
+    <link rel='stylesheet' id='bt_bb_content_elements-css' href='assets_new/css/content_elements.crush.css?ver=5.1.6'
           type='text/css' media='all' />
     <link rel='stylesheet' id='bt_bb_slick-css'
           href='cssslick.css?ver=5.1.6' type='text/css'
@@ -583,23 +583,23 @@
     <link rel='stylesheet' id='bello-style-css' href='https://muslimgive.org/wp-content/themes/bello/style.css?ver=6.1'
           type='text/css' media='all' />
     <link rel='stylesheet' id='child-style-css'
-          href='assets/css/style.css?ver=1.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bello-print-css' href='assets/css/print.css?ver=6.1'
+          href='assets_new/css/style.css?ver=1.0.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='bello-print-css' href='assets_new/css/print.css?ver=6.1'
           type='text/css' media='print' />
     <link rel='stylesheet' id='boldthemes-framework-css'
-          href='assets/css/style.css?ver=6.1' type='text/css'
+          href='assets_new/css/style.css?ver=6.1' type='text/css'
           media='all' />
     <link rel='stylesheet' id='rating_addon_styles-css'
-          href='assets/css/rating.css?ver=1.2.3'
+          href='assets_new/css/rating.css?ver=1.2.3'
           type='text/css' media='all' />
     <link rel='stylesheet' id='fontawesome_styles-css'
-          href='assets/css/all.min.css?ver=6.4.2' type='text/css'
+          href='assets_new/css/all.min.css?ver=6.4.2' type='text/css'
           media='all' />
     <link rel='stylesheet' id='popup-maker-site-css'
-          href='assets/css/pum-site-styles.css?generated=1729094011&#038;ver=1.20.2'
+          href='assets_new/css/pum-site-styles.css?generated=1729094011&#038;ver=1.20.2'
           type='text/css' media='all' />
     <link rel='stylesheet' id='ald-styles-css'
-          href='assets/css/styles.min.css?ver=3.3.8'
+          href='assets_new/css/styles.min.css?ver=3.3.8'
           type='text/css' media='all' />
     <script type='text/javascript'
             src='https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es-frontend.js?ver=170000'
@@ -748,10 +748,10 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-MLWHPHC5');</script>
     <!-- End Google Tag Manager -->
-    <script> window.addEventListener("load", function () { var c = { script: false, link: false }; function ls(s) { if (!['script', 'link'].includes(s) || c[s]) { return; } c[s] = true; var d = document, f = d.getElementsByTagName(s)[0], j = d.createElement(s); if (s === 'script') { j.async = true; j.src = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/js/frontend.js?v=1.6.10'; } else { j.rel = 'stylesheet'; j.href = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/assets/css/style.css?v=1.6.10'; } f.parentNode.insertBefore(j, f); }; function ex() { ls('script'); ls('link') } window.addEventListener("scroll", ex, { once: true }); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex(); o.disconnect(); } else { i++; if (fb.length > i) { o.observe(fb[i]) } } }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
+    <script> window.addEventListener("load", function () { var c = { script: false, link: false }; function ls(s) { if (!['script', 'link'].includes(s) || c[s]) { return; } c[s] = true; var d = document, f = d.getElementsByTagName(s)[0], j = d.createElement(s); if (s === 'script') { j.async = true; j.src = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/js/frontend.js?v=1.6.10'; } else { j.rel = 'stylesheet'; j.href = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/assets_new/css/style.css?v=1.6.10'; } f.parentNode.insertBefore(j, f); }; function ex() { ls('script'); ls('link') } window.addEventListener("scroll", ex, { once: true }); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex(); o.disconnect(); } else { i++; if (fb.length > i) { o.observe(fb[i]) } } }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
     <noscript>
         <link rel="stylesheet"
-              href="assets/css/style.css">
+              href="assets_new/css/style.css">
     </noscript>
     <script id="google_gtagjs" src="https://www.googletagmanager.com/gtag/js?id=G-EDMZGZ189B" async="async"
             type="text/javascript"></script>
@@ -764,7 +764,7 @@
     <script>window.bt_bb_custom_elements = false;</script>
 
     <link rel="stylesheet" type="text/css"
-          href="assets/css/all.min.css">
+          href="assets_new/css/all.min.css">
 </head>
 
 <body data-rsssl=1
@@ -2445,7 +2445,7 @@
 
 
 <link rel='stylesheet' id='bt_bb_featured_listings-css'
-      href='https://muslimgive.org/wp-content/themes/bello/bold-page-builder/content_elements_misc/assets/css/bt_bb_featured_listings.css?ver=6.1'
+      href='https://muslimgive.org/wp-content/themes/bello/bold-page-builder/content_elements_misc/assets_new/css/bt_bb_featured_listings.css?ver=6.1'
       type='text/css' media='screen' />
 <script type='text/javascript'
         src='https://muslimgive.org/wp-content/themes/bello/framework/js/fancySelect.js?ver=6.1'

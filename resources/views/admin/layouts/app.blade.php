@@ -11,19 +11,19 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Basic Styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/assets/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/smartadmin-production-plugins.min.css') }}">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/smartadmin-production.min.css') }}">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/smartadmin-skins.min.css') }}">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/smartadmin-rtl.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-production-plugins.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-production.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-skins.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-rtl.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/jasny-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jasny-bootstrap.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/demo.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/demo.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
