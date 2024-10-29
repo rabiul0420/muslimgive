@@ -604,12 +604,12 @@
     <script type='text/javascript'
             src='https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es-frontend.js?ver=170000'
             id='toolset-common-es-frontend-js'></script>
-    <script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsjquery/jquery.min.js?ver=3.6.1'
+    <script type='text/javascript' src='https://muslimgive.org/wp-includes/js/jquery/jquery.min.js?ver=3.6.1'
             id='jquery-core-js'></script>
-    <script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsjquery/jquery-migrate.min.js?ver=3.3.2'
+    <script type='text/javascript' src='https://muslimgive.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2'
             id='jquery-migrate-js'></script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/plugins/bello/inc/my-account/assets/jsfavourite.js?ver=6.1'
+            src='https://muslimgive.org/wp-content/plugins/bello/inc/my-account/js/favourite.js?ver=6.1'
             id='bello_listing_favourite_js-js'></script>
     <script type='text/javascript' id='jquery-messages-localization-js-extra'>
         /* <![CDATA[ */
@@ -622,16 +622,16 @@
     <script type='text/javascript' src='https://muslimgive.org/wp-content/plugins/bello/bello-plugin.js?ver=6.1'
             id='bello-plugin-js'></script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/plugins/bello/inc/assets/jsmodernizr-custom.js?ver=6.1'
+            src='https://muslimgive.org/wp-content/plugins/bello/inc/js/modernizr-custom.js?ver=6.1'
             id='bello_modernizr_js-js'></script>
     <script type='text/javascript'
             src='https://muslimgive.org/wp-content/plugins/bold-page-builder/slick/slick.min.js?ver=5.1.6'
             id='bt_bb_slick-js'></script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/plugins/bold-page-builder/content_elements_misc/assets/jsjquery.magnific-popup.min.js?ver=5.1.6'
+            src='https://muslimgive.org/wp-content/plugins/bold-page-builder/content_elements_misc/js/jquery.magnific-popup.min.js?ver=5.1.6'
             id='bt_bb_magnific-js'></script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/plugins/bold-page-builder/content_elements_misc/assets/jscontent_elements.js?ver=5.1.6'
+            src='https://muslimgive.org/wp-content/plugins/bold-page-builder/content_elements_misc/js/content_elements.js?ver=5.1.6'
             id='bt_bb-js'></script>
     <script type='text/javascript' id='likebtn_frontend-js-extra'>
         /* <![CDATA[ */
@@ -639,7 +639,7 @@
         /* ]]> */
     </script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/plugins/likebtn-like-button/public/assets/jsfrontend.js?ver=6.1'
+            src='https://muslimgive.org/wp-content/plugins/likebtn-like-button/public/js/frontend.js?ver=6.1'
             id='likebtn_frontend-js'></script>
     <script type='text/javascript' id='markerclusterer-js-extra'>
         /* <![CDATA[ */
@@ -647,10 +647,10 @@
         /* ]]> */
     </script>
     <script type='text/javascript'
-            src='https://muslimgive.org/wp-content/themes/bello/views/listing/assets/jsmarkerclusterer.js?ver=6.1'
+            src='https://muslimgive.org/wp-content/themes/bello/views/listing/js/markerclusterer.js?ver=6.1'
             id='markerclusterer-js'></script>
     <script type='text/javascript' defer='defer'
-            src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/jsjquery.json.min.js?ver=2.8.2'
+            src='https://muslimgive.org/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.8.2'
             id='gform_json-js'></script>
     <script type='text/javascript' id='gform_gravityforms-js-extra'>
         /* <![CDATA[ */
@@ -662,13 +662,13 @@
         /* ]]> */
     </script>
     <script type='text/javascript' defer='defer'
-            src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/jsgravityforms.min.js?ver=2.8.2'
+            src='https://muslimgive.org/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.8.2'
             id='gform_gravityforms-js'></script>
     <script type='text/javascript' defer='defer'
             src='https://www.google.com/recaptcha/api.js?hl=en&#038;ver=6.1#038;render=explicit'
             id='gform_recaptcha-js'></script>
     <script type='text/javascript' defer='defer'
-            src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/assets/jsdist/utils.min.js?ver=50c7bea9c2320e16728e44ae9fde5f26'
+            src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=50c7bea9c2320e16728e44ae9fde5f26'
             id='gform_gravityforms_utils-js'></script>
 
     <!-- end Simple Custom CSS and JS -->
@@ -735,7 +735,7 @@
 
 
     <script async type="text/javascript"
-            src="https://static.klaviyo.com/onsite/assets/jsklaviyo.js?company_id=Ve6XWj"></script>
+            src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Ve6XWj"></script>
 
     <!-- end Simple Custom CSS and JS -->
     <!-- Google Tag Manager -->
@@ -748,7 +748,7 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-MLWHPHC5');</script>
     <!-- End Google Tag Manager -->
-    <script> window.addEventListener("load", function () { var c = { script: false, link: false }; function ls(s) { if (!['script', 'link'].includes(s) || c[s]) { return; } c[s] = true; var d = document, f = d.getElementsByTagName(s)[0], j = d.createElement(s); if (s === 'script') { j.async = true; j.src = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/assets/jsfrontend.js?v=1.6.10'; } else { j.rel = 'stylesheet'; j.href = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/assets/css/style.css?v=1.6.10'; } f.parentNode.insertBefore(j, f); }; function ex() { ls('script'); ls('link') } window.addEventListener("scroll", ex, { once: true }); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex(); o.disconnect(); } else { i++; if (fb.length > i) { o.observe(fb[i]) } } }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
+    <script> window.addEventListener("load", function () { var c = { script: false, link: false }; function ls(s) { if (!['script', 'link'].includes(s) || c[s]) { return; } c[s] = true; var d = document, f = d.getElementsByTagName(s)[0], j = d.createElement(s); if (s === 'script') { j.async = true; j.src = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/js/frontend.js?v=1.6.10'; } else { j.rel = 'stylesheet'; j.href = 'https://muslimgive.org/wp-content/plugins/wp-views/vendor/toolset/blocks/public/assets/css/style.css?v=1.6.10'; } f.parentNode.insertBefore(j, f); }; function ex() { ls('script'); ls('link') } window.addEventListener("scroll", ex, { once: true }); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex(); o.disconnect(); } else { i++; if (fb.length > i) { o.observe(fb[i]) } } }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
     <noscript>
         <link rel="stylesheet"
               href="assets/css/style.css">
@@ -2173,7 +2173,7 @@
 
 <!-- LikeBtn.com BEGIN -->
 <script
-        type="text/javascript">var likebtn_wl = 1; (function (d, e, s) { a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.src = s; m.parentNode.insertBefore(a, m) })(document, 'script', '//w.likebtn.com/assets/jsw/widget.js'); if (typeof (LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+        type="text/javascript">var likebtn_wl = 1; (function (d, e, s) { a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.src = s; m.parentNode.insertBefore(a, m) })(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof (LikeBtn) != "undefined") { LikeBtn.init(); }</script>
 <!-- LikeBtn.com END -->
 <div id="pum-11271" role="dialog" aria-modal="false"
      class="pum pum-overlay pum-theme-11206 pum-theme-lightbox popmake-overlay click_open"
@@ -2448,39 +2448,39 @@
       href='https://muslimgive.org/wp-content/themes/bello/bold-page-builder/content_elements_misc/assets/css/bt_bb_featured_listings.css?ver=6.1'
       type='text/css' media='screen' />
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-content/themes/bello/framework/assets/jsfancySelect.js?ver=6.1'
+        src='https://muslimgive.org/wp-content/themes/bello/framework/js/fancySelect.js?ver=6.1'
         id='fancySelect-js'></script>
 <script type='text/javascript' id='bello-header-js-before'>
     window.BoldThemesURI = "https://muslimgive.org/wp-content/themes/bello"; window.BoldThemesAJAXURL = "https://muslimgive.org/wp-admin/admin-ajax.php"; window.boldthemes_text = []; window.boldthemes_text.previous = 'previous'; window.boldthemes_text.next = 'next';
 </script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-content/themes/bello/framework/assets/jsheader.misc.js?ver=6.1'
+        src='https://muslimgive.org/wp-content/themes/bello/framework/js/header.misc.js?ver=6.1'
         id='bello-header-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-content/themes/bello/framework/assets/jsmisc.js?ver=6.1'
+<script type='text/javascript' src='https://muslimgive.org/wp-content/themes/bello/framework/js/misc.js?ver=6.1'
         id='bello-misc-js'></script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-includes/assets/jsdist/vendor/regenerator-runtime.min.js?ver=0.13.9'
+        src='https://muslimgive.org/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9'
         id='regenerator-runtime-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsdist/vendor/wp-polyfill.min.js?ver=3.15.0'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0'
         id='wp-polyfill-js'></script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-includes/assets/jsdist/dom-ready.min.js?ver=392bdd43726760d1f3ca'
+        src='https://muslimgive.org/wp-includes/js/dist/dom-ready.min.js?ver=392bdd43726760d1f3ca'
         id='wp-dom-ready-js'></script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-includes/assets/jsdist/hooks.min.js?ver=4169d3cf8e8d95a3d6d5'
+        src='https://muslimgive.org/wp-includes/js/dist/hooks.min.js?ver=4169d3cf8e8d95a3d6d5'
         id='wp-hooks-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsdist/i18n.min.js?ver=9e794f35a71bb98672ae'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/dist/i18n.min.js?ver=9e794f35a71bb98672ae'
         id='wp-i18n-js'></script>
 <script type='text/javascript' id='wp-i18n-js-after'>
     wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
 </script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsdist/a11y.min.js?ver=ecce20f002eda4c19664'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/dist/a11y.min.js?ver=ecce20f002eda4c19664'
         id='wp-a11y-js'></script>
 <script type='text/javascript' defer='defer'
-        src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/jsplaceholders.jquery.min.js?ver=2.8.2'
+        src='https://muslimgive.org/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.8.2'
         id='gform_placeholder-js'></script>
 <script type='text/javascript' defer='defer'
-        src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/assets/jsdist/vendor-theme.min.js?ver=54e7080aa7a02c83aa61fae430b9d869'
+        src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=54e7080aa7a02c83aa61fae430b9d869'
         id='gform_gravityforms_theme_vendors-js'></script>
 <script type='text/javascript' id='gform_gravityforms_theme-js-extra'>
     /* <![CDATA[ */
@@ -2488,9 +2488,9 @@
     /* ]]> */
 </script>
 <script type='text/javascript' defer='defer'
-        src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/assets/jsdist/scripts-theme.min.js?ver=bab19fd84843dabc070e73326d787910'
+        src='https://muslimgive.org/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=bab19fd84843dabc070e73326d787910'
         id='gform_gravityforms_theme-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsjquery/ui/core.min.js?ver=1.13.2'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2'
         id='jquery-ui-core-js'></script>
 <script type='text/javascript' id='popup-maker-site-js-extra'>
     /* <![CDATA[ */
@@ -2526,10 +2526,10 @@
     var mejsL10n = { "language": "en", "strings": { "mejs.download-file": "Download File", "mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/", "mejs.fullscreen": "Fullscreen", "mejs.play": "Play", "mejs.pause": "Pause", "mejs.time-slider": "Time Slider", "mejs.time-help-text": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.", "mejs.live-broadcast": "Live Broadcast", "mejs.volume-help-text": "Use Up\/Down Arrow keys to increase or decrease volume.", "mejs.unmute": "Unmute", "mejs.mute": "Mute", "mejs.volume-slider": "Volume Slider", "mejs.video-player": "Video Player", "mejs.audio-player": "Audio Player", "mejs.captions-subtitles": "Captions\/Subtitles", "mejs.captions-chapters": "Chapters", "mejs.none": "None", "mejs.afrikaans": "Afrikaans", "mejs.albanian": "Albanian", "mejs.arabic": "Arabic", "mejs.belarusian": "Belarusian", "mejs.bulgarian": "Bulgarian", "mejs.catalan": "Catalan", "mejs.chinese": "Chinese", "mejs.chinese-simplified": "Chinese (Simplified)", "mejs.chinese-traditional": "Chinese (Traditional)", "mejs.croatian": "Croatian", "mejs.czech": "Czech", "mejs.danish": "Danish", "mejs.dutch": "Dutch", "mejs.english": "English", "mejs.estonian": "Estonian", "mejs.filipino": "Filipino", "mejs.finnish": "Finnish", "mejs.french": "French", "mejs.galician": "Galician", "mejs.german": "German", "mejs.greek": "Greek", "mejs.haitian-creole": "Haitian Creole", "mejs.hebrew": "Hebrew", "mejs.hindi": "Hindi", "mejs.hungarian": "Hungarian", "mejs.icelandic": "Icelandic", "mejs.indonesian": "Indonesian", "mejs.irish": "Irish", "mejs.italian": "Italian", "mejs.japanese": "Japanese", "mejs.korean": "Korean", "mejs.latvian": "Latvian", "mejs.lithuanian": "Lithuanian", "mejs.macedonian": "Macedonian", "mejs.malay": "Malay", "mejs.maltese": "Maltese", "mejs.norwegian": "Norwegian", "mejs.persian": "Persian", "mejs.polish": "Polish", "mejs.portuguese": "Portuguese", "mejs.romanian": "Romanian", "mejs.russian": "Russian", "mejs.serbian": "Serbian", "mejs.slovak": "Slovak", "mejs.slovenian": "Slovenian", "mejs.spanish": "Spanish", "mejs.swahili": "Swahili", "mejs.swedish": "Swedish", "mejs.tagalog": "Tagalog", "mejs.thai": "Thai", "mejs.turkish": "Turkish", "mejs.ukrainian": "Ukrainian", "mejs.vietnamese": "Vietnamese", "mejs.welsh": "Welsh", "mejs.yiddish": "Yiddish" } };
 </script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-includes/assets/jsmediaelement/mediaelement-and-player.min.js?ver=4.2.17'
+        src='https://muslimgive.org/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17'
         id='mediaelement-core-js'></script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-includes/assets/jsmediaelement/mediaelement-migrate.min.js?ver=6.1'
+        src='https://muslimgive.org/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.1'
         id='mediaelement-migrate-js'></script>
 <script type='text/javascript' id='mediaelement-js-extra'>
     /* <![CDATA[ */
@@ -2537,13 +2537,13 @@
     /* ]]> */
 </script>
 <script type='text/javascript'
-        src='https://muslimgive.org/wp-content/themes/bello/framework/assets/jsvideo_shortcode.js?ver=6.1'
+        src='https://muslimgive.org/wp-content/themes/bello/framework/js/video_shortcode.js?ver=6.1'
         id='boldthemes-video-shortcode-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsimagesloaded.min.js?ver=4.1.4'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/imagesloaded.min.js?ver=4.1.4'
         id='imagesloaded-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsmasonry.min.js?ver=4.2.2'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/masonry.min.js?ver=4.2.2'
         id='masonry-js'></script>
-<script type='text/javascript' src='https://muslimgive.org/wp-includes/assets/jsjquery/jquery.masonry.min.js?ver=3.1.2b'
+<script type='text/javascript' src='https://muslimgive.org/wp-includes/js/jquery/jquery.masonry.min.js?ver=3.1.2b'
         id='jquery-masonry-js'></script>
 <script type='text/javascript' id='bt_bb_featured_listings_js-js-extra'>
     /* <![CDATA[ */
