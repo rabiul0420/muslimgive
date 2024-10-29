@@ -44,10 +44,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliders = DB::table('slider')->where(['status'=>'Active','category_id'=>1])->orderBy('id','desc')->get();
-        $training = Training::where(['status'=>'Active'])->orderBy('id','desc')->limit(6)->get();
-        $job_category = JobsCategory::orderBy('id','desc')->get();
-        return view('home',(['sliders'=>$sliders,'training'=>$training,'job_category'=>$job_category]));
+
+        return view('home');
     }
 
     public function product($title)

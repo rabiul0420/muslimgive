@@ -52,20 +52,20 @@
 	@if (config('settings.alexa_verify_id'))
 		<meta name="alexaVerifyID" content="{{ config('settings.alexa_verify_id') }}"/>
 	@endif
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ url('/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
-	<link href="{{ url('/assets/css/style.css') . '?v=' . time() }}" rel="stylesheet">
-	<link href="{{ url('/assets/css/style/default.css') . '?v=' . time() }}" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/assets/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="{{ url('/assets/bootstrap/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/plugins/select2/assets/css/select2.min.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/style.css') . '?v=' . time() }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/style/default.css') . '?v=' . time() }}" rel="stylesheet">
 	@if (config('app.theme'))
-		<link href="{{ url('/assets/css/style/' . config('app.theme') . '.css') . '?v=' . time() }}" rel="stylesheet">
+		<link href="{{ url('/assets/assets/css/style/' . config('app.theme') . '.css') . '?v=' . time() }}" rel="stylesheet">
 	@endif
-	<link href="{{ url('/assets/css/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css"/>
-	<link href="{{ url('/assets/css/owl.carousel.css') }}" rel="stylesheet">
-	<link href="{{ url('/assets/css/owl.theme.css') }}" rel="stylesheet">
-	<link href="{{ url('/assets/css/flags/flags.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css"/>
+	<link href="{{ url('/assets/assets/css/owl.carousel.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/owl.theme.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/flags/flags.css') }}" rel="stylesheet">
 	
-	<link href="{{ url('/assets/css/responsive.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/responsive.css') }}" rel="stylesheet">
 	@if (config('settings.custom_css'))
 	<style type="text/css">
 		<?php
@@ -83,7 +83,7 @@
 
 
 
-	<link href="{{ url('/assets/css/jobboard.css') }}" rel="stylesheet">
+	<link href="{{ url('/assets/assets/css/jobboard.css') }}" rel="stylesheet">
 	<script src="{{ url('/assets/js/pace.min.js') }}"></script>
 </head>
 <body>
@@ -180,7 +180,7 @@
 <script type="text/javascript" src="{{ url('/assets/js/app/autocomplete.cities.js') }}"></script>
 
 
-	<link rel="stylesheet" href="{{ url('/assets/css/slidorionsvenja9a.css') }}">
+	<link rel="stylesheet" href="{{ url('/assets/assets/css/slidorionsvenja9a.css') }}">
 
 	<script src="{{ url('/assets/js/jquery.easing.js') }}"></script>
     <script src="{{ url('/assets/js/jquery.slidorion.min.js') }}"></script>

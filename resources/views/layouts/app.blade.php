@@ -24,23 +24,23 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
           rel="stylesheet" type="text/css">
 
-    <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/font-awesome/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/bootstrap/assets/css/bootstrap.min.css') }}" rel="stylesheet">
              {{--menu css--}}
-    <link rel="stylesheet" href="{{ asset('assets/corporate/css/2.css') }}" media="all"/>
-    <link rel="stylesheet" href="{{ asset('assets/corporate/css/4.css') }}" media="all"/>
+    <link rel="stylesheet" href="{{ asset('assets/corporate/assets/css/2.css') }}" media="all"/>
+    <link rel="stylesheet" href="{{ asset('assets/corporate/assets/css/4.css') }}" media="all"/>
 
-    <link href="{{ asset('assets/pages/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/pages/assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/fancybox/source/jquery.fancybox.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/plugins/uniform/assets/css/uniform.default.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/plugins/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/pages/css/components.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/pages/css/slider.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/corporate/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/corporate/css/style-responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/corporate/css/themes/blue.css') }}" rel="stylesheet" id="style-color">
-    <link href="{{ asset('assets/corporate/css/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/corporate/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/pages/assets/css/components.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/pages/assets/css/slider.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/corporate/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/corporate/assets/css/style-responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/corporate/assets/css/themes/blue.css') }}" rel="stylesheet" id="style-color">
+    <link href="{{ asset('assets/corporate/assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/corporate/assets/css/font-awesome.min.css') }}" rel="stylesheet">
 </head>
 
 <body class="corporate ds-ui-kit-scope route--entity-view ds-theme-solidworks">
