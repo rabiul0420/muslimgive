@@ -92,13 +92,12 @@ class CharityProfileController extends Controller
             $Charity_ca4 = new CharityCa4;
         }
         $Charity_ca4->charity_id = $id;
-        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->board_members_names_listed = $request->board_members_names_listed;
         $Charity_ca4->push();
 
+        Session::flash('message', 'Record added successfully');
 
-
-            Session::flash('message', 'Record added successfully');
-            return redirect()->action('Admin\CharityProfileController@index');
+        return redirect()->action('Admin\CharityProfileController@index');
 
     }
 
@@ -180,7 +179,7 @@ class CharityProfileController extends Controller
             $Charity_ca4 = new CharityCa4;
         }
         $Charity_ca4->charity_id = $id;
-        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->leadership_team_photos = json_encode($request->leadership_team_photos);
         $Charity_ca4->push();
 
 

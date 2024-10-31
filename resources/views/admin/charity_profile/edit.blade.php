@@ -894,21 +894,23 @@
                                     </div>
                                 </div>
 
+                                @php $leadership_team_photos = json_decode($charity_profile->charity_ca4->leadership_team_photos); @endphp
+
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Leadership Team Photos </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('leadership_team_photos["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('leadership_team_photos[status]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_photos->status,['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="leadership_team_photos['score]" class="form-control" id="zip">
+                                        <input type="number" name="leadership_team_photos[score]" value="{{ $leadership_team_photos->score }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="leadership_team_photos['target]" class="form-control" id="zip">
+                                        <input type="number" name="leadership_team_photos[target]" value="{{ $leadership_team_photos->target }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
