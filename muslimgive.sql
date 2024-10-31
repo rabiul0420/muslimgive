@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2024 at 01:39 PM
+-- Generation Time: Oct 31, 2024 at 01:59 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -24,37 +24,81 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `charities_ca1_ca2`
+-- Table structure for table `ic_charities`
 --
 
-CREATE TABLE `charities_ca1_ca2` (
+CREATE TABLE `ic_charities` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `ca1_registerd` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`adt_fn_st_av`)),
-  `py_ adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`py_ adt_fn_st_av`)),
-  `imp_epr_avl_wfi_inf` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`imp_epr_avl_wfi_inf`)),
-  `ch_pr_qd _of_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`ch_pr_qd _of_r`)),
-  `Administrative_of_rv` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Administrative_of_rv`)),
-  `other_pending` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`other_pending`)),
-  `In_d_net_res` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`In_d_net_res`)),
-  `pr_yr_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`pr_yr_r`)),
-  `total_reserve_at_year_end` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`total_reserve_at_year_end`)),
-  `no._of_months_to_spend_the_reserve` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`no._of_months_to_spend_the_reserve`)),
-  `transparency_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`transparency_20`)),
-  `Cause Spending vs. other_spending_60` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Cause Spending vs. other_spending_60`)),
-  `distribution vs accumulation_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`distribution vs accumulation_20`))
+  `title` varchar(255) NOT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `website` varchar(255) NOT NULL,
+  `link_to_cra_return` varchar(255) NOT NULL,
+  `fiscal_year_end` varchar(255) NOT NULL,
+  `auditors` varchar(255) NOT NULL,
+  `charitable_reg_since` timestamp NULL DEFAULT NULL,
+  `notes` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ic_charities`
+--
+
+INSERT INTO `ic_charities` (`id`, `title`, `logo`, `website`, `link_to_cra_return`, `fiscal_year_end`, `auditors`, `charitable_reg_since`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 'IDRF (International Development and Relief Foundation)', 'images/72cd0c026c9184c6c87aa21b61d71feb.jpg', 'https://muslimgive.org/idrf-ca/', 'https://muslimgive.org/idrf-ca/', '2025', 'Content Here', NULL, 'Content Here', '2024-10-26 22:41:48', '2024-10-30 07:30:38'),
+(9, 'OBAT Canada', NULL, 'https://muslimgive.org/obat-canada/', 'https://muslimgive.org/obat-canada/', '2024', 'hhhh', NULL, 'fff', '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
+(10, 'National Zakat Foundation (NZF Canada)', 'images/71b27ad8d227d30370ed9b85a777fa9f.jpg', 'https://muslimgive.org/nzf-ca/', 'https://muslimgive.org/nzf-ca/', '2014', 'karim vuia', NULL, 'note here', '2024-10-30 08:17:40', '2024-10-30 08:17:40');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `charities_ca3`
+-- Table structure for table `ic_charities_ca1_ca2`
 --
 
-CREATE TABLE `charities_ca3` (
+CREATE TABLE `ic_charities_ca1_ca2` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `charity_id` int(11) NOT NULL,
+  `ca1_registerd` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `py_ adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `imp_epr_avl_wfi_inf` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `ch_pr_qd _of_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `Administrative_of_rv` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `other_pending` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `In_d_net_res` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `pr_yr_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `total_reserve_at_year_end` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `no._of_months_to_spend_the_reserve` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `transparency_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `Cause Spending vs. other_spending_60` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `distribution vs accumulation_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ic_charities_ca1_ca2`
+--
+
+INSERT INTO `ic_charities_ca1_ca2` (`id`, `charity_id`, `ca1_registerd`, `adt_fn_st_av`, `py_ adt_fn_st_av`, `imp_epr_avl_wfi_inf`, `ch_pr_qd _of_r`, `Administrative_of_rv`, `other_pending`, `In_d_net_res`, `pr_yr_r`, `total_reserve_at_year_end`, `no._of_months_to_spend_the_reserve`, `transparency_20`, `Cause Spending vs. other_spending_60`, `distribution vs accumulation_20`, `updated_at`, `created_at`) VALUES
+(3, 1, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:27:57', '2024-10-30 04:50:53'),
+(4, 5, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:19:24', '2024-10-30 07:19:24'),
+(5, 6, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:13', '2024-10-30 07:21:13'),
+(6, 7, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:41', '2024-10-30 07:21:41'),
+(7, 8, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
+(8, 9, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
+(9, 10, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_charities_ca3`
+--
+
+CREATE TABLE `ic_charities_ca3` (
+  `id` int(11) NOT NULL,
+  `charity_id` int(11) NOT NULL,
   `zak_pol_cle_lab_and_acc` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zak_pol_cle_lab_and_acc`)),
   `who_mak_up_gov_boa` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`who_mak_up_gov_boa`)),
   `shariah_advisory_board` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`shariah_advisory_board`)),
@@ -91,75 +135,30 @@ CREATE TABLE `charities_ca3` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `charities_ca4`
+-- Table structure for table `ic_charities_ca4`
 --
 
-CREATE TABLE `charities_ca4` (
+CREATE TABLE `ic_charities_ca4` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `board_members_names_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`board_members_names_listed`)),
-  `board_members_photos_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`board_members_photos_listed`)),
-  `board members_at_arms_length` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`board members_at_arms_length`)),
-  `leadership_team_names` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`leadership_team_names`)),
-  `leadership_team_photos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`leadership_team_photos`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ic_charities`
---
-
-CREATE TABLE `ic_charities` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL,
-  `website` varchar(255) NOT NULL,
-  `link_to_cra_return` varchar(255) NOT NULL,
-  `fiscal_year_end` varchar(255) NOT NULL,
-  `auditors` varchar(255) NOT NULL,
-  `charitable_reg_since` timestamp NULL DEFAULT NULL,
-  `notes` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `charity_id` int(11) NOT NULL,
+  `board_members_names_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `board_members_photos_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `board members_at_arms_length` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `leadership_team_names` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `leadership_team_photos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ic_charities`
+-- Dumping data for table `ic_charities_ca4`
 --
 
-INSERT INTO `ic_charities` (`id`, `title`, `logo`, `website`, `link_to_cra_return`, `fiscal_year_end`, `auditors`, `charitable_reg_since`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 'IDRF (International Development and Relief Foundation)', 'images/7914b95eb3495096f4f07f4179dfc972.png', 'https://muslimgive.org/idrf-ca/', 'https://muslimgive.org/idrf-ca/', '2025', 'Content Here', NULL, 'Content Here', '2024-10-26 22:41:48', '2024-10-26 23:56:05');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ic_charities_ca1_ca2`
---
-
-CREATE TABLE `ic_charities_ca1_ca2` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `cr1_registerd` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr1_registerd`)),
-  `cr2_adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_adt_fn_st_av`)),
-  `cr2_py_ adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_py_ adt_fn_st_av`)),
-  `cr2_imp_epr_avl_wfi_inf` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_imp_epr_avl_wfi_inf`)),
-  `cr2_ch_pr_qd _of_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_ch_pr_qd _of_r`)),
-  `cr2_Administrative_of_rv` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_Administrative_of_rv`)),
-  `cr2_other_pending` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_other_pending`)),
-  `cr2_total spent` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_total spent`)),
-  `cr2_In_d_net_res` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_In_d_net_res`)),
-  `cr2_pr_yr_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr2_pr_yr_r`)),
-  `total_reserve_at_year_end` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`total_reserve_at_year_end`)),
-  `no._of_months_to_spend_the_reserve` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`no._of_months_to_spend_the_reserve`)),
-  `transparency_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`transparency_20`)),
-  `Cause Spending vs. other_spending_60` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Cause Spending vs. other_spending_60`)),
-  `distribution vs accumulation_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`distribution vs accumulation_20`)),
-  `cr3_zakat policy clearly labeled and accessible` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr3_zakat policy clearly labeled and accessible`)),
-  `cr3_who makes up governing board` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr3_who makes up governing board`)),
-  `cr3_shariah_advisory_board` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr3_shariah_advisory_board`)),
-  `cr3_names of shariah_advisory_board_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cr3_names of shariah_advisory_board_listed`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `ic_charities_ca4` (`id`, `charity_id`, `board_members_names_listed`, `board_members_photos_listed`, `board members_at_arms_length`, `leadership_team_names`, `leadership_team_photos`, `updated_at`, `created_at`) VALUES
+(1, 8, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
+(2, 1, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:30:38', '2024-10-30 07:30:38'),
+(3, 9, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
+(4, 10, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40');
 
 -- --------------------------------------------------------
 
@@ -644,6 +643,37 @@ INSERT INTO `ic_role_assign` (`id`, `client_role_id`, `employee_role_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ic_role_has_permissions`
+--
+
+CREATE TABLE `ic_role_has_permissions` (
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ic_role_has_permissions`
+--
+
+INSERT INTO `ic_role_has_permissions` (`permission_id`, `module_id`, `role_id`) VALUES
+(1, NULL, 1),
+(15, NULL, 1),
+(16, NULL, 1),
+(21, NULL, 1),
+(29, NULL, 2),
+(30, NULL, 1),
+(32, NULL, 1),
+(41, NULL, 2),
+(41, NULL, 3),
+(42, NULL, 3),
+(43, NULL, 3),
+(44, NULL, 3),
+(45, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ic_settings`
 --
 
@@ -734,7 +764,7 @@ CREATE TABLE `ic_users` (
 --
 
 INSERT INTO `ic_users` (`id`, `title`, `name`, `email`, `password`, `phone`, `home_phone`, `reference`, `father_name`, `mother_name`, `present_address`, `division_id`, `district_id`, `upzilla_id`, `per_post_office`, `per_villlege`, `dob`, `gender`, `proffession`, `institute`, `educational_institute`, `passing_year`, `is_computer_laptop`, `image`, `type`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ma', 'Admin', 'admin@gmail.com', '$2y$10$E00Pww9HVtpaWsx0sSqIQeA.BW.qI0COQKRdEhwE0YKD.qGlI6tX6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Admin', 'Active', 'ogMCT5wxkI3SG7pJi9R2UdXJa7JioUsFKEhODwxqHIwXa6WCHrXYkJyOZVbF', '2018-10-20 04:30:46', '2018-10-20 04:30:46'),
+(1, 'Ma', 'Admin', 'admin@gmail.com', '$2y$10$E00Pww9HVtpaWsx0sSqIQeA.BW.qI0COQKRdEhwE0YKD.qGlI6tX6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Admin', 'Active', 't8MOFe5c31cCqk4saZK4GqFUm6bpZSAFAaLAb5VQiHqdmQDZ3SscfPnbnSUz', '2018-10-20 04:30:46', '2018-10-20 04:30:46'),
 (2, 'Md.', 'rashed khan', 'rabiul0420@gmail.com', '$2y$10$yMpiuRwOiZ3AJrjbVjWw.ezlDA9Uh0QB8Od48s0irz/O7ver9Q5xC', '017874556678', '', '', 'abdur rahim', 'amena begum', '5th floor, House#17, Road#17, Mirpur, Dhaka', 2, 49, 133, 'Boro Dunail', 'Chor Dunail', '1900-12-30', 'Male', 'Job Holder', 'IT Clan Bangladesh', 'Ruet', 2013, '2009', 'images/cjbkigxPK7Jyd9s576IsgvrMTPSnUzAblKCcANnd.png', 'Student', 'Active', 'ELrokctucIz425T26TDTXVd8lx2pOKqJQkfibIJT38SL8tLW1KCnEYB2H2EI', '2018-10-20 04:34:32', '2018-10-27 08:38:13'),
 (3, 'Md.', 'Bulbul Ahmed', 'bulbul@gmail.com', '$2y$10$QUSniCOFF7cOiJo6E4ovhu4.rlBXhvC9k4ksOO7cIgbXWJZHacjGS', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Active', 'prw9CYGYaJry5Kdk6cuKP5O2LI0PRXjgL60e3z9ZGlZTO2CnoJTVd0ae3TzF', '2018-10-26 14:08:58', '2018-10-26 14:08:58'),
 (5, 'Md', 'Amir Sardar', 'amir04@gmail.com', '$2y$10$4WkC9xIMEzo6/OB1k/fumupaz9KjsCO/V9Baz6HBR4wTbSqZw21Vu', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', 'lnA0MnrkfLI874na6esC4eKw8VTWVj1rMdNTglxpKyJalAZIAVTe0HlNZUPo', '2018-10-29 01:20:11', '2018-10-29 01:20:11'),
@@ -769,24 +799,6 @@ INSERT INTO `ic_users` (`id`, `title`, `name`, `email`, `password`, `phone`, `ho
 --
 
 --
--- Indexes for table `charities_ca1_ca2`
---
-ALTER TABLE `charities_ca1_ca2`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `charities_ca3`
---
-ALTER TABLE `charities_ca3`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `charities_ca4`
---
-ALTER TABLE `charities_ca4`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `ic_charities`
 --
 ALTER TABLE `ic_charities`
@@ -796,6 +808,18 @@ ALTER TABLE `ic_charities`
 -- Indexes for table `ic_charities_ca1_ca2`
 --
 ALTER TABLE `ic_charities_ca1_ca2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ic_charities_ca3`
+--
+ALTER TABLE `ic_charities_ca3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ic_charities_ca4`
+--
+ALTER TABLE `ic_charities_ca4`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -855,6 +879,13 @@ ALTER TABLE `ic_role_assign`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ic_role_has_permissions`
+--
+ALTER TABLE `ic_role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
 -- Indexes for table `ic_settings`
 --
 ALTER TABLE `ic_settings`
@@ -871,34 +902,28 @@ ALTER TABLE `ic_users`
 --
 
 --
--- AUTO_INCREMENT for table `charities_ca1_ca2`
---
-ALTER TABLE `charities_ca1_ca2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `charities_ca3`
---
-ALTER TABLE `charities_ca3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `charities_ca4`
---
-ALTER TABLE `charities_ca4`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `ic_charities`
 --
 ALTER TABLE `ic_charities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ic_charities_ca1_ca2`
 --
 ALTER TABLE `ic_charities_ca1_ca2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `ic_charities_ca3`
+--
+ALTER TABLE `ic_charities_ca3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ic_charities_ca4`
+--
+ALTER TABLE `ic_charities_ca4`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ic_country`
@@ -969,6 +994,13 @@ ALTER TABLE `ic_model_has_permissions`
 --
 ALTER TABLE `ic_model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `ic_roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `ic_role_has_permissions`
+--
+ALTER TABLE `ic_role_has_permissions`
+  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `ic_permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `ic_roles` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

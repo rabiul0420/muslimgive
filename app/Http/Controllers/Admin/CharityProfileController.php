@@ -5,9 +5,10 @@ use App\Http\Controllers\Controller;
 
 use App\Models\CharityCa1Ca2;
 use App\Models\CharityCa3;
+use App\Models\CharityCa4;
 use Illuminate\Http\Request;
 
-use App\Models\CharityProfile;
+use App\Models\Charity;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -35,7 +36,7 @@ class CharityProfileController extends Controller
      */
     public function index()
     {
-        $charity_profile = CharityProfile::get();
+        $charity_profile = Charity::get();
         return view('admin.charity_profile.list',['charity_profile'=>$charity_profile]);
     }
 
@@ -57,16 +58,42 @@ class CharityProfileController extends Controller
      */
     public function store(Request $request)
     {
-            $allData=$request->all();
-            if ($request->file('logo')){
-                $file=$request->file('logo');
-                $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
-                $destinationPath = 'images/' ;
-                $file->move($destinationPath,$fileName);
-                $allData['logo'] = $destinationPath.$fileName;
-            }
 
-            CharityProfile::create($allData);
+        $allData=$request->all();
+        if ($request->file('logo')){
+            $file=$request->file('logo');
+            $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
+            $destinationPath = 'images/' ;
+            $file->move($destinationPath,$fileName);
+            $allData['logo'] = $destinationPath.$fileName;
+        }
+        $Charity =   Charity::create($allData);
+
+        $id = $Charity->id;
+
+        $Charity_ca1_ca2 = CharityCa1Ca2::where('charity_id',$id)->first();
+        if(empty($Charity_ca1_ca2)){
+            $Charity_ca1_ca2 = new CharityCa1Ca2;
+        }
+        $Charity_ca1_ca2->charity_id = $id;
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca1_ca2->push();
+
+        $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
+        if(empty($Charity_ca3)){
+            $Charity_ca3 = new CharityCa3;
+        }
+        $Charity_ca3->charity_id = $id;
+        $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
+        $Charity_ca1_ca2->push();
+
+        $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
+        if(empty($Charity_ca4)){
+            $Charity_ca4 = new CharityCa4;
+        }
+        $Charity_ca4->charity_id = $id;
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->push();
 
 
 
@@ -83,7 +110,7 @@ class CharityProfileController extends Controller
      */
     public function show($id)
     {
-        $user=CharityProfile::select('charity_profile.*','role.name as role_title')
+        $user=Charity::select('charity_profile.*','role.name as role_title')
                    ->join('role', 'role.id', '=', 'charity_profile.role_id')
                    ->find($id);
         return view('admin.charity_profile.show',['user'=>$user]);
@@ -100,7 +127,7 @@ class CharityProfileController extends Controller
      */
     public function edit($id)
     {
-        $charity_profile = CharityProfile::find($id);
+        $charity_profile = Charity::find($id);
 
         return view('admin.charity_profile.edit',['charity_profile'=>$charity_profile]);
     }
@@ -114,9 +141,7 @@ class CharityProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-        $CharityProfile = CharityProfile::find($id);
+        $CharityProfile = Charity::find($id);
         $CharityProfile->title=$request->title;
         $CharityProfile->website=$request->website;
         $CharityProfile->link_to_cra_return=$request->link_to_cra_return;
@@ -135,14 +160,28 @@ class CharityProfileController extends Controller
         $CharityProfile->push();
 
         $Charity_ca1_ca2 = CharityCa1Ca2::where('charity_id',$id)->first();
-        $Charity_ca1_ca2->ca1_registerd = $request->ca1_registerd;
-
+        if(empty($Charity_ca1_ca2)){
+            $Charity_ca1_ca2 = new CharityCa1Ca2;
+        }
+        $Charity_ca1_ca2->charity_id = $id;
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
         $Charity_ca1_ca2->push();
 
         $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
-        $Charity_ca3->ca1_registerd = $request->ca1_registerd;
+        if(empty($Charity_ca3)){
+            $Charity_ca3 = new CharityCa3;
+        }
+        $Charity_ca3->charity_id = $id;
+        $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
+        $Charity_ca1_ca2->push();
 
-        $Charity_ca3->push();
+        $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
+        if(empty($Charity_ca4)){
+            $Charity_ca4 = new CharityCa4;
+        }
+        $Charity_ca4->charity_id = $id;
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->push();
 
 
         Session::flash('message', 'Record uddated successfully');
@@ -162,7 +201,7 @@ class CharityProfileController extends Controller
      */
     public function destroy($id)
     {
-        CharityProfile::destroy($id); // 1 way
+        Charity::destroy($id); // 1 way
         Session::flash('message', 'Record deleted successfully');
         return redirect()->action('Admin\CharityProfileController@index');
     }

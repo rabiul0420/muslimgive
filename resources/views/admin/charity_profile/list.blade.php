@@ -66,7 +66,11 @@
                                                 <td>{{$row->link_to_cra_return}}</td>
                                                 <td>{{$row->auditors}}</td>
                                                 <td>{{$row->fiscal_year_end}}</td>
-                                                <td><img height="50" src="{{url($row->logo)}}" alt=""></td>
+                                                <td>
+                                                    @if($row->logo)
+                                                        <img height="50" src="{{url($row->logo)}}" alt="">
+                                                    @endif
+                                                </td>
                                                 <td>{{$row->notes}}</td>
                                                 <td>
                                                     <a href="{{ action('Admin\CharityProfileController@edit',['id'=>$row->id]) }}" class="btn btn-primary">Edit</a>
