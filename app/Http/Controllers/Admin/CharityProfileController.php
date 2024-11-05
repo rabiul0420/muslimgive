@@ -85,7 +85,7 @@ class CharityProfileController extends Controller
         }
         $Charity_ca3->charity_id = $id;
         $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
-        $Charity_ca1_ca2->push();
+        $Charity_ca3->push();
 
         $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
         if(empty($Charity_ca4)){
