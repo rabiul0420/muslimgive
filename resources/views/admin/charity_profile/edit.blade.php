@@ -893,25 +893,25 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="board_members_photos_listed['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="board_members_photos_listed['target]" value="{{ $board_members_at_arms_length->score??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $leadership_team_names = json_decode($charity_profile->charity_ca4->leadership_team_names); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Board Members' at Arm’s Length</h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('members_at_arms_length["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('leadership_team_names["status"]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_names->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="members_at_arms_length['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="leadership_team_names['score]" value="{{ $leadership_team_names->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="members_at_arms_length['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="leadership_team_names['target]" value="{{ $leadership_team_names->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
