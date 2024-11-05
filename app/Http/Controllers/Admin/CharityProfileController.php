@@ -89,9 +89,10 @@ class CharityProfileController extends Controller
 
         $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
         if(empty($Charity_ca4)){
-            $Charity_ca4 = new CharityCa4;
+            $Charity_ca4 = new CharityCa4;  
         }
         $Charity_ca4->charity_id = $id;
+        $Charity_ca4->leadership_team_names = $request->leadership_team_names;
         $Charity_ca4->board_members_names_listed = $request->board_members_names_listed;
         $Charity_ca4->push();
 
@@ -125,7 +126,8 @@ class CharityProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {  
+        
         $charity_profile = Charity::find($id);
 
         return view('admin.charity_profile.edit',['charity_profile'=>$charity_profile]);
@@ -179,6 +181,8 @@ class CharityProfileController extends Controller
             $Charity_ca4 = new CharityCa4;
         }
         $Charity_ca4->charity_id = $id;
+        $Charity_ca4->board_members_at_arms_length = json_encode($request->board_members_at_arms_length);
+        $Charity_ca4->leadership_team_names = json_encode($request->leadership_team_names);
         $Charity_ca4->leadership_team_photos = json_encode($request->leadership_team_photos);
         $Charity_ca4->push();
 
