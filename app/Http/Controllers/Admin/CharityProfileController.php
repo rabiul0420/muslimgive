@@ -181,6 +181,8 @@ class CharityProfileController extends Controller
             $Charity_ca4 = new CharityCa4;
         }
         $Charity_ca4->charity_id = $id;
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->board_members_photos_listed = json_encode($request->board_members_photos_listed);
         $Charity_ca4->board_members_at_arms_length = json_encode($request->board_members_at_arms_length);
         $Charity_ca4->leadership_team_names = json_encode($request->leadership_team_names);
         $Charity_ca4->leadership_team_photos = json_encode($request->leadership_team_photos);
