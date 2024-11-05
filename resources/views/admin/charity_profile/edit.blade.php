@@ -838,22 +838,22 @@
                                         <input type="number" name="exp_of_the_cat_of_al_gh['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $xap_of_the_cat_of_fi_sab = json_decode($charity_profile->charity_ca3->xap_of_the_cat_of_fi_sab); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Exaplantion of the category of Fi Sabīlillahi </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1_regisxap_of_the_cat_of_fi_sabterd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('xap_of_the_cat_of_fi_sab["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('xap_of_the_cat_of_fi_sab'),['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="xap_of_the_cat_of_fi_sab['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="xap_of_the_cat_of_fi_sab[score]" value="{{ $xap_of_the_cat_of_fi_sab->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="xap_of_the_cat_of_fi_sab['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="xap_of_the_cat_of_fi_sab[target]" value="{{ $xap_of_the_cat_of_fi_sab->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
@@ -867,7 +867,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('board_members_names_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('board_members_names_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], '',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>

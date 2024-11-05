@@ -92,8 +92,8 @@ class CharityProfileController extends Controller
             $Charity_ca4 = new CharityCa4;  
         }
         $Charity_ca4->charity_id = $id;
-        $Charity_ca4->leadership_team_names = $request->leadership_team_names;
-        $Charity_ca4->board_members_names_listed = $request->board_members_names_listed;
+        $Charity_ca4->leadership_team_names = json_encode($request->leadership_team_names);
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
         $Charity_ca4->push();
 
         Session::flash('message', 'Record added successfully');
@@ -173,8 +173,9 @@ class CharityProfileController extends Controller
             $Charity_ca3 = new CharityCa3;
         }
         $Charity_ca3->charity_id = $id;
+        $Charity_ca3->xap_of_the_cat_of_fi_sab = json_encode($request->xap_of_the_cat_of_fi_sab);
         $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
-        $Charity_ca1_ca2->push();
+        $Charity_ca3->push();
 
         $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
         if(empty($Charity_ca4)){
