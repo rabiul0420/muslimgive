@@ -84,7 +84,8 @@ class CharityProfileController extends Controller
             $Charity_ca3 = new CharityCa3;
         }
         $Charity_ca3->charity_id = $id;
-        $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
+    
+        $Charity_ca3->exp_of_the_cat_of_al_gh = json_encode($request->exp_of_the_cat_of_al_gh);
         $Charity_ca3->push();
 
         $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();
@@ -165,6 +166,8 @@ class CharityProfileController extends Controller
             $Charity_ca1_ca2 = new CharityCa1Ca2;
         }
         $Charity_ca1_ca2->charity_id = $id;
+        $Charity_ca1_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
+        $Charity_ca1_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
         $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
         $Charity_ca1_ca2->push();
 
@@ -173,8 +176,35 @@ class CharityProfileController extends Controller
             $Charity_ca3 = new CharityCa3;
         }
         $Charity_ca3->charity_id = $id;
-        $Charity_ca3->xap_of_the_cat_of_fi_sab = json_encode($request->xap_of_the_cat_of_fi_sab);
         $Charity_ca3->zak_pol_cle_lab_and_acc = json_encode($request->zak_pol_cle_lab_and_acc);
+        $Charity_ca3->who_mak_up_gov_boa = json_encode($request->who_mak_up_gov_boa);
+        $Charity_ca3->shariah_advisory_board = json_encode($request->shariah_advisory_board);
+        $Charity_ca3->nam_of_sha_adv_boa_lis = json_encode($request->nam_of_sha_adv_boa_lis);
+        $Charity_ca3->ex_of_co_with_re_set_out_by_ca = json_encode($request->ex_of_co_with_re_set_out_by_ca);
+        $Charity_ca3->exp_why_zak_fun_are_col_and_dis = json_encode($request->exp_why_zak_fun_are_col_and_dis);
+        $Charity_ca3->exp_of_what_cha_of_cus_is_from_rec_zak = json_encode($request->exp_of_what_cha_of_cus_is_from_rec_zak);
+        $Charity_ca3->zakat_funds_kept_separate = json_encode($request->zakat_funds_kept_separate);
+        $Charity_ca3->tur_time_for_zak_dis_sha = json_encode($request->tur_time_for_zak_dis_sha);
+        $Charity_ca3->mention_of_zakat_to_minors = json_encode($request->mention_of_zakat_to_minors);
+        $Charity_ca3->vet_pro_for_zak_fun_app = json_encode($request->vet_pro_for_zak_fun_app);
+        $Charity_ca3->me_of_whe_zak_is_dis_in_cash_or_oth_for = json_encode($request->me_of_whe_zak_is_dis_in_cash_or_oth_for);
+        $Charity_ca3->internal_external_audit = json_encode($request->internal_external_audit);
+        $Charity_ca3->mention_of_zakat_elibility_formula = json_encode($request->mention_of_zakat_elibility_formula);
+        $Charity_ca3->zakat_calculator = json_encode($request->zakat_calculator);
+        $Charity_ca3->men_of_zak_adm_cost_amo = json_encode($request->men_of_zak_adm_cost_amo);
+        $Charity_ca3->public_fundrasing_costs = json_encode($request->public_fundrasing_costs);
+        $Charity_ca3->zakat_education_bank = json_encode($request->zakat_education_bank);
+        $Charity_ca3->live_zakat_calculation_support = json_encode($request->live_zakat_calculation_support);
+        $Charity_ca3->for_app_on_zak_cam = json_encode($request->for_app_on_zak_cam);
+        $Charity_ca3->clear_public_zakat_policy = json_encode($request->clear_public_zakat_policy);
+        $Charity_ca3->zak_und_ove_1_lun_yea = json_encode($request->zak_und_ove_1_lun_yea);
+        $Charity_ca3->exp_of_the_cat_of_fu = json_encode($request->exp_of_the_cat_of_fu);
+        $Charity_ca3->exp_of_the_cat_of_mas = json_encode($request->exp_of_the_cat_of_mas);
+        $Charity_ca3->exp_of_the_cat_of_ami_ala = json_encode($request->exp_of_the_cat_of_ami_ala);
+        $Charity_ca3->exp_of_the_cat_of_al_mua_qul = json_encode($request->exp_of_the_cat_of_al_mua_qul);
+        $Charity_ca3->exp_of_the_cat_of_fi_ar_ri = json_encode($request->exp_of_the_cat_of_fi_ar_ri);
+        $Charity_ca3->exp_of_the_cat_of_al_gh = json_encode($request->exp_of_the_cat_of_al_gh);
+        $Charity_ca3->xap_of_the_cat_of_fi_sab = json_encode($request->xap_of_the_cat_of_fi_sab);
         $Charity_ca3->push();
 
         $Charity_ca4 = CharityCa4::where('charity_id',$id)->first();

@@ -289,118 +289,125 @@
                                         <input type="number" name="ca1_regi vsterd['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca1_ca2->Cause_Spending_vs_other_spending_60); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Cause Spending Vs. Other Spending (60%) </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Amount</label>
-                                        <input type="number" name="Administrative_of_rv['amount]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="Cause_Spending_vs_other_spending_60[amount]" value="{{ $Cause_Spending_vs_other_spending_60->amount??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="ca1_registerd['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="Cause_Spending_vs_other_spending_60[score]" value="{{ $Cause_Spending_vs_other_spending_60->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="ca1_registerd['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="Cause_Spending_vs_other_spending_60[target]" value="{{ $Cause_Spending_vs_other_spending_60->ore??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+
+                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca1_ca2->distribution_vs_accumulation_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Distribution Vs Accumulation (20%)  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Amount</label>
-                                        <input type="number" name="Administrative_of_rv['amount]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="distribution_vs_accumulation_20[amount]" value="{{ $distribution_vs_accumulation_20->amount??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="ca1_registerd['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="distribution_vs_accumulation_20[score]" value="{{ $distribution_vs_accumulation_20->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="ca1_registerd['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="distribution_vs_accumulation_20[target]" value="{{ $distribution_vs_accumulation_20->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
                                 <br>
 
                                 <h4>CORE AREA - 3 ZAKAT POLICY COMPLIANCE</h4>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $zak_pol_cle_lab_and_acc = json_decode($charity_profile->charity_ca3->zak_pol_cle_lab_and_acc); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat policy clearly labeled and accessible  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('zak_pol_cle_lab_and_acc["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('zak_pol_cle_lab_and_acc[status]', ['Active' => 'Active','InActive' => 'InActive'], $zak_pol_cle_lab_and_acc->status??'' ,['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="zak_pol_cle_lab_and_acc['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zak_pol_cle_lab_and_acc[score]" value="{{ $zak_pol_cle_lab_and_acc->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="zak_pol_cle_lab_and_acc['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zak_pol_cle_lab_and_acc[target]" value="{{ $zak_pol_cle_lab_and_acc->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $who_mak_up_gov_boa = json_decode($charity_profile->charity_ca3->who_mak_up_gov_boa); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Who makes up governing board  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('who_mak_up_gov_boa["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('who_mak_up_gov_boa[status]', ['Active' => 'Active','InActive' => 'InActive'],  $who_mak_up_gov_boa->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="who_mak_up_gov_boa['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="who_mak_up_gov_boa[score]" value="{{ $who_mak_up_gov_boa->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="who_mak_up_gov_boa['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="who_mak_up_gov_boa[target]" value="{{ $leaderwho_mak_up_gov_boaship_team_photos->stargetcore??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $nam_of_sha_adv_boa_lis = json_decode($charity_profile->charity_ca3->nam_of_sha_adv_boa_lis); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Names of Shariah Advisory board listed </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('nam_of_sha_adv_boa_lis["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select(' [status]', ['Active' => 'Active','InActive' => 'InActive'], $nam_of_sha_adv_boa_lis->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="nam_of_sha_adv_boa_lis['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="nam_of_sha_adv_boa_lis[score]" value="{{ $nam_of_sha_adv_boa_lis->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="nam_of_sha_adv_boa_lis['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="nam_of_sha_adv_boa_lis[target]" value="{{ $nam_of_sha_adv_boa_lis->target??'' }}" class="form-control" id="zip">
                                     </div>
-                                    @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
-                                </div><div class="row">
+                                    
+                                </div>
+
+                                @php $ex_of_co_with_re_set_out_by_ca = json_decode($charity_profile->charity_ca3->ex_of_co_with_re_set_out_by_ca); @endphp
+                                
+                                <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanaition of compliance with regulations
                                             set out by Canadian government and CRA </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ex_of_co_with_re_set_out_by_ca["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('ex_of_co_wshariah_advisory_board	ith_re_set_out_by_ca[status]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca[score]" value="{{ $ex_of_co_with_re_set_out_by_ca->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca[target]" value="{{ $ex_of_co_with_re_set_out_by_ca->target??'' }}" class="form-control" id="zip">
                                     </div>
-                                    @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+
+
+                                    @php $exp_why_zak_fun_are_col_and_dis = json_decode($charity_profile->charity_ca3->exp_why_zak_fun_are_col_and_dis); @endphp
                                 </div><div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation why zakat funds are collected
@@ -408,18 +415,18 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1_reexp_why_zak_fun_are_col_and_disgisterd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_why_zak_fun_are_col_and_dis[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_why_zak_fun_are_col_and_dis->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca[score]" value="{{ $exp_why_zak_fun_are_col_and_dis->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_why_zak_fun_are_col_and_dis['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_why_zak_fun_are_col_and_dis[target]" value="{{ $exp_why_zak_fun_are_col_and_dis->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_what_cha_of_cus_is_from_rec_zak = json_decode($charity_profile->charity_ca3->exp_of_what_cha_of_cus_is_from_rec_zak); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of what chain of custody is from
@@ -427,90 +434,90 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('exp_why_zak_fun_are_col_and_dis["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_what_cha_of_cus_is_from_rec_zak[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_what_cha_of_cus_is_from_rec_zak->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="ex_of_co_with_re_set_out_by_ca['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_what_cha_of_cus_is_from_rec_zak[score]" value="{{ $exp_of_what_cha_of_cus_is_from_rec_zak->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_what_cha_of_cus_is_from_rec_zak['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_what_cha_of_cus_is_from_rec_zak[target]" value="{{ $exp_of_what_cha_of_cus_is_from_rec_zak->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $zakat_funds_kept_separate = json_decode($charity_profile->charity_ca3->zakat_funds_kept_separate); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat funds kept separate </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('exp_of_what_cha_of_cus_is_from_rec_zak["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('zakat_funds_kept_separate[status]', ['Active' => 'Active','InActive' => 'InActive'], $zakat_funds_kept_separate->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="zakat_funds_kept_separate['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_funds_kept_separate[score]" value="{{ $zakat_funds_kept_separate->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="zakat_funds_kept_separate['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_funds_kept_separate[target]" value="{{ $zakat_funds_kept_separate->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $tur_time_for_zak_dis_sha = json_decode($charity_profile->charity_ca3->tur_time_for_zak_dis_sha); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Turnaround time for zakat distrution shared </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('zakat_funds_kept_separate["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('tur_time_for_zak_dis_sha[status]', ['Active' => 'Active','InActive' => 'InActive'], $tur_time_for_zak_dis_sha->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="tur_time_for_zak_dis_sha['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="tur_time_for_zak_dis_sha[score]" value="{{ $tur_time_for_zak_dis_sha->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="tur_time_for_zak_dis_sha['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="tur_time_for_zak_dis_sha[target]" value="{{ $tur_time_for_zak_dis_sha->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $mention_of_zakat_to_minors = json_decode($charity_profile->charity_ca3->mention_of_zakat_to_minors); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of zakat to minors  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('tur_time_for_zak_dis_sha["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('mention_of_zakat_to_minors[status]', ['Active' => 'Active','InActive' => 'InActive'], $mention_of_zakat_to_minors->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="mention_of_zakat_to_minors['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="mention_of_zakat_to_minors[score]" value="{{ $mention_of_zakat_to_minors->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="mention_of_zakat_to_minors['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="mention_of_zakat_to_minors[target]" value="{{ $mention_of_zakat_to_minors->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $vet_pro_for_zak_fun_app = json_decode($charity_profile->charity_ca3->vet_pro_for_zak_fun_app); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Vetting process for zakat funds application </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('mention_of_zakat_to_minors["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('vet_pro_for_zak_fun_app[status]', ['Active' => 'Active','InActive' => 'InActive'], $me_of_whe_zak_is_dis_in_cash_or_oth_for->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="vet_pro_for_zak_fun_app['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="vet_pro_for_zak_fun_app[score]" value="{{ $vet_pro_for_zak_fun_app->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="vet_pro_for_zak_fun_app['target]"value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="vet_pro_for_zak_fun_app[target]"value="{{ $vet_pro_for_zak_fun_app->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $me_of_whe_zak_is_dis_in_cash_or_oth_for = json_decode($charity_profile->charity_ca3->me_of_whe_zak_is_dis_in_cash_or_oth_for); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of whether zakat is distributed in
@@ -518,72 +525,72 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('me_of_whe_zak_is_dis_in_cash_or_oth_for["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('me_of_whe_zak_is_dis_in_cash_or_oth_for["status"]', ['Active' => 'Active','InActive' => 'InActive'], $me_of_whe_zak_is_dis_in_cash_or_oth_for->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="me_of_whe_zak_is_dis_in_cash_or_oth_for['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="me_of_whe_zak_is_dis_in_cash_or_oth_for[score]" value="{{ $me_of_whe_zak_is_dis_in_cash_or_oth_for->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="me_of_whe_zak_is_dis_in_cash_or_oth_for['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="me_of_whe_zak_is_dis_in_cash_or_oth_for[target]" value="{{ $me_of_whe_zak_is_dis_in_cash_or_oth_for->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $internal_external_audit = json_decode($charity_profile->charity_ca3->internal_external_audit); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Internal/external audit  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('Internal_external_audit["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('Internal_external_audit[status]', ['Active' => 'Active','InActive' => 'InActive'], $internal_external_audit->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="Internal_external_audit['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="Internal_external_audit[score]" value="{{ $internal_external_audit->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="Internal_external_audit['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="Internal_external_audit[target]" value="{{ $internal_external_audit->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $mention_of_zakat_elibility_formula = json_decode($charity_profile->charity_ca3->mention_of_zakat_elibility_formula); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of Zakat elibility formula  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('mention_of_zakat_elibility_formula["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('mention_of_zakat_elibility_formula["status"]', ['Active' => 'Active','InActive' => 'InActive'], $mention_of_zakat_elibility_formula->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="mention_of_zakat_elibility_formula['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="mention_of_zakat_elibility_formula[score]" value="{{ $mention_of_zakat_elibility_formula->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="mention_of_zakat_elibility_formula['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="mention_of_zakat_elibility_formula[target]" value="{{ $mention_of_zakat_elibility_formula->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $zakat_calculator = json_decode($charity_profile->charity_ca3->zakat_calculator); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat Calculator </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('zakat_calculator["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('zakat_calculator[status]', ['Active' => 'Active','InActive' => 'InActive'], $men_of_zak_adm_cost_amo->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="zakat_calculator['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_calculator[score]" value="{{ $zakat_calculator->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="zakat_calculator['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_calculator[target]" value="{{ $zakat_calculator->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $men_of_zak_adm_cost_amo = json_decode($charity_profile->charity_ca3->men_of_zak_adm_cost_amo); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of Zakat administration cost
@@ -591,180 +598,163 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('men_of_zak_adm_cost_amo["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('men_of_zak_adm_cost_amo[status]', ['Active' => 'Active','InActive' => 'InActive'], $men_of_zak_adm_cost_amo->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="men_of_zak_adm_cost_amo['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="men_of_zak_adm_cost_amo[score]" value="{{ $men_of_zak_adm_cost_amo->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="men_of_zak_adm_cost_amo['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="men_of_zak_adm_cost_amo[target]" value="{{ $men_of_zak_adm_cost_amo->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h5 class="text-center" for="city">Audited </h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="state">Status</label>
-                                        {!! Form::select('public_fundrasing_costs["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="zip">Score</label>
-                                        <input type="number" name="public_fundrasing_costs['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="zip">Target</label>
-                                        <input type="number" name="public_fundrasing_costs['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
-                                    </div>
-                                </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                    
+                                @php $public_fundrasing_costs = json_decode($charity_profile->charity_ca3->public_fundrasing_costs); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Public fundrasing costs  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('public_fundrasing_costs["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('public_fundrasing_costs[status]', ['Active' => 'Active','InActive' => 'InActive'], $public_fundrasing_costs->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="public_fundrasing_costs['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="public_fundrasing_costs[score]" value="{{ $public_fundrasing_costs->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="public_fundrasing_costs['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="public_fundrasing_costs[target]" value="{{ $public_fundrasing_costs->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $zakat_education_bank = json_decode($charity_profile->charity_ca3->zakat_education_bank); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat education bank  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1live_zakat_calculation_support_registerd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('zakat_education_bank[status]', ['Active' => 'Active','InActive' => 'InActive'], $zakat_education_bank->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="live_zakat_calculation_support['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_education_bank[score]" value="{{ $zakat_education_bank->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="live_zakat_calculation_support['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zakat_education_bank[target]" value="{{ $zakat_education_bank->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $live_zakat_calculation_support = json_decode($charity_profile->charity_ca3->live_zakat_calculation_support); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Live Zakat calculation support </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('live_zakat_calculation_support["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('live_zakat_calculation_support[status]', ['Active' => 'Active','InActive' => 'InActive'], $live_zakat_calculation_support->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="live_zakat_calculation_support['score]" class="form-control" id="zip">
+                                        <input type="number" name="live_zakat_calculation_support[score]" value="{{ $live_zakat_calculation_support->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="live_zakat_calculation_support['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="live_zakat_calculation_support[target]" value="{{ $live_zakat_calculation_support->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $for_app_on_zak_cam = json_decode($charity_profile->charity_ca3->for_app_on_zak_cam); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Formal approval on Zakat campaigns </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('clear_public_zakat_policy["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('for_app_on_zak_cam[status]', ['Active' => 'Active','InActive' => 'InActive'], $for_app_on_zak_cam->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="for_app_on_zak_cam['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="for_app_on_zak_cam[score]" value="{{ $for_app_on_zak_cam->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="for_app_on_zak_cam['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="for_app_on_zak_cam[target]" value="{{ $for_app_on_zak_cam->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $clear_public_zakat_policy = json_decode($charity_profile->charity_ca3->clear_public_zakat_policy); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Clear public Zakat policy </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('for_app_on_zak_cam["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('for_app_on_zak_cam[status]', ['Active' => 'Active','InActive' => 'InActive'], $clear_public_zakat_policy->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="clear_public_zakat_policy['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="clear_public_zakat_policy[score]" value="{{ $clear_public_zakat_policy->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="clear_public_zakat_policy['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="clear_public_zakat_policy[target]" value="{{ $clear_public_zakat_policy->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $zak_und_ove_1_lun_yea = json_decode($charity_profile->charity_ca3->zak_und_ove_1_lun_yea); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat undistributed over 1 lunar year </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('zak_und_ove_1_lun_yea["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('zak_und_ove_1_lun_yea[status]', ['Active' => 'Active','InActive' => 'InActive'], $zak_und_ove_1_lun_yea->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="zak_und_ove_1_lun_yea['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zak_und_ove_1_lun_yea[score]" value="{{ $zak_und_ove_1_lun_yea->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="zak_und_ove_1_lun_yea['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="zak_und_ove_1_lun_yea[target]" value="{{ $zak_und_ove_1_lun_yea->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_fu = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_fu); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Fuaqrā </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('exp_of_the_cat_of_fu["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_fu[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_fu->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_fu['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_fu[score]" value="{{ $exp_of_the_cat_of_fu->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_fu['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_fu[target]" value="{{ $exp_of_the_cat_of_fu->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_mas = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_mas); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Masākīn </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('exp_of_the_cat_of_mas["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_mas[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_mas->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_mas['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_mas[score]" value="{{ $exp_of_the_cat_of_mas->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_mas['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_mas[target]" value="{{ $exp_of_the_cat_of_mas->score??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_ami_ala = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_ami_ala); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Āmilīn
@@ -772,18 +762,18 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('exp_of_the_cat_of_ami_ala["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_ami_ala[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_ami_ala->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_ami_ala['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_ami_ala[score]" value="{{ $exp_of_the_cat_of_ami_ala->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_ami_ala['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_ami_ala[target]" value="{{ $exp_of_the_cat_of_ami_ala->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_al_mua_qul = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_al_mua_qul); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Al-Muallafat
@@ -791,51 +781,51 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1_exp_of_the_cat_of_al_mua_qulregisterd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_al_mua_qul[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_al_mua_qul->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_al_mua_qul['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_al_mua_qul[score]" value="{{ $exp_of_the_cat_of_al_mua_qul->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_al_mua_qul['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_al_mua_qul[target]" value="{{ $exp_of_the_cat_of_al_mua_qul->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_fi_ar_ri = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_fi_ar_ri); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explantion of the category of Fi Ar-Riqāb  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1_reexp_of_the_cat_of_fi_ar_rigisterd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_fi_ar_ri[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_fi_ar_ri->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_fi_ar_ri['score]" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_fi_ar_ri[score]" value="{{ $exp_of_the_cat_of_fi_ar_ri->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_fi_ar_ri['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_fi_ar_ri[target]" value="{{ $exp_of_the_cat_of_fi_ar_ri->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $members_at_arms_length = json_decode($charity_profile->charity_ca4->members_at_arms_length); @endphp
+                                @php $exp_of_the_cat_of_al_gh = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_al_gh); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Al-Ghārimīn  </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('ca1_regisexp_of_the_cat_of_al_ghterd["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('status'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('exp_of_the_cat_of_al_gh[status]', ['Active' => 'Active','InActive' => 'InActive'], $exp_of_the_cat_of_al_gh->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
-                                        <input type="number" name="exp_of_the_cat_of_al_gh['score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_al_gh[score]" value="{{ $exp_of_the_cat_of_al_gh->score??'' }}" class="form-control" id="zip">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Target</label>
-                                        <input type="number" name="exp_of_the_cat_of_al_gh['target]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                        <input type="number" name="exp_of_the_cat_of_al_gh[target]" value="{{ $exp_of_the_cat_of_al_gh->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
                                 @php $xap_of_the_cat_of_fi_sab = json_decode($charity_profile->charity_ca3->xap_of_the_cat_of_fi_sab); @endphp
@@ -845,7 +835,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('xap_of_the_cat_of_fi_sab["status"]', ['Active' => 'Active','InActive' => 'InActive'], old('xap_of_the_cat_of_fi_sab'),['class'=>'form-control']) !!}<i></i>
+                                        {!! Form::select('xap_of_the_cat_of_fi_sab[status]', ['Active' => 'Active','InActive' => 'InActive'], $xap_of_the_cat_of_fi_sab->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zip">Score</label>
