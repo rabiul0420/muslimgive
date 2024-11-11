@@ -32,6 +32,14 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function charity_profile($id)
+    {
+        return view('charity_profile');
+    }
+
+
+
+
     public function registration()
     {
         $ip = \Request::ip();

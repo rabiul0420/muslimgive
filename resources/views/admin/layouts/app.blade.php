@@ -176,6 +176,15 @@
                     </li>
                 @endcan
 
+                <li class="@php echo (in_array(Request::segment(2), array("charity-profile-reports")))?'active':''  @endphp">
+                    <a href="#"><i class="fas fa-cube"></i> <span class="menu-item-parent">Reports</span></a>
+                    <ul>
+                        <li class="@php echo (Request::segment(2)=='charity-profile' && Request::segment(3)=='')?'active':''  @endphp">
+                            <a  href="{{ url('admin/charity-profile-reports') }}" title=""><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Charity Profile Reports</span></a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 @can('Video Manager')
                     <li class="@php echo (in_array(Request::segment(2), array("video")))?'active':''  @endphp">

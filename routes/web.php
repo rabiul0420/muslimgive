@@ -25,6 +25,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::resource('news', 'Admin\NewsController');
 
     Route::resource('charity-profile', 'Admin\CharityProfileController');
+    Route::get('charity-profile-reports', 'Admin\ReportsController@charity_profile_reports');
 
 
 
@@ -89,6 +90,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 /*site url*/
 Route::get('/', 'HomeController@index');
+Route::get('profile/{id}', 'HomeController@charity_profile');
 
 
 Route::get('registration', 'HomeController@registration');

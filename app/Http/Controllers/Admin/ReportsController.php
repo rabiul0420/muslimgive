@@ -15,7 +15,7 @@ use Session;
 use Auth;
 use Carbon\Carbon;
 
-class CharityProfileController extends Controller
+class ReportsController extends Controller
 {
     //
 
@@ -34,10 +34,10 @@ class CharityProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function charity_profile_reports()
     {
         $charity_profile = Charity::get();
-        return view('admin.charity_profile.list',['charity_profile'=>$charity_profile]);
+        return view('admin.reports.charity_profile_reports',['charity_profile'=>$charity_profile]);
     }
 
     /**

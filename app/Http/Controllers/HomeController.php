@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Charity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -44,8 +45,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $charities = Charity::skip(0)->take(3)->get();
+        return view('home',compact('charities'));
+    }
 
-        return view('home');
+    public function charity_profile($id)
+    {
+        $charitity = Charity::find($id);
+        return view('charity_profile',compact('charitity'));
     }
 
     public function product($title)
