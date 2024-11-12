@@ -57,6 +57,13 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label class="col-md-3">CEO</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" required name="ceo">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label class="col-md-3">Website</label>
                                                     <div class="col-md-9">
                                                         <input type="url" class="form-control" required name="website">

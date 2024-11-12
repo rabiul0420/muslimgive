@@ -9,12 +9,17 @@ class Charity extends Model
     protected $table='charities';
 
     protected $fillable = [
-        'title', 'logo','website','link_to_cra_return','fiscal_year_end','auditors','charitable_reg_since','notes','country_id'
+        'title','ceo','logo','website','link_to_cra_return','fiscal_year_end','auditors','charitable_reg_since','notes','country_id'
     ];
 
-    public function charity_ca1_ca2()
+    public function charity_ca1()
     {
-        return $this->hasOne('App\Models\CharityCa1Ca2');
+        return $this->hasOne('App\Models\CharityCa1');
+    }
+
+    public function charity_ca2()
+    {
+        return $this->hasOne('App\Models\CharityCa2');
     }
 
     public function charity_ca3()

@@ -54,6 +54,13 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="col-md-3">CEO</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" value="{{$charity_profile->ceo}}" required name="ceo">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="col-md-3">Website</label>
                                             <div class="col-md-9">
                                                 <input type="url" value="{{$charity_profile->website}}" class="form-control" required name="website">
@@ -114,7 +121,7 @@
                                 </div>
 
                                 <h4>CORE AREA - 1 CHARITY STATUS</h4>
-                                @php $ca1_registerd = json_decode($charity_profile->charity_ca1_ca2->ca1_registerd); @endphp
+                                @php $ca1_registerd = json_decode($charity_profile->charity_ca1->ca1_registerd); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Registered</h5>
@@ -135,7 +142,7 @@
                                 <br>
 
                                 <h4>CORE AREA - 2 FINANCIAL ACCOUNTABILITY</h4>
-                                @php $adt_fn_st_av = json_decode($charity_profile->charity_ca1_ca2->adt_fn_st_av); @endphp
+                                @php $adt_fn_st_av = json_decode($charity_profile->charity_ca2->adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Audited Financial Statements Available? </h5>
@@ -153,7 +160,7 @@
                                         <input type="number" name="adt_fn_st_av[target]"  value="{{ $adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $py_adt_fn_st_av = json_decode($charity_profile->charity_ca1_ca2->py_adt_fn_st_av); @endphp
+                                @php $py_adt_fn_st_av = json_decode($charity_profile->charity_ca2->py_adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">P.Y. Audited Financial Statements Available? </h5>
@@ -172,7 +179,7 @@
                                         <input type="number" name="py_adt_fn_st_av[target]"  value="{{ $py_adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $imp_epr_avl_wfi_inf = json_decode($charity_profile->charity_ca1_ca2->imp_epr_avl_wfi_inf); @endphp
+                                @php $imp_epr_avl_wfi_inf = json_decode($charity_profile->charity_ca2->imp_epr_avl_wfi_inf); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Impact Report Available W. Financial Info? </h5>
@@ -190,7 +197,7 @@
                                         <input type="number" name="imp_epr_avl_wfi_inf[target]"  value="{{ $imp_epr_avl_wfi_inf->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca1_ca2->ch_pr_qd_of_r	); @endphp
+                                @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca2->ch_pr_qd_of_r	); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Charitable Program + Qd - % Of Revenue </h5>
@@ -208,7 +215,7 @@
                                         <input type="number" name="ch_pr_qd_of_r[target]"  value="{{ $ch_pr_qd_of_r->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $fundraising_of_revenue = json_decode($charity_profile->charity_ca1_ca2->fundraising_of_revenue); @endphp
+                                @php $fundraising_of_revenue = json_decode($charity_profile->charity_ca2->fundraising_of_revenue); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Fundraising - % Of Revenue </h5>
@@ -227,7 +234,7 @@
                                     </div>
                                 </div>
 
-                                @php $Administrative_of_rv = json_decode($charity_profile->charity_ca1_ca2->Administrative_of_rv); @endphp
+                                @php $Administrative_of_rv = json_decode($charity_profile->charity_ca2->Administrative_of_rv); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Administrative - % Of Revenue </h5>
@@ -246,7 +253,7 @@
                                     </div>
                                 </div>
 
-                                @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca1_ca2->percent_of_revenue_spent_per_year); @endphp
+                                @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca2->percent_of_revenue_spent_per_year); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">% Of Revenue Spent Per Year </h5>
@@ -265,7 +272,7 @@
                                     </div>
                                 </div>
 
-                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_profile->charity_ca1_ca2->no_of_months_to_spend_the_reserve); @endphp
+                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_profile->charity_ca2->no_of_months_to_spend_the_reserve); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">No. Of Months To Spend The Reserve </h5>
@@ -284,7 +291,7 @@
                                     </div>
                                 </div>
 
-                                @php $transparency_20 = json_decode($charity_profile->charity_ca1_ca2->transparency_20); @endphp
+                                @php $transparency_20 = json_decode($charity_profile->charity_ca2->transparency_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Transparency (20%) </h5>
@@ -303,7 +310,7 @@
                                     </div>
                                 </div>
 
-                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca1_ca2->Cause_Spending_vs_other_spending_60); @endphp
+                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca2->Cause_Spending_vs_other_spending_60); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Cause Spending Vs. Other Spending (60%) </h5>
@@ -322,7 +329,7 @@
                                     </div>
                                 </div>
 
-                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca1_ca2->distribution_vs_accumulation_20); @endphp
+                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca2->distribution_vs_accumulation_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Distribution Vs Accumulation (20%)  </h5>

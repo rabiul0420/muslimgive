@@ -40,7 +40,7 @@
             <div class="btContent">
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
                 <div class="wrapper">
-                    <h2 class="sec_heading">IDRF (International Development and Relief Foundation)</h2>
+                    <h2 class="sec_heading">{{ $charitity->title }}</h2>
                     <div class="new_3_col">
                         <div class="col_1 sections">
                             <div class="logo_title">
@@ -53,7 +53,7 @@
 
                             <div class="section3">
                                 <div class="items section_bg">
-                                    <div>{{ $charitity->country->name }}
+                                    <div>{{ $charitity->country->name??'' }}
                                         <button class="openModalBtn" data-modal="address_popup">
                                             <i class="fa fa-info information"></i>
                                         </button>
@@ -63,33 +63,26 @@
                                     <div>International relief</div>
                                 </div>
                                 <div class="items section_bg">
-                                    <div>CEO: MAHMOOD QASIM </div>
+                                    <div>CEO: {{ $charitity->ceo }} </div>
                                 </div>
                             </div>
 
                             <div class="section1 section_bg">
-
                                 <div class="items yes">
                                     <i class="fa-solid fa-check circle"></i> <div><span>Registered with the CRA</span> <br>
                                         <button class="openModalBtn registration_details" data-modal="registration_details"><i class="fa fa-info information"></i></button>
-
                                         <a href="https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/dsplyRprtngPrd?q.srchNmFltr=international+relief+and&amp;q.stts=0007&amp;selectedCharityBn=132542705RR0001&amp;dsrdPg=1" target="_blank">
-                                            132542705 RR 0001			  </a>
+                                            132542705 RR 0001
+                                        </a>
                                         <button class="openModalBtn" data-modal="registration_number_popup"><i class="fa fa-info information"></i></button>
-
                                         <br>Registered since: 05/12/1988
                                     </div>
                                 </div>
-
                                 <div class="items yes">
                                     <i class="fa-solid fa-check circle"></i> Eligible to issue tax receipts
                                     <button class="openModalBtn" data-modal="tax_receipts"><i class="fa fa-info information"></i></button>
                                 </div>
-
-
-
                             </div>
-
                         </div>
 
                         <div class="col_2">
@@ -100,15 +93,10 @@
                                     <div class="popup_i">
                                         <button class="openModalBtn" data-modal="individual_grades_attained"><i class="fa fa-info information"></i></button>
                                     </div>
-
                                     <div class="stepper-wrapper">
-
-
-
                                         <div class="stepper-item">
                                             <div class="step-counter">
                                                 <i class="fa-solid fa-check"></i>
-
                                             </div>
                                             <div class="step-name">
                                                 Registered Charity
@@ -116,14 +104,12 @@
                                         </div>
 
                                         <div class="stepper-item">
-                                            <div class="step-counter ">
-                                                A</div>
+                                            <div class="step-counter ">A</div>
                                             <div class="step-name">Financial Accoutability</div>
                                         </div>
 
                                         <div class="stepper-item">
-                                            <div class="step-counter ">
-                                                A</div>
+                                            <div class="step-counter ">A</div>
                                             <div class="step-name">Zakat Policy Compliance</div>
                                         </div>
 
@@ -131,17 +117,12 @@
                                             <div class="step-counter">A</div>
                                             <div class="step-name">Governance &amp; Leadership</div>
                                         </div>
-
                                     </div>
 
                                     <div class="text">
                                         <p>Individual grades attained in the four Core Areas</p>
                                     </div>
                                 </div>
-
-
-
-
 
 
                                 <div class="second_sect">
@@ -155,9 +136,12 @@
                                         <div class="skill">
                                             <span class="skill-name">Charity Status</span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="chairty_status-progress-bar" style="width: 100%;"></div>
+                                                <div class="progress-bar" id="chairty_status-progress-bar" style="width: {{ $charitity->core_area_1_total_score  }}/30*100%;">
+
+                                                </div>
                                             </div>
-                                            <span class="progress-label" id="chairty_status-progress-label">30/30</span>
+
+                                            <span class="progress-label" id="chairty_status-progress-label">{{  $charitity->core_area_1_total_score }}/30</span>
                                         </div>
 
                                         <div class="skill">
@@ -165,13 +149,13 @@
                                             <div class="progress">
                                                 <div class="progress-bar" id="financial-progress-bar" style="width: 100%;"></div>
                                             </div>
-                                            <span class="progress-label" id="financial-progress-label">30/30</span>
+                                            <span class="progress-label" id="financial-progress-label">{{  $charitity->core_area_1_total_score }}/30</span>
                                         </div>
 
                                         <div class="skill">
                                             <span class="skill-name">Zakat Policy Compliance </span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="zakat-progress-bar" style="width: 96.6667%;"></div>
+                                                <div class="progress-bar" id="zakat-progress-bar" style="width: 78%;"></div>
                                             </div>
                                             <span class="progress-label" id="zakat-progress-label">29/30</span>
                                         </div>
@@ -223,18 +207,13 @@
                                 <div class="published_updated">
                                     <h5>Rating Published</h5>
                                     <p>18/03/2024</p>
-
                                 </div>
-
-
                             </div>
                         </div>
-
                     </div>
 
 
-                    <h2 class="sec_heading">
-                        Financial Overview (2022)	</h2>
+                    <h2 class="sec_heading">Financial Overview (2022)</h2>
 
                     <div class="financial_overview_w">
                         <div class="financial_overview">

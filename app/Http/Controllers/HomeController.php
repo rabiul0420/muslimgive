@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Charity;
+use App\Models\CharityCa3;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -46,12 +47,58 @@ class HomeController extends Controller
     public function index()
     {
         $charities = Charity::skip(0)->take(3)->get();
+
         return view('home',compact('charities'));
     }
 
     public function charity_profile($id)
     {
         $charitity = Charity::find($id);
+
+        $ca1_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca1');
+        $core_area_1_total_score = 0;
+        foreach ($ca1_total_column as $column) {
+            $object_value = json_decode($charitity->charity_ca1->$column);
+            if(is_object($object_value) && isset($object_value->score)){
+                $core_area_1_total_score += $object_value->score;
+            }
+        }
+
+        $charitity->core_area_1_total_score = $core_area_1_total_score;
+
+        $ca2_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca2');
+        $core_area_2_total_score = 0;
+        foreach ($ca2_total_column as $column) {
+            $object_value = json_decode($charitity->charity_ca2->$column);
+            if(is_object($object_value) && isset($object_value->score)){
+                $core_area_2_total_score += $object_value->score;
+            }
+        }
+        $charitity->core_area_2_total_score = $core_area_2_total_score;
+
+        $ca3_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca3');
+       $core_area_3_total_score = 0;
+       foreach ($ca3_total_column as $column) {
+           $object_value = json_decode($charitity->charity_ca3->$column);
+           if(is_object($object_value) && isset($object_value->score)){
+               $core_area_3_total_score += $object_value->score;
+           }
+       }
+
+       $charitity->core_area_3_total_score = $core_area_3_total_score;
+
+       $ca4_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca4');
+       $core_area_4_total_score = 0;
+       foreach ($ca4_total_column as $column) {
+           $object_value = json_decode($charitity->charity_ca4->$column);
+           if(is_object($object_value) && isset($object_value->score)){
+               $core_area_4_total_score += $object_value->score;
+           }
+       }
+
+        $charitity->core_area_4_total_score = $core_area_4_total_score;
+
+
         return view('charity_profile',compact('charitity'));
     }
 
