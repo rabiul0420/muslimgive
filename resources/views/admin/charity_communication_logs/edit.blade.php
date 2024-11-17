@@ -42,56 +42,56 @@
                         </header>
                         <div>
                             <div class="widget-body">
-                                {!! Form::open(['action'=>['Admin\CharityProfileController@update',$charity_profile->id],'method'=>'PUT','files'=>true,'class'=>'form-horizontal']) !!}
+                                {!! Form::open(['action'=>['Admin\CharityCommunicationLogsController@update',$charity_communication_logs->id],'method'=>'PUT','files'=>true,'class'=>'form-horizontal']) !!}
                                 <div class="row">
                                     <div class="col-md-8">
 
                                         <div class="form-group">
                                             <label class="col-md-3">Title</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" value="{{$charity_profile->title}}" required name="title">
+                                                <input type="text" class="form-control" value="{{$charity_communication_logs->title}}" required name="title">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3">CEO</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" value="{{$charity_profile->ceo}}" required name="ceo">
+                                                <input type="text" class="form-control" value="{{$charity_communication_logs->ceo}}" required name="ceo">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3">Website</label>
                                             <div class="col-md-9">
-                                                <input type="url" value="{{$charity_profile->website}}" class="form-control" required name="website">
+                                                <input type="url" value="{{$charity_communication_logs->website}}" class="form-control" required name="website">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3">Link To CRA Return</label>
                                             <div class="col-md-9">
-                                                <input type="url" value="{{$charity_profile->link_to_cra_return}}" class="form-control" required name="link_to_cra_return">
+                                                <input type="url" value="{{$charity_communication_logs->link_to_cra_return}}" class="form-control" required name="link_to_cra_return">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3">Auditors</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="{{$charity_profile->auditors}}" class="form-control" required name="auditors">
+                                                <input type="text" value="{{$charity_communication_logs->auditors}}" class="form-control" required name="auditors">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3">Fiscal Year End</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="{{$charity_profile->fiscal_year_end}}" class="form-control" required name="fiscal_year_end">
+                                                <input type="text" value="{{$charity_communication_logs->fiscal_year_end}}" class="form-control" required name="fiscal_year_end">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <p class="col-md-3">Notes</p>
                                             <div class="col-md-9">
-                                                <textarea  rows="5" name="notes" class="custom-scroll form-control">{{$charity_profile->notes}}</textarea>
+                                                <textarea  rows="5" name="notes" class="custom-scroll form-control">{{$charity_communication_logs->notes}}</textarea>
                                             </div>
                                         </div>
 
@@ -99,7 +99,7 @@
                                             <label class="col-md-3">Country</label>
                                             @php $countries->prepend('Select Country','')  @endphp
                                             <div class="col-md-9">
-                                                {!! Form::select('country_id', $countries, $charity_profile->country_id,['class'=>'form-control']) !!}<i></i>
+                                                {!! Form::select('country_id', $countries, $charity_communication_logs->country_id,['class'=>'form-control']) !!}<i></i>
                                             </div>
                                         </div>
 
@@ -107,14 +107,14 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <img id="holder_image" src="{{asset($charity_profile->logo)}}" style="margin-top:15px;margin-bottom:5px;max-width:100%;">
-                                            @php $file_array = explode('/',$charity_profile->logo); @endphp
+                                            <img id="holder_image" src="{{asset($charity_communication_logs->logo)}}" style="margin-top:15px;margin-bottom:5px;max-width:100%;">
+                                            @php $file_array = explode('/',$charity_communication_logs->logo); @endphp
 
                                             <div class="input-group">
                                                 <tr>
                                                     <button><input type="file" name="logo" id="fileToUpload"></button>
                                                 </tr>
-                                                <input id="thumbnail_image" class="form-control" type="hidden" value="{{$charity_profile->logo}}" name="image">
+                                                <input id="thumbnail_image" class="form-control" type="hidden" value="{{$charity_communication_logs->logo}}" name="image">
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                 <br>
                                 <fieldset>
                                     <legend>CORE AREA - 1 CHARITY STATUS</legend>
-                                    @php $ca1_registerd = json_decode($charity_profile->charity_ca1->ca1_registerd); @endphp
+                                    @php $ca1_registerd = json_decode($charity_communication_logs->charity_ca1->ca1_registerd); @endphp
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5 class="text-center" for="city">Registered</h5>
@@ -146,7 +146,7 @@
                                 <fieldset>
 
                                 <legend>CORE AREA - 2 FINANCIAL ACCOUNTABILITY</legend>
-                                @php $adt_fn_st_av = json_decode($charity_profile->charity_ca2->adt_fn_st_av); @endphp
+                                @php $adt_fn_st_av = json_decode($charity_communication_logs->charity_ca2->adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Audited Financial Statements Available? </h5>
@@ -164,7 +164,7 @@
                                         <input type="number" name="adt_fn_st_av[target]"  value="{{ $adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $py_adt_fn_st_av = json_decode($charity_profile->charity_ca2->py_adt_fn_st_av); @endphp
+                                @php $py_adt_fn_st_av = json_decode($charity_communication_logs->charity_ca2->py_adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">P.Y. Audited Financial Statements Available? </h5>
@@ -183,7 +183,7 @@
                                         <input type="number" name="py_adt_fn_st_av[target]"  value="{{ $py_adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $imp_epr_avl_wfi_inf = json_decode($charity_profile->charity_ca2->imp_epr_avl_wfi_inf); @endphp
+                                @php $imp_epr_avl_wfi_inf = json_decode($charity_communication_logs->charity_ca2->imp_epr_avl_wfi_inf); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Impact Report Available W. Financial Info? </h5>
@@ -201,7 +201,7 @@
                                         <input type="number" name="imp_epr_avl_wfi_inf[target]"  value="{{ $imp_epr_avl_wfi_inf->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca2->ch_pr_qd_of_r	); @endphp
+                                @php $ch_pr_qd_of_r	 = json_decode($charity_communication_logs->charity_ca2->ch_pr_qd_of_r	); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Charitable Program + Qd - % Of Revenue </h5>
@@ -219,7 +219,7 @@
                                         <input type="number" name="ch_pr_qd_of_r[target]"  value="{{ $ch_pr_qd_of_r->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $fundraising_of_revenue = json_decode($charity_profile->charity_ca2->fundraising_of_revenue); @endphp
+                                @php $fundraising_of_revenue = json_decode($charity_communication_logs->charity_ca2->fundraising_of_revenue); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Fundraising - % Of Revenue </h5>
@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
 
-                                @php $Administrative_of_rv = json_decode($charity_profile->charity_ca2->Administrative_of_rv); @endphp
+                                @php $Administrative_of_rv = json_decode($charity_communication_logs->charity_ca2->Administrative_of_rv); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Administrative - % Of Revenue </h5>
@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
 
-                                @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca2->percent_of_revenue_spent_per_year); @endphp
+                                @php $percent_of_revenue_spent_per_year = json_decode($charity_communication_logs->charity_ca2->percent_of_revenue_spent_per_year); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">% Of Revenue Spent Per Year </h5>
@@ -276,7 +276,7 @@
                                     </div>
                                 </div>
 
-                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_profile->charity_ca2->no_of_months_to_spend_the_reserve); @endphp
+                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_communication_logs->charity_ca2->no_of_months_to_spend_the_reserve); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">No. Of Months To Spend The Reserve </h5>
@@ -295,7 +295,7 @@
                                     </div>
                                 </div>
 
-                                @php $transparency_20 = json_decode($charity_profile->charity_ca2->transparency_20); @endphp
+                                @php $transparency_20 = json_decode($charity_communication_logs->charity_ca2->transparency_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Transparency (20%) </h5>
@@ -314,7 +314,7 @@
                                     </div>
                                 </div>
 
-                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca2->Cause_Spending_vs_other_spending_60); @endphp
+                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_communication_logs->charity_ca2->Cause_Spending_vs_other_spending_60); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Cause Spending Vs. Other Spending (60%) </h5>
@@ -333,7 +333,7 @@
                                     </div>
                                 </div>
 
-                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca2->distribution_vs_accumulation_20); @endphp
+                                @php $distribution_vs_accumulation_20 = json_decode($charity_communication_logs->charity_ca2->distribution_vs_accumulation_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Distribution Vs Accumulation (20%)  </h5>
@@ -358,7 +358,7 @@
 
                                 <fieldset>
                                 <legend>CORE AREA - 3 ZAKAT POLICY COMPLIANCE</legend>
-                                @php $zak_pol_cle_lab_and_acc = json_decode($charity_profile->charity_ca3->zak_pol_cle_lab_and_acc); @endphp
+                                @php $zak_pol_cle_lab_and_acc = json_decode($charity_communication_logs->charity_ca3->zak_pol_cle_lab_and_acc); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat policy clearly labeled and accessible  </h5>
@@ -376,7 +376,7 @@
                                         <input type="number" name="zak_pol_cle_lab_and_acc[target]" value="{{ $zak_pol_cle_lab_and_acc->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $who_mak_up_gov_boa = json_decode($charity_profile->charity_ca3->who_mak_up_gov_boa); @endphp
+                                @php $who_mak_up_gov_boa = json_decode($charity_communication_logs->charity_ca3->who_mak_up_gov_boa); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Who makes up governing board  </h5>
@@ -394,7 +394,7 @@
                                         <input type="number" name="who_mak_up_gov_boa[target]" value="{{ $leaderwho_mak_up_gov_boaship_team_photos->stargetcore??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $nam_of_sha_adv_boa_lis = json_decode($charity_profile->charity_ca3->nam_of_sha_adv_boa_lis); @endphp
+                                @php $nam_of_sha_adv_boa_lis = json_decode($charity_communication_logs->charity_ca3->nam_of_sha_adv_boa_lis); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Names of Shariah Advisory board listed </h5>
@@ -414,7 +414,7 @@
                                     
                                 </div>
 
-                                @php $ex_of_co_with_re_set_out_by_ca = json_decode($charity_profile->charity_ca3->ex_of_co_with_re_set_out_by_ca); @endphp
+                                @php $ex_of_co_with_re_set_out_by_ca = json_decode($charity_communication_logs->charity_ca3->ex_of_co_with_re_set_out_by_ca); @endphp
                                 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -435,7 +435,7 @@
                                     </div>
 
 
-                                    @php $exp_why_zak_fun_are_col_and_dis = json_decode($charity_profile->charity_ca3->exp_why_zak_fun_are_col_and_dis); @endphp
+                                    @php $exp_why_zak_fun_are_col_and_dis = json_decode($charity_communication_logs->charity_ca3->exp_why_zak_fun_are_col_and_dis); @endphp
                                 </div><div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation why zakat funds are collected
@@ -454,7 +454,7 @@
                                         <input type="number" name="exp_why_zak_fun_are_col_and_dis[target]" value="{{ $exp_why_zak_fun_are_col_and_dis->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_what_cha_of_cus_is_from_rec_zak = json_decode($charity_profile->charity_ca3->exp_of_what_cha_of_cus_is_from_rec_zak); @endphp
+                                @php $exp_of_what_cha_of_cus_is_from_rec_zak = json_decode($charity_communication_logs->charity_ca3->exp_of_what_cha_of_cus_is_from_rec_zak); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of what chain of custody is from
@@ -473,7 +473,7 @@
                                         <input type="number" name="exp_of_what_cha_of_cus_is_from_rec_zak[target]" value="{{ $exp_of_what_cha_of_cus_is_from_rec_zak->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $zakat_funds_kept_separate = json_decode($charity_profile->charity_ca3->zakat_funds_kept_separate); @endphp
+                                @php $zakat_funds_kept_separate = json_decode($charity_communication_logs->charity_ca3->zakat_funds_kept_separate); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat funds kept separate </h5>
@@ -491,7 +491,7 @@
                                         <input type="number" name="zakat_funds_kept_separate[target]" value="{{ $zakat_funds_kept_separate->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $tur_time_for_zak_dis_sha = json_decode($charity_profile->charity_ca3->tur_time_for_zak_dis_sha); @endphp
+                                @php $tur_time_for_zak_dis_sha = json_decode($charity_communication_logs->charity_ca3->tur_time_for_zak_dis_sha); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Turnaround time for zakat distrution shared </h5>
@@ -509,7 +509,7 @@
                                         <input type="number" name="tur_time_for_zak_dis_sha[target]" value="{{ $tur_time_for_zak_dis_sha->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $mention_of_zakat_to_minors = json_decode($charity_profile->charity_ca3->mention_of_zakat_to_minors); @endphp
+                                @php $mention_of_zakat_to_minors = json_decode($charity_communication_logs->charity_ca3->mention_of_zakat_to_minors); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of zakat to minors  </h5>
@@ -527,7 +527,7 @@
                                         <input type="number" name="mention_of_zakat_to_minors[target]" value="{{ $mention_of_zakat_to_minors->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $vet_pro_for_zak_fun_app = json_decode($charity_profile->charity_ca3->vet_pro_for_zak_fun_app); @endphp
+                                @php $vet_pro_for_zak_fun_app = json_decode($charity_communication_logs->charity_ca3->vet_pro_for_zak_fun_app); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Vetting process for zakat funds application </h5>
@@ -545,7 +545,7 @@
                                         <input type="number" name="vet_pro_for_zak_fun_app[target]"value="{{ $vet_pro_for_zak_fun_app->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $me_of_whe_zak_is_dis_in_cash_or_oth_for = json_decode($charity_profile->charity_ca3->me_of_whe_zak_is_dis_in_cash_or_oth_for); @endphp
+                                @php $me_of_whe_zak_is_dis_in_cash_or_oth_for = json_decode($charity_communication_logs->charity_ca3->me_of_whe_zak_is_dis_in_cash_or_oth_for); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of whether zakat is distributed in
@@ -564,7 +564,7 @@
                                         <input type="number" name="me_of_whe_zak_is_dis_in_cash_or_oth_for[target]" value="{{ $me_of_whe_zak_is_dis_in_cash_or_oth_for->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $internal_external_audit = json_decode($charity_profile->charity_ca3->internal_external_audit); @endphp
+                                @php $internal_external_audit = json_decode($charity_communication_logs->charity_ca3->internal_external_audit); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Internal/external audit  </h5>
@@ -582,7 +582,7 @@
                                         <input type="number" name="Internal_external_audit[target]" value="{{ $internal_external_audit->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $mention_of_zakat_elibility_formula = json_decode($charity_profile->charity_ca3->mention_of_zakat_elibility_formula); @endphp
+                                @php $mention_of_zakat_elibility_formula = json_decode($charity_communication_logs->charity_ca3->mention_of_zakat_elibility_formula); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of Zakat elibility formula  </h5>
@@ -600,7 +600,7 @@
                                         <input type="number" name="mention_of_zakat_elibility_formula[target]" value="{{ $mention_of_zakat_elibility_formula->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $zakat_calculator = json_decode($charity_profile->charity_ca3->zakat_calculator); @endphp
+                                @php $zakat_calculator = json_decode($charity_communication_logs->charity_ca3->zakat_calculator); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat Calculator </h5>
@@ -618,7 +618,7 @@
                                         <input type="number" name="zakat_calculator[target]" value="{{ $zakat_calculator->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $men_of_zak_adm_cost_amo = json_decode($charity_profile->charity_ca3->men_of_zak_adm_cost_amo); @endphp
+                                @php $men_of_zak_adm_cost_amo = json_decode($charity_communication_logs->charity_ca3->men_of_zak_adm_cost_amo); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Mention of Zakat administration cost
@@ -638,7 +638,7 @@
                                     </div>
                                 </div>
                     
-                                @php $public_fundrasing_costs = json_decode($charity_profile->charity_ca3->public_fundrasing_costs); @endphp
+                                @php $public_fundrasing_costs = json_decode($charity_communication_logs->charity_ca3->public_fundrasing_costs); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Public fundrasing costs  </h5>
@@ -656,7 +656,7 @@
                                         <input type="number" name="public_fundrasing_costs[target]" value="{{ $public_fundrasing_costs->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $zakat_education_bank = json_decode($charity_profile->charity_ca3->zakat_education_bank); @endphp
+                                @php $zakat_education_bank = json_decode($charity_communication_logs->charity_ca3->zakat_education_bank); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat education bank  </h5>
@@ -674,7 +674,7 @@
                                         <input type="number" name="zakat_education_bank[target]" value="{{ $zakat_education_bank->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $live_zakat_calculation_support = json_decode($charity_profile->charity_ca3->live_zakat_calculation_support); @endphp
+                                @php $live_zakat_calculation_support = json_decode($charity_communication_logs->charity_ca3->live_zakat_calculation_support); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Live Zakat calculation support </h5>
@@ -692,7 +692,7 @@
                                         <input type="number" name="live_zakat_calculation_support[target]" value="{{ $live_zakat_calculation_support->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $for_app_on_zak_cam = json_decode($charity_profile->charity_ca3->for_app_on_zak_cam); @endphp
+                                @php $for_app_on_zak_cam = json_decode($charity_communication_logs->charity_ca3->for_app_on_zak_cam); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Formal approval on Zakat campaigns </h5>
@@ -710,7 +710,7 @@
                                         <input type="number" name="for_app_on_zak_cam[target]" value="{{ $for_app_on_zak_cam->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $clear_public_zakat_policy = json_decode($charity_profile->charity_ca3->clear_public_zakat_policy); @endphp
+                                @php $clear_public_zakat_policy = json_decode($charity_communication_logs->charity_ca3->clear_public_zakat_policy); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Clear public Zakat policy </h5>
@@ -728,7 +728,7 @@
                                         <input type="number" name="clear_public_zakat_policy[target]" value="{{ $clear_public_zakat_policy->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $zak_und_ove_1_lun_yea = json_decode($charity_profile->charity_ca3->zak_und_ove_1_lun_yea); @endphp
+                                @php $zak_und_ove_1_lun_yea = json_decode($charity_communication_logs->charity_ca3->zak_und_ove_1_lun_yea); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Zakat undistributed over 1 lunar year </h5>
@@ -746,7 +746,7 @@
                                         <input type="number" name="zak_und_ove_1_lun_yea[target]" value="{{ $zak_und_ove_1_lun_yea->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_fu = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_fu); @endphp
+                                @php $exp_of_the_cat_of_fu = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_fu); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Fuaqrā </h5>
@@ -764,7 +764,7 @@
                                         <input type="number" name="exp_of_the_cat_of_fu[target]" value="{{ $exp_of_the_cat_of_fu->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_mas = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_mas); @endphp
+                                @php $exp_of_the_cat_of_mas = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_mas); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Masākīn </h5>
@@ -782,7 +782,7 @@
                                         <input type="number" name="exp_of_the_cat_of_mas[target]" value="{{ $exp_of_the_cat_of_mas->score??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_ami_ala = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_ami_ala); @endphp
+                                @php $exp_of_the_cat_of_ami_ala = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_ami_ala); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Āmilīn
@@ -801,7 +801,7 @@
                                         <input type="number" name="exp_of_the_cat_of_ami_ala[target]" value="{{ $exp_of_the_cat_of_ami_ala->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_al_mua_qul = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_al_mua_qul); @endphp
+                                @php $exp_of_the_cat_of_al_mua_qul = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_al_mua_qul); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Al-Muallafat
@@ -820,7 +820,7 @@
                                         <input type="number" name="exp_of_the_cat_of_al_mua_qul[target]" value="{{ $exp_of_the_cat_of_al_mua_qul->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_fi_ar_ri = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_fi_ar_ri); @endphp
+                                @php $exp_of_the_cat_of_fi_ar_ri = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_fi_ar_ri); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explantion of the category of Fi Ar-Riqāb  </h5>
@@ -838,7 +838,7 @@
                                         <input type="number" name="exp_of_the_cat_of_fi_ar_ri[target]" value="{{ $exp_of_the_cat_of_fi_ar_ri->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $exp_of_the_cat_of_al_gh = json_decode($charity_profile->charity_ca3->exp_of_the_cat_of_al_gh); @endphp
+                                @php $exp_of_the_cat_of_al_gh = json_decode($charity_communication_logs->charity_ca3->exp_of_the_cat_of_al_gh); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Explanation of the category of Al-Ghārimīn  </h5>
@@ -856,7 +856,7 @@
                                         <input type="number" name="exp_of_the_cat_of_al_gh[target]" value="{{ $exp_of_the_cat_of_al_gh->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $xap_of_the_cat_of_fi_sab = json_decode($charity_profile->charity_ca3->xap_of_the_cat_of_fi_sab); @endphp
+                                @php $xap_of_the_cat_of_fi_sab = json_decode($charity_communication_logs->charity_ca3->xap_of_the_cat_of_fi_sab); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Exaplantion of the category of Fi Sabīlillahi </h5>
@@ -882,7 +882,7 @@
 
                                     <legend>CORE AREA - 4 Governance & Leadership</legend>
 
-                                    @php $board_members_names_listed = json_decode($charity_profile->charity_ca4->board_members_names_listed); @endphp
+                                    @php $board_members_names_listed = json_decode($charity_communication_logs->charity_ca4->board_members_names_listed); @endphp
 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -898,7 +898,7 @@
                                     </div>
                                 </div>
 
-                                @php $board_members_photos_listed = json_decode($charity_profile->charity_ca4->board_members_photos_listed); @endphp
+                                @php $board_members_photos_listed = json_decode($charity_communication_logs->charity_ca4->board_members_photos_listed); @endphp
 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -914,7 +914,7 @@
                                     </div>
                                 </div>
 
-                                @php $board_members_at_arms_length = json_decode($charity_profile->charity_ca4->board_members_at_arms_length); @endphp
+                                @php $board_members_at_arms_length = json_decode($charity_communication_logs->charity_ca4->board_members_at_arms_length); @endphp
 
 
                                 <div class="row">
@@ -928,7 +928,7 @@
                                     </div>
                                 </div>
 
-                                @php $leadership_team_names = json_decode($charity_profile->charity_ca4->leadership_team_names); @endphp
+                                @php $leadership_team_names = json_decode($charity_communication_logs->charity_ca4->leadership_team_names); @endphp
 
 
                                 <div class="row">
@@ -945,7 +945,7 @@
                                     </div>
                                 </div>
 
-                                @php $leadership_team_photos = json_decode($charity_profile->charity_ca4->leadership_team_photos); @endphp
+                                @php $leadership_team_photos = json_decode($charity_communication_logs->charity_ca4->leadership_team_photos); @endphp
 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -981,7 +981,7 @@
 
                                 <footer>
                                     <button type="submit" class="btn btn-primary">Update</button>
-                                    <a  class="btn btn-default" href="{{url('admin/charity-profile')}}">Back</a>
+                                    <a  class="btn btn-default" href="{{url('admin/charity-communication-logs')}}">Back</a>
                                 </footer>
                                 {!! Form::close() !!}
                             </div>

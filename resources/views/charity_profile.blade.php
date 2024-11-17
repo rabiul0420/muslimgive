@@ -104,17 +104,19 @@
                                         </div>
 
                                         <div class="stepper-item">
-                                            <div class="step-counter ">A</div>
+                                            <div class="step-counter ">{{ $charitity->core_area_2 }}</div>
                                             <div class="step-name">Financial Accoutability</div>
                                         </div>
 
                                         <div class="stepper-item">
-                                            <div class="step-counter ">A</div>
+                                            <div class="step-counter ">{{ $charitity->core_area_3 }}</div>
                                             <div class="step-name">Zakat Policy Compliance</div>
                                         </div>
 
                                         <div class="stepper-item">
-                                            <div class="step-counter">A</div>
+                                            <div class="step-counter">
+                                                {{ $charitity->core_area_4 }}
+                                            </div>
                                             <div class="step-name">Governance &amp; Leadership</div>
                                         </div>
                                     </div>
@@ -125,7 +127,7 @@
                                 </div>
 
 
-                                <div class="second_sect">
+                                <div>
                                     <div class="title">Core Area Scores</div>
                                     <div class="popup_i">
                                         <button class="openModalBtn" data-modal="scores-glance"><i class="fa fa-info information"></i></button>
@@ -136,44 +138,44 @@
                                         <div class="skill">
                                             <span class="skill-name">Charity Status</span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="chairty_status-progress-bar" style="width: {{ $charitity->core_area_1_total_score  }}/30*100%;">
+                                                <div class="progress-bar"  style="width: {{ $charitity->core_area_1_total_score/30*100  }}%;">
 
                                                 </div>
                                             </div>
 
-                                            <span class="progress-label" id="chairty_status-progress-label">{{  $charitity->core_area_1_total_score }}/30</span>
+                                            <span class="progress-label" >{{  $charitity->core_area_1_total_score }}/30</span>
                                         </div>
 
                                         <div class="skill">
                                             <span class="skill-name">Financial Accountablity</span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="financial-progress-bar" style="width: 100%;"></div>
+                                                <div class="progress-bar" style="width: {{ $charitity->core_area_2_total_score/30*100  }}%;"></div>
                                             </div>
-                                            <span class="progress-label" id="financial-progress-label">{{  $charitity->core_area_1_total_score }}/30</span>
+                                            <span class="progress-label">{{  $charitity->core_area_2_total_score }}/30</span>
                                         </div>
 
                                         <div class="skill">
                                             <span class="skill-name">Zakat Policy Compliance </span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="zakat-progress-bar" style="width: 78%;"></div>
+                                                <div class="progress-bar" style="width: {{ $charitity->core_area_3_total_score/30*100  }}%;"></div>
                                             </div>
-                                            <span class="progress-label" id="zakat-progress-label">29/30</span>
+                                            <span class="progress-label">{{  $charitity->core_area_3_total_score }}/30</span>
                                         </div>
 
                                         <div class="skill">
                                             <span class="skill-name">Governance &amp; Leadership</span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="governance-progress-bar" style="width: 100%;"></div>
+                                                <div class="progress-bar"  style="width: {{ $charitity->core_area_4_total_score/10*100  }}%;"></div>
                                             </div>
-                                            <span class="progress-label" id="governance-progress-label">10/10</span>
+                                            <span class="progress-label">{{  $charitity->core_area_4_total_score }}/10</span>
                                         </div>
 
                                         <div class="skill total_score">
                                             <span class="skill-name">TOTAL SCORE</span>
                                             <div class="progress">
-                                                <div class="progress-bar" id="total-progress-bar" style="width: 99%;"></div>
+                                                <div class="progress-bar" id="total-progress-bar" style="width:  {{ $charitity->overall_score  }}%;"></div>
                                             </div>
-                                            <span class="progress-label" id="total-progress-label">99/100</span>
+                                            <span class="progress-label" id="total-progress-label">{{ $charitity->overall_score }}/100</span>
                                         </div>
 
                                         <div class="text">
@@ -194,8 +196,8 @@
                                     <div class="title">Rating</div>
 
                                     <div class="rate">
-                                        <div class="alphabet">A</div>
-                                        <div class="num_rating">99/100</div>
+                                        <div class="alphabet">{{ $charitity->overall_score_grade }}</div>
+                                        <div class="num_rating">{{ $charitity->overall_score }}/100</div>
                                     </div>
 
 

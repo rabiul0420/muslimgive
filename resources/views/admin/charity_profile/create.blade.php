@@ -837,58 +837,49 @@
 
                                     <br>
 
-                                    <h4>CORE AREA - 4 CHARITY STATUS</h4>
+                                    <h4>CORE AREA - 4 Governance & Leadership</h4>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5 class="text-center" for="city">Board Members' Names Listed </h5>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="state">Status</label>
-                                            {!! Form::select('board_members_names_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], '',['class'=>'form-control']) !!}<i></i>
+                                            {!! Form::select('board_members_names_listed[status]', ['No' => 'No','Yes' => 'Yes'], '',['class'=>'form-control board_members_names_listed']) !!}<i></i>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="board_members_names_listed[score]" value="{{ $board_members_names_listed->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="board_members_names_listed[target]" value="{{ $board_members_names_listed->target??'' }}" class="form-control" id="zip">
+                                        <div class="col-md-3 board_members_names_listed_score" style="display: none">
+                                            <label for="state">Number of members</label>
+                                            {!! Form::select('board_members_names_listed[score]', ['2' => '3+','1.0' => '2','1' => '1'], '',['class'=>'form-control']) !!}<i></i>
                                         </div>
                                     </div>
+
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5 class="text-center" for="city">Board Members' Photos Listed </h5>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="state">Status</label>
-                                            {!! Form::select('board_members_photos_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], $board_members_photos_listed->status??'',['class'=>'form-control']) !!}<i></i>
+                                            {!! Form::select('board_members_photos_listed[status]', ['No' => 'No','Yes' => 'Yes'], '',['class'=>'form-control board_members_photos_listed']) !!}<i></i>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="board_members_photos_listed[score]" value="{{ $board_members_photos_listed->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="board_members_photos_listed[target]" value="{{ $board_members_photos_listed->target??'' }}" class="form-control" id="zip">
+                                        <div class="col-md-3 board_members_photos_listed_score" style="display: none">
+                                            <label for="state">Number of members</label>
+                                            {!! Form::select('board_members_photos_listed[score]', ['2' => '3+','1.0' => '2','1' => '1'],'',['class'=>'form-control']) !!}<i></i>
                                         </div>
                                     </div>
+
+
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5 class="text-center" for="city">Board Members' at Arm’s Length</h5>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="state">Status</label>
-                                            {!! Form::select('leadership_team_names["status"]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_names->status??'',['class'=>'form-control']) !!}<i></i>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="leadership_team_names['score]" value="{{ $leadership_team_names->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="leadership_team_names['target]" value="{{ $leadership_team_names->target??'' }}" class="form-control" id="zip">
+                                            {!! Form::select('board_members_at_arms_length[status]', ['No' => 'No','Yes' => 'Yes'], '',['class'=>'form-control board_members_at_arms_length']) !!}<i></i>
+                                            <input type="hidden" id="board_members_at_arms_length_score" name="board_members_at_arms_length[score]" >
                                         </div>
                                     </div>
+
 
 
                                     <div class="row">
@@ -897,15 +888,11 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label for="state">Status</label>
-                                            {!! Form::select('leadership_team_names[status]', ['Active' => 'Active','InActive' => 'InActive'],$leadership_team_names->status??'' ,['class'=>'form-control']) !!}<i></i>
+                                            {!! Form::select('leadership_team_names[status]', ['No' => 'No','Yes' => 'Yes'], '' ,['class'=>'form-control leadership_team_names']) !!}<i></i>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="leadership_team_names[score]" value="{{ $leadership_team_names->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="leadership_team_names[target]" value="{{ $leadership_team_names->target??'' }}" class="form-control" id="zip">
+                                        <div class="col-md-3 leadership_team_names_score" style="display: none">
+                                            <label for="state">Number of members</label>
+                                            {!! Form::select('leadership_team_names[score]', ['2' => '3+','1.0' => '2','1' => '1'], '',['class'=>'form-control']) !!}<i></i>
                                         </div>
                                     </div>
 
@@ -916,15 +903,11 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label for="state">Status</label>
-                                            {!! Form::select('leadership_team_photos[status]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_photos->status??'',['class'=>'form-control']) !!}<i></i>
+                                            {!! Form::select('leadership_team_photos[status]', ['No' => 'No','Yes' => 'Yes'], '',['class'=>'form-control leadership_team_photos']) !!}<i></i>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="leadership_team_photos[score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="leadership_team_photos[target]" value="{{ $leadership_team_photos->target??'' }}" class="form-control" id="zip">
+                                        <div class="col-md-3 leadership_team_photos_score" style="display: none">
+                                            <label for="state">Number of members</label>
+                                            {!! Form::select('leadership_team_photos[score]', ['2' => '3+','1.0' => '2','1' => '1'], '',['class'=>'form-control']) !!}<i></i>
                                         </div>
                                     </div>
 
@@ -950,5 +933,58 @@
 
 
     </div>
+@endsection
+
+
+@section('js')
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $(document).on('change','.board_members_names_listed',function () {
+                if($(this).val()=='Yes'){
+                    $('.board_members_names_listed_score').show();
+                }else{
+                    $('.board_members_names_listed_score').hide();
+                }
+            });
+
+            $(document).on('change','.board_members_photos_listed',function () {
+                if($(this).val()=='Yes'){
+                    $('.board_members_photos_listed_score').show();
+                }else{
+                    $('.board_members_photos_listed_score').hide();
+                }
+            });
+
+            $(document).on('change','.board_members_at_arms_length',function () {
+                if($(this).val()=='Yes'){
+                    $('#board_members_at_arms_length_score').val(3);
+                }else{
+                    $('#board_members_at_arms_length_score').val(0);
+                }
+            });
+
+            $(document).on('change','.leadership_team_names',function () {
+                if($(this).val()=='Yes'){
+                    $('.leadership_team_names_score').show();
+                }else{
+                    $('.leadership_team_names_score').hide();
+                }
+            });
+
+            $(document).on('change','.leadership_team_photos',function () {
+                if($(this).val()=='Yes'){
+                    $('.leadership_team_photos_score').show();
+                }else{
+                    $('.leadership_team_photos_score').hide();
+                }
+            });
+
+        })
+
+    </script>
+
 @endsection
 

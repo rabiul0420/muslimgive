@@ -66,6 +66,19 @@ class HomeController extends Controller
 
         $charitity->core_area_1_total_score = $core_area_1_total_score;
 
+        if($core_area_1_total_score>=25){
+            $charitity->core_area_1 = 'A';
+        }elseif($core_area_1_total_score<=24 && $core_area_1_total_score>=20){
+            $charitity->core_area_1 = 'B';
+        }elseif($core_area_1_total_score<=19 && $core_area_1_total_score>=15){
+            $charitity->core_area_1 = 'C';
+        }
+        elseif($core_area_1_total_score<=14 && $core_area_1_total_score>=10){
+            $charitity->core_area_1 = 'D';
+        }else{
+            $charitity->core_area_1 = 'F';
+        }
+
         $ca2_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca2');
         $core_area_2_total_score = 0;
         foreach ($ca2_total_column as $column) {
@@ -76,16 +89,46 @@ class HomeController extends Controller
         }
         $charitity->core_area_2_total_score = $core_area_2_total_score;
 
+        if($core_area_2_total_score>=25){
+            $charitity->core_area_2 = 'A';
+        }elseif($core_area_2_total_score<=24 && $core_area_2_total_score>=20){
+            $charitity->core_area_2 = 'B';
+        }elseif($core_area_2_total_score<=19 && $core_area_2_total_score>=15){
+            $charitity->core_area_2 = 'C';
+        }
+        elseif($core_area_2_total_score<=14 && $core_area_2_total_score>=10){
+            $charitity->core_area_2 = 'D';
+        }else{
+            $charitity->core_area_2 = 'F';
+        }
+
+
         $ca3_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca3');
-       $core_area_3_total_score = 0;
-       foreach ($ca3_total_column as $column) {
+        $core_area_3_total_score = 0;
+        foreach ($ca3_total_column as $column) {
            $object_value = json_decode($charitity->charity_ca3->$column);
            if(is_object($object_value) && isset($object_value->score)){
                $core_area_3_total_score += $object_value->score;
            }
        }
 
+
+
        $charitity->core_area_3_total_score = $core_area_3_total_score;
+
+        if($core_area_3_total_score>=25){
+            $charitity->core_area_3 = 'A';
+        }elseif($core_area_3_total_score<=24 && $core_area_3_total_score>=20){
+            $charitity->core_area_3 = 'B';
+        }elseif($core_area_3_total_score<=19 && $core_area_3_total_score>=15){
+            $charitity->core_area_3 = 'C';
+        }
+        elseif($core_area_3_total_score<=14 && $core_area_3_total_score>=10){
+            $charitity->core_area_3 = 'D';
+        }else{
+            $charitity->core_area_3 = 'F';
+        }
+
 
        $ca4_total_column =  DB::getSchemaBuilder()->getColumnListing('charities_ca4');
        $core_area_4_total_score = 0;
@@ -95,8 +138,37 @@ class HomeController extends Controller
                $core_area_4_total_score += $object_value->score;
            }
        }
+       if($core_area_4_total_score>=9){
+           $charitity->core_area_4 = 'A';
+       }elseif($core_area_4_total_score<=8 && $core_area_4_total_score>=7){
+           $charitity->core_area_4 = 'B';
+       }elseif($core_area_4_total_score<=6 && $core_area_4_total_score>=5){
+           $charitity->core_area_4 = 'C';
+       }
+       elseif($core_area_4_total_score<=4 && $core_area_4_total_score>=3){
+           $charitity->core_area_4 = 'D';
+       }else{
+           $charitity->core_area_4 = 'F';
+       }
 
-        $charitity->core_area_4_total_score = $core_area_4_total_score;
+
+       $charitity->core_area_4_total_score = $core_area_4_total_score;
+
+       $overall_score = $core_area_1_total_score + $core_area_2_total_score + $core_area_3_total_score + $core_area_4_total_score;
+       $charitity->overall_score = $overall_score;
+
+        if($overall_score>=90){
+            $charitity->overall_score_grade = 'A';
+        }elseif($overall_score<=89 && $overall_score>=80){
+            $charitity->overall_score_grade = 'B';
+        }elseif($overall_score<=79 && $overall_score>=70){
+            $charitity->overall_score_grade = 'C';
+        }
+        elseif($overall_score<=69 && $overall_score>=50){
+            $charitity->overall_score_grade = 'D';
+        }else{
+            $charitity->overall_score_grade = 'F';
+        }
 
 
         return view('charity_profile',compact('charitity'));
