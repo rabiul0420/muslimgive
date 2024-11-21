@@ -106,6 +106,16 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label class="col-md-3">Rating Published Date</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                            <input type="text" name="rating_published_date" class="form-control pull-right" id="datepicker" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
 
@@ -200,6 +210,15 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Total Revenue</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Total Revenue</label>
+                                            <input required type="number" name="total_revenue" class="form-control" id="zip">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <h5 class="text-center" for="city">Charitable Program + Qd - % Of Revenue </h5>
                                         </div>
                                         <div class="col-md-3">
@@ -248,6 +267,26 @@
                                         <div class="col-md-3">
                                             <label for="zip">Target</label>
                                             <input type="number" name="Administrative_of_rv[target]"  value="{{ $Administrative_of_rv->target??'' }}" class="form-control" id="zip">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Other Expense</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Other Expense</label>
+                                            <input type="number" name="other_expense"  class="form-control" id="zip">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Prior Year - Reserve</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Prior Year - Reserve</label>
+                                            <input type="number" name="prior_year_reserve" class="form-control" id="zip">
                                         </div>
                                     </div>
 
@@ -938,6 +977,7 @@
 
 @section('js')
 
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script type="text/javascript">
 
         $(document).ready(function() {
@@ -981,6 +1021,10 @@
                     $('.leadership_team_photos_score').hide();
                 }
             });
+            jQuery('#datepicker').datepicker({
+                autoclose: true,
+                format: 'yyyy-m-d'
+            })
 
         })
 

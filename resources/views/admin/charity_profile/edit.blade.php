@@ -103,6 +103,16 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="col-md-3">Rating Published Date</label>
+                                            <div class="col-md-9">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                    <input type="text" name="rating_published_date" value="{{ $charity_profile->rating_published_date }}" class="form-control pull-right" id="datepicker" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="col-md-4">
@@ -201,8 +211,20 @@
                                         <input type="number" name="imp_epr_avl_wfi_inf[target]"  value="{{ $imp_epr_avl_wfi_inf->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Total Revenue</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Total Revenue</label>
+                                            <input required type="number" name="total_revenue"  value="{{ $charity_profile->charity_ca2->total_revenue??'' }}" class="form-control" id="zip">
+                                        </div>
+                                    </div>
+
                                 @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca2->ch_pr_qd_of_r	); @endphp
-                                <div class="row">
+
+                                    <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Charitable Program + Qd - % Of Revenue </h5>
                                     </div>
@@ -256,6 +278,26 @@
                                         <input type="number" name="Administrative_of_rv[target]"  value="{{ $Administrative_of_rv->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Other Expense</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Other Expense</label>
+                                            <input type="number" name="other_expense"  value="{{ $charity_profile->charity_ca2->other_expense??'' }}" class="form-control" id="zip">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5 class="text-center" for="city">Prior Year - Reserve</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zip">Prior Year - Reserve</label>
+                                            <input type="number" name="prior_year_reserve"  value="{{ $charity_profile->charity_ca2->prior_year_reserve??'' }}" class="form-control" id="zip">
+                                        </div>
+                                    </div>
 
                                 @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca2->percent_of_revenue_spent_per_year); @endphp
                                 <div class="row">
@@ -962,20 +1004,7 @@
                                 </div>
                                 </fieldset>
 
-                                <fieldset>
-                                    <legend>Communication & Updates</legend>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div id="form-fields">
-                                                <div class="form-group">
-                                                    <label for="field_1">Field 1:</label>
-                                                    <input type="text" name="fields[]" id="field_1" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" id="add-field" class="btn btn-primary">Add Field</button>
-                                </fieldset>
+
 
                                 <br> 
 
@@ -1002,7 +1031,7 @@
 </style>
 
 @section('js')
-
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script type="text/javascript">
 
         $(document).ready(function() {
@@ -1046,6 +1075,16 @@
                     $('.leadership_team_photos_score').hide();
                 }
             });
+
+
+            jQuery('#datepicker').datepicker({
+                autoclose: true,
+                format: 'yyyy-m-d'
+            })
+
+
+
+
 
         })
 

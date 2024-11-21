@@ -9,7 +9,7 @@ class Charity extends Model
     protected $table='charities';
 
     protected $fillable = [
-        'title','ceo','logo','website','link_to_cra_return','fiscal_year_end','auditors','charitable_reg_since','notes','country_id'
+        'title','ceo','logo','website','link_to_cra_return','fiscal_year_end','auditors','charitable_reg_since','notes','country_id','rating_published_date'
     ];
 
     public function charity_ca1()

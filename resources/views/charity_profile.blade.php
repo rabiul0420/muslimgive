@@ -208,7 +208,7 @@
 
                                 <div class="published_updated">
                                     <h5>Rating Published</h5>
-                                    <p>18/03/2024</p>
+                                    <p>{{ $charitity->rating_published_date }}</p>
                                 </div>
                             </div>
                         </div>
@@ -226,41 +226,50 @@
 
                                 <table width="100%">
                                     <tbody>
+                                    @php $total_revenue = $charitity->charity_ca2->total_revenue??'0' @endphp
                                     <tr>
                                         <td class="grey blue">TOTAL REVENUE</td>
-                                        <td class="blue">25,327,686</td>
+                                        <td class="blue">{{ $total_revenue }}</td>
                                         <td><strong>% OF REVENUE SPENT</strong></td>
                                     </tr>
+                                    @php $ch_pr_qd_of_r	 = json_decode($charitity->charity_ca2->ch_pr_qd_of_r	); @endphp
                                     <tr>
                                         <td class="grey">
                                             CHARITABLE ACTIVITIES
                                             <button class="openModalBtn" data-modal="charitable_program"><i class="fa fa-info information"></i></button>
                                         </td>
-                                        <td>22,876,206</td>
-                                        <td class="grey">90%</td>
+                                        <td>{{ $ch_pr_qd_of_r->amount }}</td>
+                                        <td class="grey">{{ ($ch_pr_qd_of_r->amount/$total_revenue) * 100 }}%</td>
                                     </tr>
+                                    @php $fundraising_of_revenue = json_decode($charitity->charity_ca2->fundraising_of_revenue); @endphp
+
                                     <tr>
                                         <td class="grey">FUNDRAISING EXPENSES
                                             <button class="openModalBtn" data-modal="fundraising"><i class="fa fa-info information"></i></button></td>
-                                        <td>2,121,437</td>
-                                        <td class="grey">8%</td>
+                                        <td>{{ $fundraising_of_revenue->amount }}</td>
+                                        <td class="grey">{{ ($fundraising_of_revenue->amount/$total_revenue) * 100 }}%</td>
                                     </tr>
+                                    @php $Administrative_of_rv = json_decode($charitity->charity_ca2->Administrative_of_rv); @endphp
+
                                     <tr>
                                         <td class="grey">ADMINISTRATIVE EXPENSES
                                             <button class="openModalBtn" data-modal="administrative"><i class="fa fa-info information"></i></button></td>
-                                        <td>314,049</td>
-                                        <td class="grey">1%</td>
+                                        <td>{{ $Administrative_of_rv->amount }}</td>
+                                        <td class="grey">{{ ($Administrative_of_rv->amount/$total_revenue) * 100 }}%</td>
                                     </tr>
+                                    @php $other_expense = $charitity->charity_ca2->other_expense??'0' @endphp
                                     <tr>
                                         <td class="grey">OTHER EXPENSES
-                                            <button class="openModalBtn" data-modal="other_spending"><i class="fa fa-info information"></i></button></td>
-                                        <td>&nbsp; </td>
-                                        <td></td>
+                                            <button class="openModalBtn" data-modal="other_spending"><i class="fa fa-info information"></i></button>
+                                        </td>
+                                        <td>{{ $other_expense }}</td>
+                                        <td>{{ ($other_expense/$total_revenue) * 100 }}%</td>
                                     </tr>
+                                    @php $total_spend = $ch_pr_qd_of_r->amount + $fundraising_of_revenue->amount + $Administrative_of_rv->amount + $other_expense @endphp
                                     <tr>
                                         <td class="grey blue">TOTAL SPENT
                                             <button class="openModalBtn" data-modal="total_spent"><i class="fa fa-info information"></i></button></td>
-                                        <td class="blue"> 25,311,692</td>
+                                        <td class="blue">{{ $total_spend }}</td>
                                         <td>100%</td>
                                     </tr>
                                     <tr class="empty_cell">
@@ -268,23 +277,26 @@
                                         <td></td>
                                         <td></td>
                                     </tr>
-
+                                    @php $inc_dec = $total_revenue - $total_spend @endphp
                                     <tr>
                                         <td class="grey">INC. (DEC.) TO NET RESERVE
-                                            <button class="openModalBtn" data-modal="increase_decrease"><i class="fa fa-info information"></i></button></td>
-                                        <td>15,994</td>
+                                            <button class="openModalBtn" data-modal="increase_decrease"><i class="fa fa-info information"></i></button>
+                                        </td>
+                                        <td>{{ $inc_dec }}</td>
                                         <td></td>
                                     </tr>
+                                    @php $prior_year_reserve = $charitity->charity_ca2->prior_year_reserve??'0' @endphp
                                     <tr>
                                         <td class="grey">PRIOR YEAR - RESERVE
                                             <button class="openModalBtn" data-modal="prior_year"><i class="fa fa-info information"></i></button></td>
-                                        <td>7,362,443</td>
+                                        <td>{{ $prior_year_reserve }}</td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td class="grey">RESERVE AT YEAR END
-                                            <button class="openModalBtn" data-modal="total_reserve"><i class="fa fa-info information"></i></button></td>
-                                        <td>7,378,437</td>
+                                            <button class="openModalBtn" data-modal="total_reserve"><i class="fa fa-info information"></i></button>
+                                        </td>
+                                        <td>{{ $inc_dec + $prior_year_reserve }}</td>
                                         <td></td>
                                     </tr>
                                     </tbody>
@@ -296,12 +308,14 @@
 
                                 <table width="100%">
                                     <tbody>
+                                    @php $no_of_months_to_spend_the_reserve = json_decode($charitity->charity_ca2->no_of_months_to_spend_the_reserve) @endphp
+
                                     <tr class="tab_2nd">
                                         <td class="grey">
                                             NO. OF MONTHS TO SPEND RESERVE
                                             <button class="openModalBtn" data-modal="revenue_spent_per_year"><i class="fa fa-info information"></i></button>
                                         </td>
-                                        <td>3</td>
+                                        <td>{{ $no_of_months_to_spend_the_reserve->months }}</td>
                                         <td></td>
                                     </tr>
                                     </tbody>
@@ -318,8 +332,89 @@
 
                                     <div id="donut-chart-container">
                                         <div class="col_left">
-                                            <div id="legend-top"><div><div style="display: inline-block; margin-right: 10px;"><div style="width: 20px;  height: 20px; background-color: #0069A6; display: inline-block; vertical-align: middle;margin-right:5px"></div><div style="display: inline-block; vertical-align: middle">91</div></div><div style="display: inline-block; margin-right: 10px;"><div style="width: 20px;  height: 20px; background-color: #62CCE0; display: inline-block; vertical-align: middle;margin-right:5px"></div><div style="display: inline-block; vertical-align: middle">8</div></div><div style="display: inline-block; margin-right: 10px;"><div style="width: 20px;  height: 20px; background-color: #199CC6; display: inline-block; vertical-align: middle;margin-right:5px"></div><div style="display: inline-block; vertical-align: middle">1</div></div><div style="display: inline-block; margin-right: 10px;"><div style="width: 20px;  height: 20px; background-color: #a29e9e; display: inline-block; vertical-align: middle;margin-right:5px"></div><div style="display: inline-block; vertical-align: middle">0</div></div></div></div>
-                                            <div id="donut-chart"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 307px; height: 200px;"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;" aria-label="A chart."><svg width="307" height="200" aria-label="A chart." style="overflow: hidden;"><defs id="_ABSTRACT_RENDERER_ID_0"><filter id="_ABSTRACT_RENDERER_ID_1"><feGaussianBlur in="SourceAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="1" dy="1"></feOffset><feComponentTransfer><feFuncA type="linear" slope="0.1"></feFuncA></feComponentTransfer><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect x="0" y="0" width="307" height="200" stroke="none" stroke-width="0" fill="#f0f5f6"></rect><g><path d="M151.17442662118086,55.08879722072778L148.34885324236174,10.177594441455554A90,90,0,0,1,154,10L154,55A45,45,0,0,0,151.17442662118086,55.08879722072778" stroke="none" stroke-width="0" fill="#199cc6"></path></g><g><path d="M129.88779422594516,62.00524335240931L105.77558845189033,24.010486704818618A90,90,0,0,1,148.34885324236174,10.177594441455554L151.17442662118086,55.08879722072778A45,45,0,0,0,129.88779422594516,62.00524335240931" stroke="none" stroke-width="0" fill="#62cce0"></path></g><g><path d="M154,55L154,10A90,90,0,1,1,105.77558845189033,24.010486704818618L129.88779422594516,62.00524335240931A45,45,0,1,0,154,55" stroke="none" stroke-width="0" fill="#0069a6"></path></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Task</th><th>Hours per Day</th></tr></thead><tbody><tr><td>Charitable</td><td>91</td></tr><tr><td>Fundraising</td><td>8</td></tr><tr><td>Administrative</td><td>1</td></tr><tr><td>Future Use</td><td>0</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 317px; white-space: nowrap; font-family: Arial; font-size: 10px; font-weight: bold;">91 (91%)</div><div></div></div></div>
+                                            <div id="legend-top">
+                                                <div>
+                                                    <div style="display: inline-block; margin-right: 10px;">
+                                                        <div style="width: 20px;  height: 20px; background-color: #0069A6; display: inline-block; vertical-align: middle;margin-right:5px">
+                                                        </div>
+                                                        <div style="display: inline-block; vertical-align: middle">{{ $ch_pr_qd_of_r->amount/$total_revenue *100 }}</div>
+                                                    </div>
+                                                    <div style="display: inline-block; margin-right: 10px;">
+                                                        <div style="width: 20px;  height: 20px; background-color: #62CCE0; display: inline-block; vertical-align: middle;margin-right:5px"></div>
+                                                        <div style="display: inline-block; vertical-align: middle">{{ $fundraising_of_revenue->amount/$total_revenue *100 }}</div>
+                                                    </div>
+                                                    <div style="display: inline-block; margin-right: 10px;">
+                                                        <div style="width: 20px;  height: 20px; background-color: #199CC6; display: inline-block; vertical-align: middle;margin-right:5px"></div>
+                                                        <div style="display: inline-block; vertical-align: middle">{{  $Administrative_of_rv->amount/$total_revenue *100  }}</div>
+                                                    </div>
+                                                    <div style="display: inline-block; margin-right: 10px;">
+                                                        <div style="width: 20px;  height: 20px; background-color: #a29e9e; display: inline-block; vertical-align: middle;margin-right:5px"></div>
+                                                        <div style="display: inline-block; vertical-align: middle">{{ $other_expense/$total_revenue *100 }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="donut-chart">
+                                                <div style="position: relative;">
+                                                    <div dir="ltr" style="position: relative; width: 307px; height: 200px;">
+                                                        <div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;" aria-label="A chart.">
+
+                                                            <svg width="307" height="200" aria-label="A chart." style="overflow: hidden;">
+                                                                <defs id="_ABSTRACT_RENDERER_ID_0">
+                                                                    <filter id="_ABSTRACT_RENDERER_ID_1">
+                                                                        <feGaussianBlur in="SourceAlpha" stdDeviation="2">
+                                                                        </feGaussianBlur>
+                                                                        <feOffset dx="1" dy="1">
+                                                                        </feOffset>
+                                                                        <feComponentTransfer>
+                                                                            <feFuncA type="linear" slope="0.1">
+                                                                            </feFuncA>
+                                                                        </feComponentTransfer>
+                                                                        <feMerge>
+                                                                            <feMergeNode>
+                                                                            </feMergeNode>
+                                                                            <feMergeNode in="SourceGraphic">
+                                                                            </feMergeNode>
+                                                                        </feMerge>
+                                                                    </filter>
+                                                                </defs>
+                                                                <rect x="0" y="0" width="307" height="200" stroke="none" stroke-width="0" fill="#f0f5f6">
+                                                                </rect>
+                                                                <g>
+                                                                    <path d="M151.17442662118086,55.08879722072778L148.34885324236174,10.177594441455554A90,90,0,0,1,154,10L154,55A45,45,0,0,0,151.17442662118086,55.08879722072778" stroke="none" stroke-width="0" fill="#199cc6">
+                                                                    </path>
+                                                                </g>
+                                                                <g>
+                                                                    <path d="M129.88779422594516,62.00524335240931L105.77558845189033,24.010486704818618A90,90,0,0,1,148.34885324236174,10.177594441455554L151.17442662118086,55.08879722072778A45,45,0,0,0,129.88779422594516,62.00524335240931" stroke="none" stroke-width="0" fill="#62cce0">
+                                                                    </path>
+                                                                </g>
+                                                                <g>
+                                                                    <path d="M154,55L154,10A90,90,0,1,1,105.77558845189033,24.010486704818618L129.88779422594516,62.00524335240931A45,45,0,1,0,154,55" stroke="none" stroke-width="0" fill="#0069a6">
+                                                                    </path>
+                                                                </g>
+                                                                <g></g>
+                                                            </svg>
+                                                            <div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+                                                                <table>
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>Task</th><th>Hours per Day</th></tr>
+                                                                    </thead><tbody><tr><td>Charitable</td><td>91</td></tr><tr><td>Fundraising</td><td>8</td></tr><tr><td>Administrative</td><td>1</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Future Use</td>
+                                                                        <td>0</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 317px; white-space: nowrap; font-family: Arial; font-size: 10px; font-weight: bold;">91 (91%)</div>
+                                                    <div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div id="dollar-sign">$</div>
 
                                         </div>
@@ -328,7 +423,29 @@
                                             <div class="bttn_title large_btn">
                                                 91% OF DONATION TO THE CAUSE
                                             </div>
-                                            <div id="legend-bottom"><div style="display:inline-block"><div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;"><div style="display: inline-block; width: 18px; height: 18px; background-color: #0069A6; vertical-align: middle; margin-right: 0;"></div><div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Charitable</div><div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">$91</div></div><div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;"><div style="display: inline-block; width: 18px; height: 18px; background-color: #62CCE0; vertical-align: middle; margin-right: 0;"></div><div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Fundraising</div><div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">$8</div></div><div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;"><div style="display: inline-block; width: 18px; height: 18px; background-color: #199CC6; vertical-align: middle; margin-right: 0;"></div><div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Administrative</div><div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">$1</div></div><div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;"><div style="display: inline-block; width: 18px; height: 18px; background-color: #a29e9e; vertical-align: middle; margin-right: 0;"></div><div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Future Use</div><div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">$0</div></div></div></div>
+                                            <div id="legend-bottom">
+                                                <div style="display:inline-block">
+                                                    <div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;">
+                                                        <div style="display: inline-block; width: 18px; height: 18px; background-color: #0069A6; vertical-align: middle; margin-right: 0;"></div><div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Charitable</div>
+                                                        <div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">${{ $ch_pr_qd_of_r->amount/$total_revenue *100 }}</div>
+                                                    </div>
+                                                    <div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;"><div style="display: inline-block; width: 18px; height: 18px; background-color: #62CCE0; vertical-align: middle; margin-right: 0;"></div>zs
+                                                        <div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Fundraising</div>
+                                                        <div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">${{ $fundraising_of_revenue->amount/$total_revenue *100 }}</div>
+                                                    </div>
+                                                    <div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;">
+                                                        <div style="display: inline-block; width: 18px; height: 18px; background-color: #199CC6; vertical-align: middle; margin-right: 0;">
+                                                        </div>
+                                                        <div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Administrative</div>
+                                                        <div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">${{  $Administrative_of_rv->amount/$total_revenue *100  }}</div>
+                                                    </div>
+                                                    <div style="display: flex;margin-right: 10px;gap: 15px;align-items: center;justify-content: left;padding: 10px;">
+                                                        <div style="display: inline-block; width: 18px; height: 18px; background-color: #a29e9e; vertical-align: middle; margin-right: 0;"></div>
+                                                        <div style="display: inline-block;vertical-align: middle;font-weight: normal;font-size: 16px;">Future Use</div>
+                                                        <div style="display: inline-block; vertical-align: middle; margin-left: 5px;font-size: 16px;">${{ $other_expense/$total_revenue *100 }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -971,67 +1088,7 @@
 
                 <script type="text/javascript">
 
-                    // Function to update progress bar
-                    function updateProgressBar(skill, score, total) {
-                        const progressBar = document.getElementById(`${skill}-progress-bar`);
-                        const progressLabel = document.getElementById(`${skill}-progress-label`);
 
-                        // Calculate percentage
-                        const percentage = (score / total) * 100;
-
-                        // Update width of progress bar
-                        progressBar.style.width = `${percentage}%`;
-
-                        // Update progress label
-                        progressLabel.textContent = `${score}/${total}`;
-                    }
-
-                    // Example usage
-
-                    updateProgressBar('chairty_status', 30, 30);
-
-                    updateProgressBar('financial', 30, 30);
-                    updateProgressBar('zakat', 29, 30);
-                    updateProgressBar('governance', 10, 10);
-                    updateProgressBar('total', 99, 100);
-
-                    // Get all modal buttons
-                    var modalBtns = document.querySelectorAll(".openModalBtn");
-
-                    // Loop through each modal button
-                    modalBtns.forEach(function(btn) {
-                        // Get the corresponding modal
-                        var modalId = btn.getAttribute("data-modal");
-                        var modal = document.getElementById(modalId);
-
-                        // Get the <span> element that closes the modal
-                        var span = modal.querySelector(".close");
-
-                        // Get the button inside the modal
-                        var modalButton = modal.querySelector(".modal-btn");
-
-                        // When the user clicks on the button, open the modal
-                        btn.onclick = function() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                            modal.style.display = "none";
-                        }
-
-                        // Close modal when clicking on modal button
-                        modalButton.onclick = function() {
-                            modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.addEventListener("click", function(event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
-                            }
-                        });
-                    });
 
                     // Chart
                     google.charts.load('current', {packages: ['corechart']});
@@ -1040,10 +1097,10 @@
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable([
                             ['Task', 'Hours per Day'],
-                            ['Charitable', 91],
-                            ['Fundraising', 8],
-                            ['Administrative', 1],
-                            ['Future Use', 0]
+                            ['Charitable', {{ $ch_pr_qd_of_r->amount/$total_revenue *100 }}],
+                            ['Fundraising', {{ $fundraising_of_revenue->amount/$total_revenue *100 }}],
+                            ['Administrative', {{  $Administrative_of_rv->amount/$total_revenue *100  }}],
+                            ['Future Use', {{ $other_expense/$total_revenue *100 }}]
                         ]);
 
                         var options = {
@@ -1106,6 +1163,9 @@
                     }
                 </script>
 
+
+
+
                 <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65f6b9d4fe4fbc0019098d13&amp;product=inline-share-buttons&amp;source=platform" async="async"></script>
 
                 <a data-glm-button-selector=".btContent" href="#" class=" btn loadMoreBtn " id="loadMore" style="display: none;"><span class="loadMoreBtn-label">Load More</span></a></div><!-- /boldthemes_content -->
@@ -1118,5 +1178,7 @@
 @endsection
 
 @section('js')
+
+
 
 @endsection

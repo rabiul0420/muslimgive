@@ -99,6 +99,9 @@ class CharityProfileController extends Controller
         $Charity_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
         $Charity_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
         $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca2->total_revenue = $request->total_revenue;
+        $Charity_ca2->prior_year_reserve = $request->prior_year_reserve;
+        $Charity_ca2->other_expense = $request->other_expense;
         $Charity_ca2->push();
 
         $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
@@ -235,6 +238,7 @@ class CharityProfileController extends Controller
         $CharityProfile->charitable_reg_since = $request->charitable_reg_since;
         $CharityProfile->notes=$request->notes;
         $CharityProfile->country_id= $request->country_id;
+        $CharityProfile->rating_published_date= $request->rating_published_date;
         if ($request->file('logo')){
             $file=$request->file('logo');
             $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
@@ -270,6 +274,9 @@ class CharityProfileController extends Controller
         $Charity_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
         $Charity_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
         $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca2->total_revenue = $request->total_revenue;
+        $Charity_ca2->prior_year_reserve = $request->prior_year_reserve;
+        $Charity_ca2->other_expense = $request->other_expense;
         $Charity_ca2->push();
 
         $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
