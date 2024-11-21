@@ -54,13 +54,6 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3">CEO</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" value="{{$charity_profile->ceo}}" required name="ceo">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
                                             <label class="col-md-3">Website</label>
                                             <div class="col-md-9">
                                                 <input type="url" value="{{$charity_profile->website}}" class="form-control" required name="website">
@@ -103,16 +96,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="col-md-3">Rating Published Date</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group date">
-                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                                    <input type="text" name="rating_published_date" value="{{ $charity_profile->rating_published_date }}" class="form-control pull-right" id="datepicker" autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                     <div class="col-md-4">
@@ -129,34 +112,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                <fieldset>
-                                    <legend>CORE AREA - 1 CHARITY STATUS</legend>
-                                    @php $ca1_registerd = json_decode($charity_profile->charity_ca1->ca1_registerd); @endphp
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5 class="text-center" for="city">Registered</h5>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="state">Status</label>
-                                            {!! Form::select('ca1_registerd[status]', ['Active' => 'Active','InActive' => 'InActive'], $ca1_registerd->status??'',['class'=>'form-control']) !!}<i></i>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Score</label>
-                                            <input type="number" name="ca1_registerd[score]"  value="{{ $ca1_registerd->score??'' }}" class="form-control" id="zip">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Target</label>
-                                            <input type="number" name="ca1_registerd[target]"  value="{{ $ca1_registerd->target??'' }}" class="form-control" id="zip">
-                                        </div>
+
+                                <h4>CORE AREA - 1 CHARITY STATUS</h4>
+                                @php $ca1_registerd = json_decode($charity_profile->charity_ca1_ca2->ca1_registerd); @endphp
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5 class="text-center" for="city">Registered</h5>
                                     </div>
-                                </fieldset>
+                                    <div class="col-md-3">
+                                        <label for="state">Status</label>
+                                        {!! Form::select('ca1_registerd[status]', ['Active' => 'Active','InActive' => 'InActive'], $ca1_registerd->status??'',['class'=>'form-control']) !!}<i></i>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="ca1_registerd[score]"  value="{{ $ca1_registerd->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="ca1_registerd[target]"  value="{{ $ca1_registerd->target??'' }}" class="form-control" id="zip">
+                                    </div>
+                                </div>
+                                <br>
 
-
-                                <fieldset>
-
-                                <legend>CORE AREA - 2 FINANCIAL ACCOUNTABILITY</legend>
-                                @php $adt_fn_st_av = json_decode($charity_profile->charity_ca2->adt_fn_st_av); @endphp
+                                <h4>CORE AREA - 2 FINANCIAL ACCOUNTABILITY</h4>
+                                @php $adt_fn_st_av = json_decode($charity_profile->charity_ca1_ca2->adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Audited Financial Statements Available? </h5>
@@ -174,7 +153,7 @@
                                         <input type="number" name="adt_fn_st_av[target]"  value="{{ $adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $py_adt_fn_st_av = json_decode($charity_profile->charity_ca2->py_adt_fn_st_av); @endphp
+                                @php $py_adt_fn_st_av = json_decode($charity_profile->charity_ca1_ca2->py_adt_fn_st_av); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">P.Y. Audited Financial Statements Available? </h5>
@@ -193,7 +172,7 @@
                                         <input type="number" name="py_adt_fn_st_av[target]"  value="{{ $py_adt_fn_st_av->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $imp_epr_avl_wfi_inf = json_decode($charity_profile->charity_ca2->imp_epr_avl_wfi_inf); @endphp
+                                @php $imp_epr_avl_wfi_inf = json_decode($charity_profile->charity_ca1_ca2->imp_epr_avl_wfi_inf); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Impact Report Available W. Financial Info? </h5>
@@ -211,20 +190,8 @@
                                         <input type="number" name="imp_epr_avl_wfi_inf[target]"  value="{{ $imp_epr_avl_wfi_inf->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5 class="text-center" for="city">Total Revenue</h5>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Total Revenue</label>
-                                            <input required type="number" name="total_revenue"  value="{{ $charity_profile->charity_ca2->total_revenue??'' }}" class="form-control" id="zip">
-                                        </div>
-                                    </div>
-
-                                @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca2->ch_pr_qd_of_r	); @endphp
-
-                                    <div class="row">
+                                @php $ch_pr_qd_of_r	 = json_decode($charity_profile->charity_ca1_ca2->ch_pr_qd_of_r	); @endphp
+                                <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Charitable Program + Qd - % Of Revenue </h5>
                                     </div>
@@ -241,7 +208,7 @@
                                         <input type="number" name="ch_pr_qd_of_r[target]"  value="{{ $ch_pr_qd_of_r->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                @php $fundraising_of_revenue = json_decode($charity_profile->charity_ca2->fundraising_of_revenue); @endphp
+                                @php $fundraising_of_revenue = json_decode($charity_profile->charity_ca1_ca2->fundraising_of_revenue); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Fundraising - % Of Revenue </h5>
@@ -260,7 +227,7 @@
                                     </div>
                                 </div>
 
-                                @php $Administrative_of_rv = json_decode($charity_profile->charity_ca2->Administrative_of_rv); @endphp
+                                @php $Administrative_of_rv = json_decode($charity_profile->charity_ca1_ca2->Administrative_of_rv); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Administrative - % Of Revenue </h5>
@@ -279,27 +246,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5 class="text-center" for="city">Other Expense</h5>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Other Expense</label>
-                                            <input type="number" name="other_expense"  value="{{ $charity_profile->charity_ca2->other_expense??'' }}" class="form-control" id="zip">
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5 class="text-center" for="city">Prior Year - Reserve</h5>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="zip">Prior Year - Reserve</label>
-                                            <input type="number" name="prior_year_reserve"  value="{{ $charity_profile->charity_ca2->prior_year_reserve??'' }}" class="form-control" id="zip">
-                                        </div>
-                                    </div>
-
-                                @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca2->percent_of_revenue_spent_per_year); @endphp
+                                @php $percent_of_revenue_spent_per_year = json_decode($charity_profile->charity_ca1_ca2->percent_of_revenue_spent_per_year); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">% Of Revenue Spent Per Year </h5>
@@ -318,7 +265,7 @@
                                     </div>
                                 </div>
 
-                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_profile->charity_ca2->no_of_months_to_spend_the_reserve); @endphp
+                                @php $no_of_months_to_spend_the_reserve = json_decode($charity_profile->charity_ca1_ca2->no_of_months_to_spend_the_reserve); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">No. Of Months To Spend The Reserve </h5>
@@ -337,7 +284,7 @@
                                     </div>
                                 </div>
 
-                                @php $transparency_20 = json_decode($charity_profile->charity_ca2->transparency_20); @endphp
+                                @php $transparency_20 = json_decode($charity_profile->charity_ca1_ca2->transparency_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Transparency (20%) </h5>
@@ -356,7 +303,7 @@
                                     </div>
                                 </div>
 
-                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca2->Cause_Spending_vs_other_spending_60); @endphp
+                                @php $Cause_Spending_vs_other_spending_60 = json_decode($charity_profile->charity_ca1_ca2->Cause_Spending_vs_other_spending_60); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Cause Spending Vs. Other Spending (60%) </h5>
@@ -375,7 +322,7 @@
                                     </div>
                                 </div>
 
-                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca2->distribution_vs_accumulation_20); @endphp
+                                @php $distribution_vs_accumulation_20 = json_decode($charity_profile->charity_ca1_ca2->distribution_vs_accumulation_20); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Distribution Vs Accumulation (20%)  </h5>
@@ -394,12 +341,9 @@
                                     </div>
                                 </div>
 
-                                </fieldset>
-
                                 <br>
 
-                                <fieldset>
-                                <legend>CORE AREA - 3 ZAKAT POLICY COMPLIANCE</legend>
+                                <h4>CORE AREA - 3 ZAKAT POLICY COMPLIANCE</h4>
                                 @php $zak_pol_cle_lab_and_acc = json_decode($charity_profile->charity_ca3->zak_pol_cle_lab_and_acc); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
@@ -916,62 +860,66 @@
                                         <input type="number" name="xap_of_the_cat_of_fi_sab[target]" value="{{ $xap_of_the_cat_of_fi_sab->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                </fieldset>
 
                                 <br>
 
-                                <fieldset>
-
-                                    <legend>CORE AREA - 4 Governance & Leadership</legend>
-
-                                    @php $board_members_names_listed = json_decode($charity_profile->charity_ca4->board_members_names_listed); @endphp
-
+                                <h4>CORE AREA - 4 CHARITY STATUS</h4>
+                                @php $board_members_names_listed = json_decode($charity_profile->charity_ca4->board_members_names_listed); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Board Members' Names Listed </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('board_members_names_listed[status]', ['No' => 'No','Yes' => 'Yes'], $board_members_names_listed->status??'',['class'=>'form-control board_members_names_listed']) !!}<i></i>
+                                        {!! Form::select('board_members_names_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], '',['class'=>'form-control']) !!}<i></i>
                                     </div>
-                                    <div class="col-md-3 board_members_names_listed_score {{ ($board_members_names_listed->status=='No')?'d-none':'' }}">
-                                        <label for="state">Number of members</label>
-                                        {!! Form::select('board_members_names_listed[score]', ['2' => '3+','1.0' => '2','1' => '1'], $board_members_names_listed->score??'',['class'=>'form-control']) !!}<i></i>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="board_members_names_listed[score]" value="{{ $board_members_names_listed->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="board_members_names_listed[target]" value="{{ $board_members_names_listed->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-
                                 @php $board_members_photos_listed = json_decode($charity_profile->charity_ca4->board_members_photos_listed); @endphp
-
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Board Members' Photos Listed </h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('board_members_photos_listed[status]', ['No' => 'No','Yes' => 'Yes'], $board_members_photos_listed->status??'',['class'=>'form-control board_members_photos_listed']) !!}<i></i>
+                                        {!! Form::select('board_members_photos_listed[status]', ['Active' => 'Active','InActive' => 'InActive'], $board_members_photos_listed->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
-                                    <div class="col-md-3 board_members_photos_listed_score {{ ($board_members_photos_listed->status=='No')?'d-none':'' }}">
-                                        <label for="state">Number of members</label>
-                                        {!! Form::select('board_members_photos_listed[score]', ['2' => '3+','1.0' => '2','1' => '1'], $board_members_photos_listed->score??'',['class'=>'form-control']) !!}<i></i>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="board_members_photos_listed[score]" value="{{ $board_members_photos_listed->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="board_members_photos_listed[target]" value="{{ $board_members_photos_listed->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-
-                                @php $board_members_at_arms_length = json_decode($charity_profile->charity_ca4->board_members_at_arms_length); @endphp
-
-
+                                @php $leadership_team_names = json_decode($charity_profile->charity_ca4->leadership_team_names); @endphp
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="text-center" for="city">Board Members' at Arm’s Length</h5>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('board_members_at_arms_length[status]', ['No' => 'No','Yes' => 'Yes'], $board_members_at_arms_length->status??'',['class'=>'form-control board_members_at_arms_length']) !!}<i></i>
-                                        <input type="hidden" id="board_members_at_arms_length_score" name="board_members_at_arms_length[score]" value="{{ $board_members_at_arms_length->score??'' }}" >
+                                        {!! Form::select('leadership_team_names["status"]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_names->status??'',['class'=>'form-control']) !!}<i></i>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="leadership_team_names['score]" value="{{ $leadership_team_names->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="leadership_team_names['target]" value="{{ $leadership_team_names->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
                                 @php $leadership_team_names = json_decode($charity_profile->charity_ca4->leadership_team_names); @endphp
-
 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -979,11 +927,15 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('leadership_team_names[status]', ['No' => 'No','Yes' => 'Yes'],$leadership_team_names->status??'' ,['class'=>'form-control leadership_team_names']) !!}<i></i>
+                                        {!! Form::select('leadership_team_names[status]', ['Active' => 'Active','InActive' => 'InActive'],$leadership_team_names->status??'' ,['class'=>'form-control']) !!}<i></i>
                                     </div>
-                                    <div class="col-md-3 leadership_team_names_score {{ ($leadership_team_names->status=='No')?'d-none':'' }}">
-                                        <label for="state">Number of members</label>
-                                        {!! Form::select('leadership_team_names[score]', ['2' => '3+','1.0' => '2','1' => '1'], $leadership_team_names->score??'',['class'=>'form-control']) !!}<i></i>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="leadership_team_names[score]" value="{{ $leadership_team_names->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="leadership_team_names[target]" value="{{ $leadership_team_names->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
 
@@ -995,16 +947,17 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="state">Status</label>
-                                        {!! Form::select('leadership_team_photos[status]', ['No' => 'No','Yes' => 'Yes'], $leadership_team_photos->status??'',['class'=>'form-control leadership_team_photos']) !!}<i></i>
+                                        {!! Form::select('leadership_team_photos[status]', ['Active' => 'Active','InActive' => 'InActive'], $leadership_team_photos->status??'',['class'=>'form-control']) !!}<i></i>
                                     </div>
-                                    <div class="col-md-3 leadership_team_photos_score {{ ($leadership_team_photos->status=='No')?'d-none':'' }}">
-                                        <label for="state">Number of members</label>
-                                        {!! Form::select('leadership_team_photos[score]', ['2' => '3+','1.0' => '2','1' => '1'], $leadership_team_photos->score??'',['class'=>'form-control']) !!}<i></i>
+                                    <div class="col-md-3">
+                                        <label for="zip">Score</label>
+                                        <input type="number" name="leadership_team_photos[score]" value="{{ $leadership_team_photos->score??'' }}" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="zip">Target</label>
+                                        <input type="number" name="leadership_team_photos[target]" value="{{ $leadership_team_photos->target??'' }}" class="form-control" id="zip">
                                     </div>
                                 </div>
-                                </fieldset>
-
-
 
                                 <br> 
 
@@ -1019,77 +972,13 @@
                 </article>
 
             </section>
+
+
+
         </div>
 
+
     </div>
-@endsection
-
-<style>
-    .d-none{
-        display:none
-    }
-</style>
-
-@section('js')
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-    <script type="text/javascript">
-
-        $(document).ready(function() {
-
-            $(document).on('change','.board_members_names_listed',function () {
-                if($(this).val()=='Yes'){
-                    $('.board_members_names_listed_score').show();
-                }else{
-                    $('.board_members_names_listed_score').hide();
-                }
-            });
-
-            $(document).on('change','.board_members_photos_listed',function () {
-                if($(this).val()=='Yes'){
-                    $('.board_members_photos_listed_score').show();
-                }else{
-                    $('.board_members_photos_listed_score').hide();
-                }
-            });
-
-            $(document).on('change','.board_members_at_arms_length',function () {
-                if($(this).val()=='Yes'){
-                    $('#board_members_at_arms_length_score').val(3);
-                }else{
-                    $('#board_members_at_arms_length_score').val(0);
-                }
-            });
-
-            $(document).on('change','.leadership_team_names',function () {
-                if($(this).val()=='Yes'){
-                    $('.leadership_team_names_score').show();
-                }else{
-                    $('.leadership_team_names_score').hide();
-                }
-            });
-
-            $(document).on('change','.leadership_team_photos',function () {
-                if($(this).val()=='Yes'){
-                    $('.leadership_team_photos_score').show();
-                }else{
-                    $('.leadership_team_photos_score').hide();
-                }
-            });
-
-
-            jQuery('#datepicker').datepicker({
-                autoclose: true,
-                format: 'yyyy-m-d'
-            })
-
-
-
-
-
-        })
-
-    </script>
-
 @endsection
 
 

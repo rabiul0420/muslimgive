@@ -25,31 +25,12 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::resource('news', 'Admin\NewsController');
 
     Route::resource('charity-profile', 'Admin\CharityProfileController');
+    Route::get('charity-profile-reports', 'Admin\ReportsController@charity_profile_reports');
 
+    Route::resource('charity-communication-logs', 'Admin\CharityCommunicationLogsController');
 
-
-    Route::resource('video', 'Admin\VideoController');
-
-    Route::resource('payments', 'Admin\PaymentsController');
-    Route::get('payment/{id}', 'Admin\PaymentsController@payment_detail');
-    Route::get('payments-pending', 'Admin\PaymentsController@payments_pending');
-
-    Route::resource('commissions', 'Admin\CommissionsController');
-
-    Route::resource('products', 'Admin\ProductsController');
-    Route::resource('products-type', 'Admin\ProductsTypeController');
-
-    Route::resource('service', 'Admin\ServiceController');
-    Route::resource('service-type', 'Admin\ServiceTypeController');
-
-    Route::resource('jobs', 'Admin\JobsController');
-    Route::resource('jobs-category', 'Admin\JobsCategoryController');
 
     Route::resource('pages', 'Admin\PagesController');
-
-    Route::resource('students', 'Admin\HajjiController');
-
-    Route::resource('applicatnts', 'Admin\ApplicantsController');
 
     Route::resource('roles', 'Admin\RolesController');
     Route::resource('permissions', 'Admin\PermissionsController');
@@ -89,6 +70,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 /*site url*/
 Route::get('/', 'HomeController@index');
+Route::get('profile/{id}', 'HomeController@charity_profile');
 
 
 Route::get('registration', 'HomeController@registration');

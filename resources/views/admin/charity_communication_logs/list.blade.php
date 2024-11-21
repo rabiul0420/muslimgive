@@ -33,7 +33,7 @@
                         <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
                             <header>
                                 <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                                <h2>Charity Profile List <a href="{{ action('Admin\CharityProfileController@create') }}" title=""><i class="fa fa-lg fa-fw fa-plus"></i></a></h2></h2>
+                                <h2>Charity Profile List <a href="{{ action('Admin\CharityCommunicationLogsController@create') }}" title=""><i class="fa fa-lg fa-fw fa-plus"></i></a></h2></h2>
                             </header>
 
                             <div class="">
@@ -58,7 +58,7 @@
                                         </thead>
 
                                         <tbody>
-                                            @foreach($charity_profile as $key=>$row)
+                                            @foreach($charity_communication_logs as $key=>$row)
                                             <tr>
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$row->title}}</td>
@@ -73,9 +73,9 @@
                                                 </td>
                                                 <td>{{$row->notes}}</td>
                                                 <td>
-                                                    <a href="{{ action('Admin\CharityProfileController@edit',['id'=>$row->id]) }}" class="btn btn-primary">Edit</a>
+                                                    <a href="{{ action('Admin\CharityCommunicationLogsController@edit',['id'=>$row->id]) }}" class="btn btn-primary">Edit</a>
                                                     <a target="_blank" href="{{ url('profile/'.$row->id) }}" class="btn btn-success">Profile</a>
-                                                    {!! Form::open(array('route' => array('charity-profile.destroy', $row->id), 'method' => 'delete','style' => 'display:inline')) !!}
+                                                    {!! Form::open(array('route' => array('charity-communication-logs.destroy', $row->id), 'method' => 'delete','style' => 'display:inline')) !!}
                                                     <button onclick="return confirm('Are You Sure ?')" class='btn btn-danger' type="submit">Delete</button>
                                                     {!! Form::close() !!}
                                                 </td>

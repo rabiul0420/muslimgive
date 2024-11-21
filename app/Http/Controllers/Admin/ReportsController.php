@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
-use App\Models\CharityCa1;
 use App\Models\CharityCa1Ca2;
-use App\Models\CharityCa2;
 use App\Models\CharityCa3;
 use App\Models\CharityCa4;
 use Illuminate\Http\Request;
@@ -17,7 +15,7 @@ use Session;
 use Auth;
 use Carbon\Carbon;
 
-class CharityProfileController extends Controller
+class ReportsController extends Controller
 {
     //
 
@@ -36,10 +34,10 @@ class CharityProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function charity_profile_reports()
     {
         $charity_profile = Charity::get();
-        return view('admin.charity_profile.list',['charity_profile'=>$charity_profile]);
+        return view('admin.reports.charity_profile_reports',['charity_profile'=>$charity_profile]);
     }
 
     /**
@@ -74,35 +72,25 @@ class CharityProfileController extends Controller
 
         $id = $Charity->id;
 
-        $Charity_ca1 = CharityCa2::where('charity_id',$id)->first();
-        if(empty($Charity_ca1)){
-            $Charity_ca1 = new CharityCa1;
+        $Charity_ca1_ca2 = CharityCa1Ca2::where('charity_id',$id)->first();
+        if(empty($Charity_ca1_ca2)){
+            $Charity_ca1_ca2 = new CharityCa1Ca2;
         }
-        $Charity_ca1->charity_id = $id;
-        $Charity_ca1->ca1_registerd = json_encode($request->ca1_registerd);
-        $Charity_ca1->push();
-
-        $Charity_ca2 = CharityCa2::where('charity_id',$id)->first();
-        if(empty($Charity_ca2)){
-            $Charity_ca2 = new CharityCa2;
-        }
-        $Charity_ca2->charity_id = $id;
-        $Charity_ca2->adt_fn_st_av = json_encode($request->adt_fn_st_av);
-        $Charity_ca2->py_adt_fn_st_av = json_encode($request->py_adt_fn_st_av);
-        $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
-        $Charity_ca2->ch_pr_qd_of_r = json_encode($request->ch_pr_qd_of_r);
-        $Charity_ca2->fundraising_of_revenue = json_encode($request->fundraising_of_revenue);
-        $Charity_ca2->Administrative_of_rv = json_encode($request->Administrative_of_rv);
-        $Charity_ca2->percent_of_revenue_spent_per_year = json_encode($request->percent_of_revenue_spent_per_year);
-        $Charity_ca2->no_of_months_to_spend_the_reserve = json_encode($request->no_of_months_to_spend_the_reserve);
-        $Charity_ca2->transparency_20 = json_encode($request->transparency_20);
-        $Charity_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
-        $Charity_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
-        $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
-        $Charity_ca2->total_revenue = $request->total_revenue;
-        $Charity_ca2->prior_year_reserve = $request->prior_year_reserve;
-        $Charity_ca2->other_expense = $request->other_expense;
-        $Charity_ca2->push();
+        $Charity_ca1_ca2->charity_id = $id;
+        $Charity_ca1_ca2->ca1_registerd = json_encode($request->ca1_registerd);
+        $Charity_ca1_ca2->adt_fn_st_av = json_encode($request->adt_fn_st_av);
+        $Charity_ca1_ca2->py_adt_fn_st_av = json_encode($request->py_adt_fn_st_av);
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca1_ca2->ch_pr_qd_of_r = json_encode($request->ch_pr_qd_of_r);
+        $Charity_ca1_ca2->fundraising_of_revenue = json_encode($request->fundraising_of_revenue);
+        $Charity_ca1_ca2->Administrative_of_rv = json_encode($request->Administrative_of_rv);
+        $Charity_ca1_ca2->percent_of_revenue_spent_per_year = json_encode($request->percent_of_revenue_spent_per_year);
+        $Charity_ca1_ca2->no_of_months_to_spend_the_reserve = json_encode($request->no_of_months_to_spend_the_reserve);
+        $Charity_ca1_ca2->transparency_20 = json_encode($request->transparency_20);
+        $Charity_ca1_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
+        $Charity_ca1_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca1_ca2->push();
 
         $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
         if(empty($Charity_ca3)){
@@ -144,43 +132,12 @@ class CharityProfileController extends Controller
         if(empty($Charity_ca4)){
             $Charity_ca4 = new CharityCa4;
         }
-
-
         $Charity_ca4->charity_id = $id;
-
-        $board_members_names_listed = $request->board_members_names_listed;
-        if($board_members_names_listed['status']=='No'){
-            $board_members_names_listed['score'] = 0;
-        }
-
-        $board_members_photos_listed = $request->board_members_photos_listed;
-        if($board_members_photos_listed['status']=='No'){
-            $board_members_photos_listed['score'] = 0;
-        }
-
-        $board_members_at_arms_length = $request->board_members_at_arms_length;
-        if($board_members_at_arms_length['status']=='No'){
-            $board_members_at_arms_length['score'] = 0;
-        }
-
-        $leadership_team_names = $request->leadership_team_names;
-        if($leadership_team_names['status']=='No'){
-            $leadership_team_names['score'] = 0;
-        }
-
-        $leadership_team_photos = $request->leadership_team_photos;
-        if($leadership_team_photos['status']=='No'){
-            $leadership_team_photos['score'] = 0;
-        }
-
-        //print_r($leadership_team_photos);exit;
-
-        $Charity_ca4->charity_id = $id;
-        $Charity_ca4->board_members_names_listed = json_encode($board_members_names_listed);
-        $Charity_ca4->board_members_photos_listed = json_encode($board_members_photos_listed);
-        $Charity_ca4->board_members_at_arms_length = json_encode($board_members_at_arms_length);
-        $Charity_ca4->leadership_team_names = json_encode($leadership_team_names);
-        $Charity_ca4->leadership_team_photos = json_encode($leadership_team_photos);
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->board_members_photos_listed = json_encode($request->board_members_photos_listed);
+        $Charity_ca4->board_members_at_arms_length = json_encode($request->board_members_at_arms_length);
+        $Charity_ca4->leadership_team_names = json_encode($request->leadership_team_names);
+        $Charity_ca4->leadership_team_photos = json_encode($request->leadership_team_photos);
         $Charity_ca4->push();
 
         Session::flash('message', 'Record added successfully');
@@ -230,7 +187,6 @@ class CharityProfileController extends Controller
     {
         $CharityProfile = Charity::find($id);
         $CharityProfile->title=$request->title;
-        $CharityProfile->ceo=$request->ceo;
         $CharityProfile->website=$request->website;
         $CharityProfile->link_to_cra_return=$request->link_to_cra_return;
         $CharityProfile->fiscal_year_end=$request->fiscal_year_end;
@@ -238,7 +194,6 @@ class CharityProfileController extends Controller
         $CharityProfile->charitable_reg_since = $request->charitable_reg_since;
         $CharityProfile->notes=$request->notes;
         $CharityProfile->country_id= $request->country_id;
-        $CharityProfile->rating_published_date= $request->rating_published_date;
         if ($request->file('logo')){
             $file=$request->file('logo');
             $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
@@ -249,35 +204,25 @@ class CharityProfileController extends Controller
         }
         $CharityProfile->push();
 
-        $Charity_ca1 = CharityCa1::where('charity_id',$id)->first();
-        if(empty($Charity_ca1)){
-            $Charity_ca1 = new CharityCa1;
+        $Charity_ca1_ca2 = CharityCa1Ca2::where('charity_id',$id)->first();
+        if(empty($Charity_ca1_ca2)){
+            $Charity_ca1_ca2 = new CharityCa1Ca2;
         }
-        $Charity_ca1->charity_id = $id;
-        $Charity_ca1->ca1_registerd = json_encode($request->ca1_registerd);
-        $Charity_ca1->push();
-
-        $Charity_ca2 = CharityCa2::where('charity_id',$id)->first();
-        if(empty($Charity_ca2)){
-            $Charity_ca2 = new CharityCa2;
-        }
-        $Charity_ca2->charity_id = $id;
-        $Charity_ca2->adt_fn_st_av = json_encode($request->adt_fn_st_av);
-        $Charity_ca2->py_adt_fn_st_av = json_encode($request->py_adt_fn_st_av);
-        $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
-        $Charity_ca2->ch_pr_qd_of_r = json_encode($request->ch_pr_qd_of_r);
-        $Charity_ca2->fundraising_of_revenue = json_encode($request->fundraising_of_revenue);
-        $Charity_ca2->Administrative_of_rv = json_encode($request->Administrative_of_rv);
-        $Charity_ca2->percent_of_revenue_spent_per_year = json_encode($request->percent_of_revenue_spent_per_year);
-        $Charity_ca2->no_of_months_to_spend_the_reserve = json_encode($request->no_of_months_to_spend_the_reserve);
-        $Charity_ca2->transparency_20 = json_encode($request->transparency_20);
-        $Charity_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
-        $Charity_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
-        $Charity_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
-        $Charity_ca2->total_revenue = $request->total_revenue;
-        $Charity_ca2->prior_year_reserve = $request->prior_year_reserve;
-        $Charity_ca2->other_expense = $request->other_expense;
-        $Charity_ca2->push();
+        $Charity_ca1_ca2->charity_id = $id;
+        $Charity_ca1_ca2->ca1_registerd = json_encode($request->ca1_registerd);
+        $Charity_ca1_ca2->adt_fn_st_av = json_encode($request->adt_fn_st_av);
+        $Charity_ca1_ca2->py_adt_fn_st_av = json_encode($request->py_adt_fn_st_av);
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca1_ca2->ch_pr_qd_of_r = json_encode($request->ch_pr_qd_of_r);
+        $Charity_ca1_ca2->fundraising_of_revenue = json_encode($request->fundraising_of_revenue);
+        $Charity_ca1_ca2->Administrative_of_rv = json_encode($request->Administrative_of_rv);
+        $Charity_ca1_ca2->percent_of_revenue_spent_per_year = json_encode($request->percent_of_revenue_spent_per_year);
+        $Charity_ca1_ca2->no_of_months_to_spend_the_reserve = json_encode($request->no_of_months_to_spend_the_reserve);
+        $Charity_ca1_ca2->transparency_20 = json_encode($request->transparency_20);
+        $Charity_ca1_ca2->Cause_Spending_vs_other_spending_60 = json_encode($request->Cause_Spending_vs_other_spending_60);
+        $Charity_ca1_ca2->distribution_vs_accumulation_20 = json_encode($request->distribution_vs_accumulation_20);
+        $Charity_ca1_ca2->imp_epr_avl_wfi_inf = json_encode($request->imp_epr_avl_wfi_inf);
+        $Charity_ca1_ca2->push();
 
         $Charity_ca3 = CharityCa3::where('charity_id',$id)->first();
         if(empty($Charity_ca3)){
@@ -319,39 +264,12 @@ class CharityProfileController extends Controller
         if(empty($Charity_ca4)){
             $Charity_ca4 = new CharityCa4;
         }
-
-        $board_members_names_listed = $request->board_members_names_listed;
-        if($board_members_names_listed['status']=='No'){
-            $board_members_names_listed['score'] = 0;
-        }
-
-        $board_members_photos_listed = $request->board_members_photos_listed;
-        if($board_members_photos_listed['status']=='No'){
-            $board_members_photos_listed['score'] = 0;
-        }
-
-        $board_members_at_arms_length = $request->board_members_at_arms_length;
-        if($board_members_at_arms_length['status']=='No'){
-            $board_members_at_arms_length['score'] = 0;
-        }
-
-        $leadership_team_names = $request->leadership_team_names;
-        if($leadership_team_names['status']=='No'){
-            $leadership_team_names['score'] = 0;
-        }
-
-        $leadership_team_photos = $request->leadership_team_photos;
-        if($leadership_team_photos['status']=='No'){
-            $leadership_team_photos['score'] = 0;
-        }
-      ;
-
         $Charity_ca4->charity_id = $id;
-        $Charity_ca4->board_members_names_listed = json_encode($board_members_names_listed);
-        $Charity_ca4->board_members_photos_listed = json_encode($board_members_photos_listed);
-        $Charity_ca4->board_members_at_arms_length = json_encode($board_members_at_arms_length);
-        $Charity_ca4->leadership_team_names = json_encode($leadership_team_names);
-        $Charity_ca4->leadership_team_photos = json_encode($leadership_team_photos);
+        $Charity_ca4->board_members_names_listed = json_encode($request->board_members_names_listed);
+        $Charity_ca4->board_members_photos_listed = json_encode($request->board_members_photos_listed);
+        $Charity_ca4->board_members_at_arms_length = json_encode($request->board_members_at_arms_length);
+        $Charity_ca4->leadership_team_names = json_encode($request->leadership_team_names);
+        $Charity_ca4->leadership_team_photos = json_encode($request->leadership_team_photos);
         $Charity_ca4->push();
 
 

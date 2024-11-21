@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 31, 2024 at 01:59 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Host: localhost
+-- Generation Time: Nov 21, 2024 at 12:22 AM
+-- Server version: 8.0.39
+-- PHP Version: 8.2.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,67 +28,141 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ic_charities` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `website` varchar(255) NOT NULL,
-  `link_to_cra_return` varchar(255) NOT NULL,
-  `fiscal_year_end` varchar(255) NOT NULL,
-  `auditors` varchar(255) NOT NULL,
+  `id` int NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `ceo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `link_to_cra_return` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `fiscal_year_end` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `auditors` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `charitable_reg_since` timestamp NULL DEFAULT NULL,
-  `notes` text NOT NULL,
+  `notes` text COLLATE utf8mb4_general_ci NOT NULL,
+  `rating_published_date` date DEFAULT NULL,
+  `country_id` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ic_charities`
 --
 
-INSERT INTO `ic_charities` (`id`, `title`, `logo`, `website`, `link_to_cra_return`, `fiscal_year_end`, `auditors`, `charitable_reg_since`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 'IDRF (International Development and Relief Foundation)', 'images/72cd0c026c9184c6c87aa21b61d71feb.jpg', 'https://muslimgive.org/idrf-ca/', 'https://muslimgive.org/idrf-ca/', '2025', 'Content Here', NULL, 'Content Here', '2024-10-26 22:41:48', '2024-10-30 07:30:38'),
-(9, 'OBAT Canada', NULL, 'https://muslimgive.org/obat-canada/', 'https://muslimgive.org/obat-canada/', '2024', 'hhhh', NULL, 'fff', '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
-(10, 'National Zakat Foundation (NZF Canada)', 'images/71b27ad8d227d30370ed9b85a777fa9f.jpg', 'https://muslimgive.org/nzf-ca/', 'https://muslimgive.org/nzf-ca/', '2014', 'karim vuia', NULL, 'note here', '2024-10-30 08:17:40', '2024-10-30 08:17:40');
+INSERT INTO `ic_charities` (`id`, `title`, `ceo`, `logo`, `website`, `link_to_cra_return`, `fiscal_year_end`, `auditors`, `charitable_reg_since`, `notes`, `rating_published_date`, `country_id`, `created_at`, `updated_at`) VALUES
+(1, 'IDRF (International Development and Relief Foundation)', 'abur rashid', 'images/1ac1e19aa18fbea03f841053d6bb762d.png', 'https://muslimgive.org/idrf-ca/', 'https://muslimgive.org/idrf-ca/', '2025', 'Content Here', NULL, 'Content Here', '2024-11-23', 18, '2024-10-26 22:41:48', '2024-11-18 08:56:13'),
+(15, 'OBAT Canada', 'Abdul Hamid', NULL, 'https://muslimgive.org/obat-canada/', 'https://muslimgive.org/obat-canada/', '2014', 'Abdul karim', NULL, 'Content here', NULL, 1, '2024-11-14 08:17:10', '2024-11-14 08:17:10'),
+(16, 'tetry', 'ert', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'fgfd', 'dsfds', NULL, 'fghg', NULL, 13, '2024-11-14 09:19:17', '2024-11-14 09:19:17'),
+(17, 'tetry', 'ert', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'fgfd', 'dsfds', NULL, 'fghg', NULL, 13, '2024-11-14 09:19:56', '2024-11-14 09:19:56'),
+(27, 'sgdfrgrf', 'sertg', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'rgrt', 'sdfgd', NULL, 'rthyrt', '2024-11-19', 17, '2024-11-19 04:45:20', '2024-11-19 04:45:20'),
+(28, 'sgdfrgrf', 'sertg', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'rgrt', 'sdfgd', NULL, 'rthyrt', '2024-11-19', 17, '2024-11-19 04:47:15', '2024-11-19 04:47:15'),
+(29, 'sgdfrgrf', 'sertg', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'rgrt', 'sdfgd', NULL, 'rthyrt', '2024-11-19', 17, '2024-11-19 04:47:51', '2024-11-19 04:47:51'),
+(30, 'sgdfrgrf', 'sertg', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'rgrt', 'sdfgd', NULL, 'rthyrt', '2024-11-19', 17, '2024-11-19 04:48:56', '2024-11-19 04:48:56'),
+(31, 'sgdfrgrf', 'sertg', NULL, 'https://muslimgive.org/', 'https://muslimgive.org/', 'rgrt', 'sdfgd', NULL, 'rthyrt', '2024-11-19', 17, '2024-11-19 04:49:24', '2024-11-19 04:49:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ic_charities_ca1_ca2`
+-- Table structure for table `ic_charities_ca1`
 --
 
-CREATE TABLE `ic_charities_ca1_ca2` (
-  `id` int(11) NOT NULL,
-  `charity_id` int(11) NOT NULL,
+CREATE TABLE `ic_charities_ca1` (
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
   `ca1_registerd` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `py_ adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `imp_epr_avl_wfi_inf` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `ch_pr_qd _of_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `Administrative_of_rv` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `other_pending` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `In_d_net_res` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `pr_yr_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `total_reserve_at_year_end` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `no._of_months_to_spend_the_reserve` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `transparency_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `Cause Spending vs. other_spending_60` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `distribution vs accumulation_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ic_charities_ca1_ca2`
+-- Dumping data for table `ic_charities_ca1`
 --
 
-INSERT INTO `ic_charities_ca1_ca2` (`id`, `charity_id`, `ca1_registerd`, `adt_fn_st_av`, `py_ adt_fn_st_av`, `imp_epr_avl_wfi_inf`, `ch_pr_qd _of_r`, `Administrative_of_rv`, `other_pending`, `In_d_net_res`, `pr_yr_r`, `total_reserve_at_year_end`, `no._of_months_to_spend_the_reserve`, `transparency_20`, `Cause Spending vs. other_spending_60`, `distribution vs accumulation_20`, `updated_at`, `created_at`) VALUES
-(3, 1, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:27:57', '2024-10-30 04:50:53'),
-(4, 5, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:19:24', '2024-10-30 07:19:24'),
-(5, 6, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:13', '2024-10-30 07:21:13'),
-(6, 7, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:41', '2024-10-30 07:21:41'),
-(7, 8, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
-(8, 9, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
-(9, 10, '', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40');
+INSERT INTO `ic_charities_ca1` (`id`, `charity_id`, `ca1_registerd`, `updated_at`, `created_at`) VALUES
+(3, 1, '{\"status\":\"Active\",\"score\":\"5\",\"target\":\"30\"}', '2024-11-12 07:31:10', '2024-10-30 04:50:53'),
+(4, 5, '', '2024-10-30 07:19:24', '2024-10-30 07:19:24'),
+(5, 6, '', '2024-10-30 07:21:13', '2024-10-30 07:21:13'),
+(6, 7, '', '2024-10-30 07:21:41', '2024-10-30 07:21:41'),
+(7, 8, '', '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
+(8, 9, '', '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
+(9, 10, '', '2024-10-30 08:17:40', '2024-10-30 08:17:40'),
+(10, 11, '', '2024-11-05 10:44:45', '2024-11-05 10:44:45'),
+(11, 12, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-07 06:47:54', '2024-11-07 06:47:54'),
+(12, 13, '{\"status\":\"Active\",\"score\":\"56\",\"target\":null}', '2024-11-07 06:48:39', '2024-11-07 06:48:39'),
+(13, 14, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-13 09:04:57', '2024-11-13 09:04:57'),
+(14, 15, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 08:17:10', '2024-11-14 08:17:10'),
+(15, 16, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:19:17', '2024-11-14 09:19:17'),
+(16, 17, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:19:56', '2024-11-14 09:19:56'),
+(17, 18, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:20:43', '2024-11-14 09:20:43'),
+(18, 19, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:22:20', '2024-11-14 09:22:20'),
+(19, 20, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:40:56', '2024-11-14 09:40:56'),
+(20, 21, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 09:41:09', '2024-11-14 09:41:09'),
+(21, 22, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 18:32:34', '2024-11-14 18:32:34'),
+(22, 23, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 18:39:40', '2024-11-14 18:39:40'),
+(23, 24, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-14 18:41:08', '2024-11-14 18:41:08'),
+(24, 25, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:35:21', '2024-11-19 04:35:21'),
+(25, 26, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:42:14', '2024-11-19 04:42:14'),
+(26, 27, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:45:20', '2024-11-19 04:45:20'),
+(27, 28, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:47:15', '2024-11-19 04:47:15'),
+(28, 29, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:47:51', '2024-11-19 04:47:51'),
+(29, 30, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:48:56', '2024-11-19 04:48:56'),
+(30, 31, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-19 04:49:24', '2024-11-19 04:49:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_charities_ca2`
+--
+
+CREATE TABLE `ic_charities_ca2` (
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
+  `adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `py_adt_fn_st_av` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `imp_epr_avl_wfi_inf` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `ch_pr_qd_of_r` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `total_revenue` int NOT NULL,
+  `other_expense` int DEFAULT NULL,
+  `prior_year_reserve` int DEFAULT '0',
+  `fundraising_of_revenue` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `Administrative_of_rv` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `percent_of_revenue_spent_per_year` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `no_of_months_to_spend_the_reserve` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `transparency_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `Cause_Spending_vs_other_spending_60` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `distribution_vs_accumulation_20` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ;
+
+--
+-- Dumping data for table `ic_charities_ca2`
+--
+
+INSERT INTO `ic_charities_ca2` (`id`, `charity_id`, `adt_fn_st_av`, `py_adt_fn_st_av`, `imp_epr_avl_wfi_inf`, `ch_pr_qd_of_r`, `total_revenue`, `other_expense`, `prior_year_reserve`, `fundraising_of_revenue`, `Administrative_of_rv`, `percent_of_revenue_spent_per_year`, `no_of_months_to_spend_the_reserve`, `transparency_20`, `Cause_Spending_vs_other_spending_60`, `distribution_vs_accumulation_20`, `updated_at`, `created_at`) VALUES
+(3, 1, '{\"status\":\"Active\",\"score\":\"1\",\"target\":null}', '{\"status\":\"Active\",\"score\":\"1\",\"target\":null}', '{\"status\":\"Active\",\"score\":\"8\",\"target\":null}', '{\"amount\":\"130\",\"score\":\"5\",\"target\":null}', 200, 0, 30, '{\"amount\":\"10\",\"score\":\"1\",\"target\":\"11\"}', '{\"amount\":\"5\",\"score\":\"1\",\"target\":null}', '{\"amount\":\"100\",\"score\":\"1\",\"target\":null}', '{\"months\":\"5\",\"score\":\"1\"}', '{\"amount\":null,\"score\":\"1\",\"target\":null}', '{\"amount\":\"4\",\"score\":\"1\",\"target\":null}', '{\"amount\":\"5\",\"score\":\"1\",\"target\":\"4\"}', '2024-11-18 08:58:10', '2024-10-30 04:50:53'),
+(4, 5, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:19:24', '2024-10-30 07:19:24'),
+(5, 6, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:13', '2024-10-30 07:21:13'),
+(6, 7, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:21:41', '2024-10-30 07:21:41'),
+(7, 8, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
+(8, 9, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
+(9, 10, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40'),
+(10, 11, NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-11-05 10:44:45', '2024-11-05 10:44:45'),
+(11, 12, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":\"66\",\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-07 06:47:54', '2024-11-07 06:47:54'),
+(12, 13, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-07 06:48:39', '2024-11-07 06:48:39'),
+(13, 14, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-13 09:04:57', '2024-11-13 09:04:57'),
+(14, 15, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 08:17:10', '2024-11-14 08:17:10'),
+(15, 16, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:19:17', '2024-11-14 09:19:17'),
+(16, 17, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:19:56', '2024-11-14 09:19:56'),
+(17, 18, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:20:43', '2024-11-14 09:20:43'),
+(18, 19, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:22:20', '2024-11-14 09:22:20'),
+(19, 20, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:40:56', '2024-11-14 09:40:56'),
+(20, 21, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 09:41:09', '2024-11-14 09:41:09'),
+(21, 22, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 18:32:34', '2024-11-14 18:32:34'),
+(22, 23, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 18:39:40', '2024-11-14 18:39:40'),
+(23, 24, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-14 18:41:08', '2024-11-14 18:41:08'),
+(24, 25, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-19 04:35:21', '2024-11-19 04:35:21'),
+(25, 26, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 0, 0, 0, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-19 04:42:14', '2024-11-19 04:42:14'),
+(26, 31, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', 200, NULL, NULL, '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"months\":null,\"score\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '{\"amount\":null,\"score\":null,\"target\":null}', '2024-11-19 04:49:24', '2024-11-19 04:49:24');
 
 -- --------------------------------------------------------
 
@@ -97,40 +171,65 @@ INSERT INTO `ic_charities_ca1_ca2` (`id`, `charity_id`, `ca1_registerd`, `adt_fn
 --
 
 CREATE TABLE `ic_charities_ca3` (
-  `id` int(11) NOT NULL,
-  `charity_id` int(11) NOT NULL,
-  `zak_pol_cle_lab_and_acc` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zak_pol_cle_lab_and_acc`)),
-  `who_mak_up_gov_boa` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`who_mak_up_gov_boa`)),
-  `shariah_advisory_board` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`shariah_advisory_board`)),
-  `nam_of_sha_adv_boa_lis` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`nam_of_sha_adv_boa_lis`)),
-  `ex_of_co_with_re_set_out_by_ca` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`ex_of_co_with_re_set_out_by_ca`)),
-  `exp_why_zak_fun_are_col_and_dis` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_why_zak_fun_are_col_and_dis`)),
-  `exp_of_what_cha_of_cus_is_from_rec_zak` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_what_cha_of_cus_is_from_rec_zak`)),
-  `zakat_funds_kept_separate` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zakat_funds_kept_separate`)),
-  `tur_time_for_zak_dis_sha` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`tur_time_for_zak_dis_sha`)),
-  `mention_of_zakat_to_minors` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`mention_of_zakat_to_minors`)),
-  `vet_pro_for_zak_fun_app` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`vet_pro_for_zak_fun_app`)),
-  `me_of_whe_zak_is_dis_in_cash_or_oth_for` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`me_of_whe_zak_is_dis_in_cash_or_oth_for`)),
-  `Internal_external_audit` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Internal_external_audit`)),
-  `mention_of_zakat_elibility_formula` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`mention_of_zakat_elibility_formula`)),
-  `zakat_calculator` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zakat_calculator`)),
-  `men_of_zak_adm_cost_amo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`men_of_zak_adm_cost_amo`)),
-  `public_fundrasing_costs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`public_fundrasing_costs`)),
-  `zakat_education_bank` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zakat_education_bank`)),
-  `live_zakat_calculation_support` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`live_zakat_calculation_support`)),
-  `for_app_on_zak_cam` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`for_app_on_zak_cam`)),
-  `clear_public_zakat_policy` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`clear_public_zakat_policy`)),
-  `zak_und_ove_1_lun_yea` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`zak_und_ove_1_lun_yea`)),
-  `exp_of_the_cat_of_fu` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_fu`)),
-  `exp_of_the_cat_of_mas` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_mas`)),
-  `exp_of_the_cat_of_ami_ala` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_ami_ala`)),
-  `exp_of_the_cat_of_al-mua_qul` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_al-mua_qul`)),
-  `exp_of_the_cat_of_fi_ar-ri` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_fi_ar-ri`)),
-  `exp_of_the_cat_of_al-gh` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_al-gh`)),
-  `xap_of_the_cat_of_fi_sab` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`xap_of_the_cat_of_fi_sab`)),
-  `exp_of_the_cat_of_Ibn_as-sa` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`exp_of_the_cat_of_Ibn_as-sa`)),
-  `total` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`total`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
+  `zak_pol_cle_lab_and_acc` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `who_mak_up_gov_boa` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `shariah_advisory_board` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `nam_of_sha_adv_boa_lis` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `ex_of_co_with_re_set_out_by_ca` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_why_zak_fun_are_col_and_dis` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_what_cha_of_cus_is_from_rec_zak` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `zakat_funds_kept_separate` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `tur_time_for_zak_dis_sha` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `mention_of_zakat_to_minors` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `vet_pro_for_zak_fun_app` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `me_of_whe_zak_is_dis_in_cash_or_oth_for` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `internal_external_audit` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `mention_of_zakat_elibility_formula` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `zakat_calculator` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `men_of_zak_adm_cost_amo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `public_fundrasing_costs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `zakat_education_bank` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `live_zakat_calculation_support` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `for_app_on_zak_cam` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `clear_public_zakat_policy` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `zak_und_ove_1_lun_yea` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_fu` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_mas` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_ami_ala` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_al_mua_qul` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_fi_ar_ri` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_al_gh` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `xap_of_the_cat_of_fi_sab` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `exp_of_the_cat_of_Ibn_as-sa` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `total` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ic_charities_ca3`
+--
+
+INSERT INTO `ic_charities_ca3` (`id`, `charity_id`, `zak_pol_cle_lab_and_acc`, `who_mak_up_gov_boa`, `shariah_advisory_board`, `nam_of_sha_adv_boa_lis`, `ex_of_co_with_re_set_out_by_ca`, `exp_why_zak_fun_are_col_and_dis`, `exp_of_what_cha_of_cus_is_from_rec_zak`, `zakat_funds_kept_separate`, `tur_time_for_zak_dis_sha`, `mention_of_zakat_to_minors`, `vet_pro_for_zak_fun_app`, `me_of_whe_zak_is_dis_in_cash_or_oth_for`, `internal_external_audit`, `mention_of_zakat_elibility_formula`, `zakat_calculator`, `men_of_zak_adm_cost_amo`, `public_fundrasing_costs`, `zakat_education_bank`, `live_zakat_calculation_support`, `for_app_on_zak_cam`, `clear_public_zakat_policy`, `zak_und_ove_1_lun_yea`, `exp_of_the_cat_of_fu`, `exp_of_the_cat_of_mas`, `exp_of_the_cat_of_ami_ala`, `exp_of_the_cat_of_al_mua_qul`, `exp_of_the_cat_of_fi_ar_ri`, `exp_of_the_cat_of_al_gh`, `xap_of_the_cat_of_fi_sab`, `exp_of_the_cat_of_Ibn_as-sa`, `total`, `updated_at`, `created_at`) VALUES
+(1, 1, '{\"status\":\"InActive\",\"score\":\"2\",\"target\":\"11\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":null}', 'null', '{\"score\":\"2\",\"target\":\"2\"}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":\"25\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"23\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"2\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"34\"}', '{\"status\":\"Active\",\"score\":\"1\",\"target\":\"33\"}', '{\"%22status%22\":\"Active\",\"score\":\"1\",\"target\":\"33\"}', 'null', '{\"%22status%22\":\"Active\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"Active\",\"score\":\"1\",\"target\":\"223\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"22\"}', '{\"status\":\"Active\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"-1\",\"target\":\"33\"}', '{\"status\":\"Active\",\"score\":\"1\",\"target\":\"33\"}', '{\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"22\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"3\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"1\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"22\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":null}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"33\"}', '{\"status\":\"InActive\",\"score\":\"1\",\"target\":\"33\"}', NULL, NULL, '2024-11-12 11:03:11', '2024-11-05 10:41:48'),
+(2, 12, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-07 06:47:54', '2024-11-07 06:47:54'),
+(3, 13, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-07 06:48:39', '2024-11-07 06:48:39'),
+(4, 14, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-13 09:04:57', '2024-11-13 09:04:57'),
+(5, 15, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 08:17:10', '2024-11-14 08:17:10'),
+(6, 16, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:19:17', '2024-11-14 09:19:17'),
+(7, 17, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:19:56', '2024-11-14 09:19:56'),
+(8, 18, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:20:43', '2024-11-14 09:20:43'),
+(9, 19, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:22:20', '2024-11-14 09:22:20'),
+(10, 20, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:40:56', '2024-11-14 09:40:56'),
+(11, 21, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 09:41:09', '2024-11-14 09:41:09'),
+(12, 22, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 18:32:34', '2024-11-14 18:32:34'),
+(13, 23, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 18:39:40', '2024-11-14 18:39:40'),
+(14, 24, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-14 18:41:08', '2024-11-14 18:41:08'),
+(15, 25, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-19 04:35:21', '2024-11-19 04:35:21'),
+(16, 26, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-19 04:42:14', '2024-11-19 04:42:14'),
+(17, 31, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', NULL, NULL, '2024-11-19 04:49:24', '2024-11-19 04:49:24');
 
 -- --------------------------------------------------------
 
@@ -139,26 +238,102 @@ CREATE TABLE `ic_charities_ca3` (
 --
 
 CREATE TABLE `ic_charities_ca4` (
-  `id` int(11) NOT NULL,
-  `charity_id` int(11) NOT NULL,
-  `board_members_names_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `board_members_photos_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `board members_at_arms_length` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `leadership_team_names` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `leadership_team_photos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
+  `board_members_names_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `board_members_photos_listed` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `board_members_at_arms_length` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `leadership_team_names` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `leadership_team_photos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ic_charities_ca4`
 --
 
-INSERT INTO `ic_charities_ca4` (`id`, `charity_id`, `board_members_names_listed`, `board_members_photos_listed`, `board members_at_arms_length`, `leadership_team_names`, `leadership_team_photos`, `updated_at`, `created_at`) VALUES
+INSERT INTO `ic_charities_ca4` (`id`, `charity_id`, `board_members_names_listed`, `board_members_photos_listed`, `board_members_at_arms_length`, `leadership_team_names`, `leadership_team_photos`, `updated_at`, `created_at`) VALUES
 (1, 8, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:25:04', '2024-10-30 07:25:04'),
-(2, 1, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:30:38', '2024-10-30 07:30:38'),
+(2, 1, '{\"status\":\"Yes\",\"score\":\"1\"}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"3\"}', '{\"status\":\"Yes\",\"score\":\"1\"}', '{\"status\":\"Yes\",\"score\":\"2\"}', '2024-11-14 18:31:53', '2024-10-30 07:30:38'),
 (3, 9, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 07:32:17', '2024-10-30 07:32:17'),
-(4, 10, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40');
+(4, 10, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, NULL, NULL, '2024-10-30 08:17:40', '2024-10-30 08:17:40'),
+(5, 11, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, NULL, '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null}', NULL, '2024-11-05 10:44:45', '2024-11-05 10:44:45'),
+(6, 12, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null,\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-07 06:47:54', '2024-11-07 06:47:54'),
+(7, 13, '{\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', 'null', '{\"%22status%22\":\"Active\",\"\'score\":null,\"\'target\":null,\"status\":\"Active\",\"score\":null,\"target\":null}', '{\"status\":\"Active\",\"score\":null,\"target\":null}', '2024-11-07 06:48:39', '2024-11-07 06:48:39'),
+(8, 14, '{\"status\":\"Yes\",\"Score\":\"1\"}', '{\"status\":\"Yes\",\"Score\":\"2\"}', '{\"%22status%22\":\"Yes\",\"Score\":\"2\"}', '{\"status\":\"Yes\",\"Score\":\"1\"}', '{\"status\":\"Yes\",\"Score\":\"1\"}', '2024-11-13 09:04:57', '2024-11-13 09:04:57'),
+(9, 15, '{\"status\":\"No\",\"Score\":\"2\",\"score\":0}', '{\"status\":\"No\",\"Score\":\"2\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"3\"}', '{\"status\":\"No\",\"Score\":\"2\",\"score\":0}', '{\"status\":\"Yes\",\"Score\":\"2\"}', '2024-11-14 08:17:10', '2024-11-14 08:17:10'),
+(10, 21, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"3\"}', '{\"status\":\"Yes\",\"score\":\"1.0\"}', '{\"status\":\"Yes\",\"score\":\"1.0\"}', '2024-11-14 09:43:29', '2024-11-14 09:41:09'),
+(11, 22, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '2024-11-14 18:38:47', '2024-11-14 18:32:34'),
+(12, 23, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"3\"}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"2\"}', '2024-11-14 18:40:33', '2024-11-14 18:39:40'),
+(13, 24, '{\"status\":\"Yes\",\"score\":\"2\"}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"Yes\",\"score\":\"3\"}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '2024-11-14 18:41:08', '2024-11-14 18:41:08'),
+(14, 25, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '2024-11-19 04:35:21', '2024-11-19 04:35:21'),
+(15, 26, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '2024-11-19 04:42:14', '2024-11-19 04:42:14'),
+(16, 31, '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '{\"status\":\"No\",\"score\":0}', '2024-11-19 04:49:24', '2024-11-19 04:49:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_charities_communication_logs`
+--
+
+CREATE TABLE `ic_charities_communication_logs` (
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `communication_type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `communication_date` date NOT NULL,
+  `details` text COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ic_charities_communication_logs`
+--
+
+INSERT INTO `ic_charities_communication_logs` (`id`, `charity_id`, `title`, `communication_type`, `communication_date`, `details`, `created_at`, `updated_at`) VALUES
+(0, 0, 'ertret', 'Meeting', '0000-00-00', 'rtytu', '2024-11-17 09:51:11', '2024-11-17 09:51:11'),
+(0, 0, 'eret', 'Phone Call', '0000-00-00', 'erertg', '2024-11-17 09:53:19', '2024-11-17 09:53:19'),
+(0, 0, 'qwrwer', 'Email', '0000-00-00', 't54r', '2024-11-17 09:54:29', '2024-11-17 09:54:29'),
+(0, 0, 'ertret', 'Email', '0000-00-00', 'ey5', '2024-11-17 10:29:31', '2024-11-17 10:29:31'),
+(0, 0, 'eryrty', 'Meeting', '2024-11-27', 'r5uy5r', '2024-11-17 10:36:07', '2024-11-17 10:36:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_charities_feedback_assesment`
+--
+
+CREATE TABLE `ic_charities_feedback_assesment` (
+  `id` int NOT NULL,
+  `charity_id` int NOT NULL,
+  `is_charity_profile_userful` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `is_easy_to_understand` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `most_useful_feature` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `is_see_other_info` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `full_name` varchar(355) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` int NOT NULL,
+  `rating_number` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_charities_review`
+--
+
+CREATE TABLE `ic_charities_review` (
+  `id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `comments` text COLLATE utf8mb4_general_ci NOT NULL,
+  `rating_number` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -167,13 +342,13 @@ INSERT INTO `ic_charities_ca4` (`id`, `charity_id`, `board_members_names_listed`
 --
 
 CREATE TABLE `ic_country` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `iso` char(2) NOT NULL,
   `name` varchar(80) NOT NULL,
   `nicename` varchar(80) NOT NULL,
   `iso3` char(3) DEFAULT NULL,
-  `numcode` smallint(6) DEFAULT NULL,
-  `phonecode` int(5) NOT NULL
+  `numcode` smallint DEFAULT NULL,
+  `phonecode` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -428,17 +603,17 @@ INSERT INTO `ic_country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `p
 --
 
 CREATE TABLE `ic_menu` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `parent_id` int NOT NULL DEFAULT '0',
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `target` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
-  `priority` int(11) NOT NULL DEFAULT 100,
+  `priority` int NOT NULL DEFAULT '100',
   `menu_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `has_column` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `position` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Left',
   `status` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -472,9 +647,9 @@ INSERT INTO `ic_menu` (`id`, `title`, `parent_id`, `link`, `target`, `priority`,
 --
 
 CREATE TABLE `ic_migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
+  `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -492,8 +667,8 @@ INSERT INTO `ic_migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `ic_model_has_permissions` (
-  `permission_id` int(10) UNSIGNED NOT NULL,
-  `model_id` int(10) UNSIGNED NOT NULL,
+  `permission_id` int UNSIGNED NOT NULL,
+  `model_id` int UNSIGNED NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -504,8 +679,8 @@ CREATE TABLE `ic_model_has_permissions` (
 --
 
 CREATE TABLE `ic_model_has_roles` (
-  `role_id` int(10) UNSIGNED NOT NULL,
-  `model_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int UNSIGNED NOT NULL,
+  `model_id` int UNSIGNED NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -527,14 +702,14 @@ INSERT INTO `ic_model_has_roles` (`role_id`, `model_id`, `model_type`) VALUES
 --
 
 CREATE TABLE `ic_pages` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `short_description` text DEFAULT NULL,
+  `short_description` text,
   `slug` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description` text,
   `template` varchar(45) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `extra` text DEFAULT NULL,
+  `extra` text,
   `extra_file` varchar(255) DEFAULT NULL,
   `venue_image` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -565,9 +740,9 @@ INSERT INTO `ic_pages` (`id`, `title`, `short_description`, `slug`, `description
 --
 
 CREATE TABLE `ic_permissions` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `parent_id` int NOT NULL DEFAULT '0',
   `guard_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -605,7 +780,7 @@ INSERT INTO `ic_permissions` (`id`, `name`, `parent_id`, `guard_name`, `created_
 --
 
 CREATE TABLE `ic_roles` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `guard_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -628,7 +803,7 @@ INSERT INTO `ic_roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `ic_role_assign` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `client_role_id` varchar(45) DEFAULT 'null',
   `employee_role_id` varchar(45) DEFAULT 'null'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -647,9 +822,9 @@ INSERT INTO `ic_role_assign` (`id`, `client_role_id`, `employee_role_id`) VALUES
 --
 
 CREATE TABLE `ic_role_has_permissions` (
-  `permission_id` int(10) UNSIGNED NOT NULL,
-  `module_id` int(11) DEFAULT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL
+  `permission_id` int UNSIGNED NOT NULL,
+  `module_id` int DEFAULT NULL,
+  `role_id` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -678,7 +853,7 @@ INSERT INTO `ic_role_has_permissions` (`permission_id`, `module_id`, `role_id`) 
 --
 
 CREATE TABLE `ic_settings` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `key` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `value` varchar(255) DEFAULT NULL,
@@ -728,20 +903,20 @@ INSERT INTO `ic_settings` (`id`, `key`, `name`, `value`, `created_at`, `updated_
 --
 
 CREATE TABLE `ic_users` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id` int NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `home_phone` varchar(255) NOT NULL,
   `reference` varchar(255) NOT NULL,
-  `father_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mother_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `father_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `mother_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `present_address` varchar(255) DEFAULT NULL,
-  `division_id` int(11) NOT NULL,
-  `district_id` int(11) DEFAULT NULL,
-  `upzilla_id` int(11) DEFAULT NULL,
+  `division_id` int NOT NULL,
+  `district_id` int DEFAULT NULL,
+  `upzilla_id` int DEFAULT NULL,
   `per_post_office` varchar(255) DEFAULT NULL,
   `per_villlege` varchar(255) DEFAULT NULL,
   `dob` date NOT NULL,
@@ -749,7 +924,7 @@ CREATE TABLE `ic_users` (
   `proffession` varchar(255) NOT NULL,
   `institute` varchar(255) NOT NULL,
   `educational_institute` varchar(255) NOT NULL,
-  `passing_year` year(4) NOT NULL,
+  `passing_year` year NOT NULL,
   `is_computer_laptop` varchar(45) NOT NULL,
   `image` varchar(255) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -764,35 +939,35 @@ CREATE TABLE `ic_users` (
 --
 
 INSERT INTO `ic_users` (`id`, `title`, `name`, `email`, `password`, `phone`, `home_phone`, `reference`, `father_name`, `mother_name`, `present_address`, `division_id`, `district_id`, `upzilla_id`, `per_post_office`, `per_villlege`, `dob`, `gender`, `proffession`, `institute`, `educational_institute`, `passing_year`, `is_computer_laptop`, `image`, `type`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ma', 'Admin', 'admin@gmail.com', '$2y$10$E00Pww9HVtpaWsx0sSqIQeA.BW.qI0COQKRdEhwE0YKD.qGlI6tX6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Admin', 'Active', 't8MOFe5c31cCqk4saZK4GqFUm6bpZSAFAaLAb5VQiHqdmQDZ3SscfPnbnSUz', '2018-10-20 04:30:46', '2018-10-20 04:30:46'),
-(2, 'Md.', 'rashed khan', 'rabiul0420@gmail.com', '$2y$10$yMpiuRwOiZ3AJrjbVjWw.ezlDA9Uh0QB8Od48s0irz/O7ver9Q5xC', '017874556678', '', '', 'abdur rahim', 'amena begum', '5th floor, House#17, Road#17, Mirpur, Dhaka', 2, 49, 133, 'Boro Dunail', 'Chor Dunail', '1900-12-30', 'Male', 'Job Holder', 'IT Clan Bangladesh', 'Ruet', 2013, '2009', 'images/cjbkigxPK7Jyd9s576IsgvrMTPSnUzAblKCcANnd.png', 'Student', 'Active', 'ELrokctucIz425T26TDTXVd8lx2pOKqJQkfibIJT38SL8tLW1KCnEYB2H2EI', '2018-10-20 04:34:32', '2018-10-27 08:38:13'),
-(3, 'Md.', 'Bulbul Ahmed', 'bulbul@gmail.com', '$2y$10$QUSniCOFF7cOiJo6E4ovhu4.rlBXhvC9k4ksOO7cIgbXWJZHacjGS', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Active', 'prw9CYGYaJry5Kdk6cuKP5O2LI0PRXjgL60e3z9ZGlZTO2CnoJTVd0ae3TzF', '2018-10-26 14:08:58', '2018-10-26 14:08:58'),
-(5, 'Md', 'Amir Sardar', 'amir04@gmail.com', '$2y$10$4WkC9xIMEzo6/OB1k/fumupaz9KjsCO/V9Baz6HBR4wTbSqZw21Vu', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', 'lnA0MnrkfLI874na6esC4eKw8VTWVj1rMdNTglxpKyJalAZIAVTe0HlNZUPo', '2018-10-29 01:20:11', '2018-10-29 01:20:11'),
-(10, 'Md.', 'rabiul islam', 'rabiul04e@gmail.com', '$2y$10$H/CeAdldXYeH7TuknMusy.xDZftQ4GKf8uMLLSURoYWC8owawN3fq', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', '', '2018-11-07 17:32:59', '2018-11-07 17:32:59'),
-(12, 'Md', 'rabiul islam', 'rabiul042044@gmail.com', '$2y$10$ucZ.pE45Jby1OzBw38ic0.QtkdyTotGV4rEWmNxoQ/GtR/Y/AILp.', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', '', '2018-11-07 17:38:57', '2018-11-07 17:38:57'),
-(14, 'Md', 'rabiul islam', 'rabiul042o@gmail.com', '$2y$10$wvUMcIaHKN1Nn2dPdXap7elBIukc6vspsrIew5gLA17CBxOklSTgC', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', '', '2018-11-07 17:58:28', '2018-11-07 17:58:28'),
-(15, NULL, 'rabiul islam', 'amir1@gmail.com', '$2y$10$lrxri6WE2abRsi8qEdm1Seslpfrv2.GjDml3PMEfmWfcchLzghP1.', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', 'r673BLl6lnlGasTCnpRZ3Z87ftJnmHyDRxvFE4EzkYCgbxjM9Dsou5eZII0Q', '2018-12-05 01:09:18', '2018-12-05 01:09:18'),
-(16, NULL, 'halim khan', 'halim@gmail.com', '$2y$10$bi//Ou4KHH4Iwoikc.Ni8.btzZTgFgZKhyOtfeSr1L7QE7wQ0PJcS', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', 'XBnBmoRDIGKhdfUtSVv7hh8A4X4B2s8UFR6XuBMyWeB2HPnqKSGcccvpL2Yb', '2018-12-05 01:12:28', '2018-12-05 01:12:28'),
-(17, NULL, 'rashed khan', 'rashed2@gmail.com', '$2y$10$JrDWvFYG3giKx6UallfBjeje9o4QNE7Zxf4T98/BD.1OWjCEOOvB6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', 'QihEftEAdDIRQBaX0wEkumu2NH9f85CLczBKrL1zll2bZXMjItJ3ligLdr1W', '2018-12-05 01:35:37', '2018-12-05 01:35:37'),
-(19, NULL, 'rashed khan', 'rabiul045@gmail.com', '$2y$10$fpejCDV4hnALUYH7uOLbTu3SXQ2FB9/i8F/MST01vh27x7lAn1uFy', '017874556678', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', 'Student', 'Pending', '', '2018-12-07 15:58:46', '2018-12-07 15:58:46'),
-(20, NULL, 'abdul khalek', 'khalek@gmail.com', '$2y$10$VxIZQJ4oxlzo/cn1S8K5nOcP9Dx.mlEK.BYA7b4o9.DL0ps1mEYuW', '0166789', 'rtyrt', 'tutyu65tu7657', 'abdur rahim', 'amena begum', '5th floor, House#17, Road#17, Mirpur, Dhaka', 1, 35, 15, NULL, 'Chor Dunail', '2018-12-14', '', '', '', '', 0000, '0000', 'images/mkkTvo2EzjDSXskCdJUG6wiG73TqaK37T7Qfn8LG.jpeg', 'Student', 'Active', '', '2018-12-09 02:41:05', '2018-12-09 04:13:11'),
-(21, NULL, NULL, 'rabiutyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', '', '2018-12-16 05:13:02', '2018-12-16 05:17:29'),
-(22, NULL, NULL, 'rabiutyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', '', '2018-12-16 05:14:34', '2018-12-16 05:14:34'),
-(23, NULL, NULL, 'rabiutopyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', '', NULL, NULL),
-(24, NULL, NULL, 'rabiul0io420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', '', '', NULL, NULL),
-(25, NULL, NULL, 'rabiul0io420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', '', '2018-12-16 05:29:48', '2018-12-16 05:30:06'),
-(26, NULL, 'rashed khan', 'rabiul04204@gmail.com', '$2y$10$9C8dsQtLLP01b0/scuzN4OIUt/rFk1x78mrXPa79aoR3LMbD8ZCYq', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', '', '2018-12-16 05:38:12', '2018-12-16 05:38:35'),
-(27, NULL, 'rashed khan', 'rabiul0gh420@gmail.com', '$2y$10$gV5pxuMFv3BnUsviOng26.Asp0CqTVRuTXJKfhhSQmBPgfzQgp8M6', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Pending', '', '2018-12-16 05:41:59', '2018-12-16 05:41:59'),
-(28, NULL, 'rashed khan', 'rabiul0fgh420@gmail.com', '$2y$10$9spg6qLPGcRYpYs8W5SWa.AfP./4HIGWUYUSmqlb4oOMh684w1DuO', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', '', '2018-12-16 05:42:35', '2018-12-16 05:42:58'),
-(29, NULL, 'rashed khan', 'rabiul.ruet04@gmail.com', '$2y$10$1FrInsARfbfkwBTkFyIZ..WYLvc6kTKFQw5jkUM0bV4xiKhUb4niq', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', '', '2018-12-16 05:57:56', '2018-12-16 05:58:17'),
-(30, NULL, 'rashed khan', 'test1@gmail.com', '$2y$10$Pb3IPA.OVgDdIoEZWAY7k.g7BqFIJaBaN.WqvxPHR9WP9r2/CNJNe', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '0000', '', '', 'Active', 'robtN4wsChbsi4GgsZXnLiUP2Z05myYYKG2Xw8RWoZKtUrBfzlFthRBFaoAy', '2018-12-16 06:04:27', '2018-12-16 06:04:46'),
-(31, NULL, 'Abul Ahad', 'rabiul04@gmail.com', '$2y$10$WtVpDBXPsdiFLYY2AjuyEuJjxjomlXpR6PkvuzPEsOpmTZv4anzkK', '016678', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '', '', 'Student', 'Pending', '', '2019-01-11 07:42:18', '2019-01-11 07:42:18'),
-(32, NULL, 'Abul Ahad', 'rabiul02@gmail.com', '$2y$10$1rqp5BUG.THQGb9BaD7.DupqEPbRKd5BApdv9AMUjspPCtBpWFMgm', '016678', '', '', 'Abul khan', 'rabeya bosri', 'Dhaka', 0, NULL, NULL, NULL, NULL, '2018-11-07', '', '', '', 'Ruet', 0000, 'Yes', '', 'Student', 'Pending', '', '2019-01-11 07:52:47', '2019-01-11 07:52:47'),
-(33, NULL, 'Abul Ahad', 'rabiul05@gmail.com', '$2y$10$IGcvXiMMYfZjQZxOzyW8tuc6hNwn/XlO6H6u8/xt185aOfYg.7kFy', '0166787899', '017892222', 'This for test', 'Abul khan', 'rabeya bosri', 'Dhaka', 2, 49, 127, NULL, 'Chor Dunail', '2019-03-20', '', '', '', '', 0000, 'Yes', 'images/gISmi9D98VZpcKslZI9Ls25vxoA45nxUndK55bo5.png', 'Student', 'Active', 'o6lsw8hQSzeAly9SOekU7QKvij2yMwGl5uYYbzyVwfbzyuk3dIXTu5ce6R5m', '2019-01-11 07:56:22', '2019-01-12 16:43:47'),
-(34, NULL, 'Rabiul', 'rabiul@gmail.com', '$2y$10$E77bIMEyi/.gTUadIyNHGuawxvKStCSMUCDfBTecjZFzKk96aAb2e', '123456', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '', '/photos/1/LOGOg png.png', 'Admin', 'Active', 'ibEaui8GUObQ55o6qSnOOlL0CKPWsvsVtX9D44mOgtF1h0u2AhYny6JWHvOo', '2019-01-16 13:08:12', '2019-01-16 13:19:35'),
-(35, NULL, 'Abul kashem', 'kashem@gmail.com', '$2y$10$4.JUGTzb.Esg5pql3nIEZOVsWzY3xdY7MYfaNjhBEM8bwcRnu8hIu', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', 0000, '', '', 'Admin', 'Active', 'hF78XD6l43YI2DzUTdeG9R6hHMUadEBQZd2oOgfiEnPkZ1jirpJfcPs9JTfZ', '2019-01-16 13:40:33', '2019-01-16 13:40:33'),
-(44, NULL, 'rabiul islam', 'rabiulitclan@gmail.com', '$2y$10$hXUM.ZLI8VO.Ym41mer9veACpvTcG0q/Q8K7Jc/MwQl/zHPl/maO.', '0172383', '', '', 'jhygew', 'ertgre', 'erytr', 0, NULL, NULL, NULL, NULL, '2019-02-25', '', '', '', 'yyrty', 0000, 'Yes', '', 'Student', 'Active', '', '2019-02-05 04:06:15', '2019-02-05 04:10:57'),
-(45, NULL, 'Md Hafizur', 'pmtcorporate@gmail.com', '$2y$10$JBuAwhhX84mxDR3pW7rzQOdReynqDA0s61aKfh7Au3MNzfgsknnGW', '01731376671', '', '', 'sdf', 'sdf', 'dsf', 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', 'RUET', 0000, 'Yes', '', 'Student', 'Active', 'ZB3PQA3v1QiHfJ62UXFkF7rdOVLPj0BLi1zZDvlhSHHOQEjgJJJ1DaOMIE7S', '2019-03-02 17:56:33', '2019-03-02 17:59:31');
+(1, 'Ma', 'Admin', 'admin@gmail.com', '$2y$10$E00Pww9HVtpaWsx0sSqIQeA.BW.qI0COQKRdEhwE0YKD.qGlI6tX6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Admin', 'Active', 't8MOFe5c31cCqk4saZK4GqFUm6bpZSAFAaLAb5VQiHqdmQDZ3SscfPnbnSUz', '2018-10-20 04:30:46', '2018-10-20 04:30:46'),
+(2, 'Md.', 'rashed khan', 'rabiul0420@gmail.com', '$2y$10$yMpiuRwOiZ3AJrjbVjWw.ezlDA9Uh0QB8Od48s0irz/O7ver9Q5xC', '017874556678', '', '', 'abdur rahim', 'amena begum', '5th floor, House#17, Road#17, Mirpur, Dhaka', 2, 49, 133, 'Boro Dunail', 'Chor Dunail', '1900-12-30', 'Male', 'Job Holder', 'IT Clan Bangladesh', 'Ruet', '2013', '2009', 'images/cjbkigxPK7Jyd9s576IsgvrMTPSnUzAblKCcANnd.png', 'Student', 'Active', 'ELrokctucIz425T26TDTXVd8lx2pOKqJQkfibIJT38SL8tLW1KCnEYB2H2EI', '2018-10-20 04:34:32', '2018-10-27 08:38:13'),
+(3, 'Md.', 'Bulbul Ahmed', 'bulbul@gmail.com', '$2y$10$QUSniCOFF7cOiJo6E4ovhu4.rlBXhvC9k4ksOO7cIgbXWJZHacjGS', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Active', 'prw9CYGYaJry5Kdk6cuKP5O2LI0PRXjgL60e3z9ZGlZTO2CnoJTVd0ae3TzF', '2018-10-26 14:08:58', '2018-10-26 14:08:58'),
+(5, 'Md', 'Amir Sardar', 'amir04@gmail.com', '$2y$10$4WkC9xIMEzo6/OB1k/fumupaz9KjsCO/V9Baz6HBR4wTbSqZw21Vu', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Pending', 'lnA0MnrkfLI874na6esC4eKw8VTWVj1rMdNTglxpKyJalAZIAVTe0HlNZUPo', '2018-10-29 01:20:11', '2018-10-29 01:20:11'),
+(10, 'Md.', 'rabiul islam', 'rabiul04e@gmail.com', '$2y$10$H/CeAdldXYeH7TuknMusy.xDZftQ4GKf8uMLLSURoYWC8owawN3fq', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Pending', '', '2018-11-07 17:32:59', '2018-11-07 17:32:59'),
+(12, 'Md', 'rabiul islam', 'rabiul042044@gmail.com', '$2y$10$ucZ.pE45Jby1OzBw38ic0.QtkdyTotGV4rEWmNxoQ/GtR/Y/AILp.', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Pending', '', '2018-11-07 17:38:57', '2018-11-07 17:38:57'),
+(14, 'Md', 'rabiul islam', 'rabiul042o@gmail.com', '$2y$10$wvUMcIaHKN1Nn2dPdXap7elBIukc6vspsrIew5gLA17CBxOklSTgC', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Pending', '', '2018-11-07 17:58:28', '2018-11-07 17:58:28'),
+(15, NULL, 'rabiul islam', 'amir1@gmail.com', '$2y$10$lrxri6WE2abRsi8qEdm1Seslpfrv2.GjDml3PMEfmWfcchLzghP1.', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', 'r673BLl6lnlGasTCnpRZ3Z87ftJnmHyDRxvFE4EzkYCgbxjM9Dsou5eZII0Q', '2018-12-05 01:09:18', '2018-12-05 01:09:18'),
+(16, NULL, 'halim khan', 'halim@gmail.com', '$2y$10$bi//Ou4KHH4Iwoikc.Ni8.btzZTgFgZKhyOtfeSr1L7QE7wQ0PJcS', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', 'XBnBmoRDIGKhdfUtSVv7hh8A4X4B2s8UFR6XuBMyWeB2HPnqKSGcccvpL2Yb', '2018-12-05 01:12:28', '2018-12-05 01:12:28'),
+(17, NULL, 'rashed khan', 'rashed2@gmail.com', '$2y$10$JrDWvFYG3giKx6UallfBjeje9o4QNE7Zxf4T98/BD.1OWjCEOOvB6', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', 'QihEftEAdDIRQBaX0wEkumu2NH9f85CLczBKrL1zll2bZXMjItJ3ligLdr1W', '2018-12-05 01:35:37', '2018-12-05 01:35:37'),
+(19, NULL, 'rashed khan', 'rabiul045@gmail.com', '$2y$10$fpejCDV4hnALUYH7uOLbTu3SXQ2FB9/i8F/MST01vh27x7lAn1uFy', '017874556678', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', 'Student', 'Pending', '', '2018-12-07 15:58:46', '2018-12-07 15:58:46'),
+(20, NULL, 'abdul khalek', 'khalek@gmail.com', '$2y$10$VxIZQJ4oxlzo/cn1S8K5nOcP9Dx.mlEK.BYA7b4o9.DL0ps1mEYuW', '0166789', 'rtyrt', 'tutyu65tu7657', 'abdur rahim', 'amena begum', '5th floor, House#17, Road#17, Mirpur, Dhaka', 1, 35, 15, NULL, 'Chor Dunail', '2018-12-14', '', '', '', '', '0000', '0000', 'images/mkkTvo2EzjDSXskCdJUG6wiG73TqaK37T7Qfn8LG.jpeg', 'Student', 'Active', '', '2018-12-09 02:41:05', '2018-12-09 04:13:11'),
+(21, NULL, NULL, 'rabiutyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', '', '2018-12-16 05:13:02', '2018-12-16 05:17:29'),
+(22, NULL, NULL, 'rabiutyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', '', '2018-12-16 05:14:34', '2018-12-16 05:14:34'),
+(23, NULL, NULL, 'rabiutopyl0420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', '', NULL, NULL),
+(24, NULL, NULL, 'rabiul0io420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', '', '', NULL, NULL),
+(25, NULL, NULL, 'rabiul0io420@gmail.com', NULL, NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', '', '2018-12-16 05:29:48', '2018-12-16 05:30:06'),
+(26, NULL, 'rashed khan', 'rabiul04204@gmail.com', '$2y$10$9C8dsQtLLP01b0/scuzN4OIUt/rFk1x78mrXPa79aoR3LMbD8ZCYq', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', '', '2018-12-16 05:38:12', '2018-12-16 05:38:35'),
+(27, NULL, 'rashed khan', 'rabiul0gh420@gmail.com', '$2y$10$gV5pxuMFv3BnUsviOng26.Asp0CqTVRuTXJKfhhSQmBPgfzQgp8M6', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Pending', '', '2018-12-16 05:41:59', '2018-12-16 05:41:59'),
+(28, NULL, 'rashed khan', 'rabiul0fgh420@gmail.com', '$2y$10$9spg6qLPGcRYpYs8W5SWa.AfP./4HIGWUYUSmqlb4oOMh684w1DuO', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', '', '2018-12-16 05:42:35', '2018-12-16 05:42:58'),
+(29, NULL, 'rashed khan', 'rabiul.ruet04@gmail.com', '$2y$10$1FrInsARfbfkwBTkFyIZ..WYLvc6kTKFQw5jkUM0bV4xiKhUb4niq', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', '', '2018-12-16 05:57:56', '2018-12-16 05:58:17'),
+(30, NULL, 'rashed khan', 'test1@gmail.com', '$2y$10$Pb3IPA.OVgDdIoEZWAY7k.g7BqFIJaBaN.WqvxPHR9WP9r2/CNJNe', '0166789', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '0000', '', '', 'Active', 'robtN4wsChbsi4GgsZXnLiUP2Z05myYYKG2Xw8RWoZKtUrBfzlFthRBFaoAy', '2018-12-16 06:04:27', '2018-12-16 06:04:46'),
+(31, NULL, 'Abul Ahad', 'rabiul04@gmail.com', '$2y$10$WtVpDBXPsdiFLYY2AjuyEuJjxjomlXpR6PkvuzPEsOpmTZv4anzkK', '016678', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '', '', 'Student', 'Pending', '', '2019-01-11 07:42:18', '2019-01-11 07:42:18'),
+(32, NULL, 'Abul Ahad', 'rabiul02@gmail.com', '$2y$10$1rqp5BUG.THQGb9BaD7.DupqEPbRKd5BApdv9AMUjspPCtBpWFMgm', '016678', '', '', 'Abul khan', 'rabeya bosri', 'Dhaka', 0, NULL, NULL, NULL, NULL, '2018-11-07', '', '', '', 'Ruet', '0000', 'Yes', '', 'Student', 'Pending', '', '2019-01-11 07:52:47', '2019-01-11 07:52:47'),
+(33, NULL, 'Abul Ahad', 'rabiul05@gmail.com', '$2y$10$IGcvXiMMYfZjQZxOzyW8tuc6hNwn/XlO6H6u8/xt185aOfYg.7kFy', '0166787899', '017892222', 'This for test', 'Abul khan', 'rabeya bosri', 'Dhaka', 2, 49, 127, NULL, 'Chor Dunail', '2019-03-20', '', '', '', '', '0000', 'Yes', 'images/gISmi9D98VZpcKslZI9Ls25vxoA45nxUndK55bo5.png', 'Student', 'Active', 'o6lsw8hQSzeAly9SOekU7QKvij2yMwGl5uYYbzyVwfbzyuk3dIXTu5ce6R5m', '2019-01-11 07:56:22', '2019-01-12 16:43:47'),
+(34, NULL, 'Rabiul', 'rabiul@gmail.com', '$2y$10$E77bIMEyi/.gTUadIyNHGuawxvKStCSMUCDfBTecjZFzKk96aAb2e', '123456', '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '', '/photos/1/LOGOg png.png', 'Admin', 'Active', 'ibEaui8GUObQ55o6qSnOOlL0CKPWsvsVtX9D44mOgtF1h0u2AhYny6JWHvOo', '2019-01-16 13:08:12', '2019-01-16 13:19:35'),
+(35, NULL, 'Abul kashem', 'kashem@gmail.com', '$2y$10$4.JUGTzb.Esg5pql3nIEZOVsWzY3xdY7MYfaNjhBEM8bwcRnu8hIu', NULL, '', '', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', '', '0000', '', '', 'Admin', 'Active', 'hF78XD6l43YI2DzUTdeG9R6hHMUadEBQZd2oOgfiEnPkZ1jirpJfcPs9JTfZ', '2019-01-16 13:40:33', '2019-01-16 13:40:33'),
+(44, NULL, 'rabiul islam', 'rabiulitclan@gmail.com', '$2y$10$hXUM.ZLI8VO.Ym41mer9veACpvTcG0q/Q8K7Jc/MwQl/zHPl/maO.', '0172383', '', '', 'jhygew', 'ertgre', 'erytr', 0, NULL, NULL, NULL, NULL, '2019-02-25', '', '', '', 'yyrty', '0000', 'Yes', '', 'Student', 'Active', '', '2019-02-05 04:06:15', '2019-02-05 04:10:57'),
+(45, NULL, 'Md Hafizur', 'pmtcorporate@gmail.com', '$2y$10$JBuAwhhX84mxDR3pW7rzQOdReynqDA0s61aKfh7Au3MNzfgsknnGW', '01731376671', '', '', 'sdf', 'sdf', 'dsf', 0, NULL, NULL, NULL, NULL, '0000-00-00', '', '', '', 'RUET', '0000', 'Yes', '', 'Student', 'Active', 'ZB3PQA3v1QiHfJ62UXFkF7rdOVLPj0BLi1zZDvlhSHHOQEjgJJJ1DaOMIE7S', '2019-03-02 17:56:33', '2019-03-02 17:59:31');
 
 --
 -- Indexes for dumped tables
@@ -805,9 +980,15 @@ ALTER TABLE `ic_charities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ic_charities_ca1_ca2`
+-- Indexes for table `ic_charities_ca1`
 --
-ALTER TABLE `ic_charities_ca1_ca2`
+ALTER TABLE `ic_charities_ca1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ic_charities_ca2`
+--
+ALTER TABLE `ic_charities_ca2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -820,6 +1001,18 @@ ALTER TABLE `ic_charities_ca3`
 -- Indexes for table `ic_charities_ca4`
 --
 ALTER TABLE `ic_charities_ca4`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ic_charities_feedback_assesment`
+--
+ALTER TABLE `ic_charities_feedback_assesment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ic_charities_review`
+--
+ALTER TABLE `ic_charities_review`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -905,79 +1098,97 @@ ALTER TABLE `ic_users`
 -- AUTO_INCREMENT for table `ic_charities`
 --
 ALTER TABLE `ic_charities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `ic_charities_ca1_ca2`
+-- AUTO_INCREMENT for table `ic_charities_ca1`
 --
-ALTER TABLE `ic_charities_ca1_ca2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `ic_charities_ca1`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `ic_charities_ca2`
+--
+ALTER TABLE `ic_charities_ca2`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ic_charities_ca3`
 --
 ALTER TABLE `ic_charities_ca3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ic_charities_ca4`
 --
 ALTER TABLE `ic_charities_ca4`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `ic_charities_feedback_assesment`
+--
+ALTER TABLE `ic_charities_feedback_assesment`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ic_charities_review`
+--
+ALTER TABLE `ic_charities_review`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ic_country`
 --
 ALTER TABLE `ic_country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
 -- AUTO_INCREMENT for table `ic_menu`
 --
 ALTER TABLE `ic_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `ic_migrations`
 --
 ALTER TABLE `ic_migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ic_pages`
 --
 ALTER TABLE `ic_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ic_permissions`
 --
 ALTER TABLE `ic_permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `ic_roles`
 --
 ALTER TABLE `ic_roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ic_role_assign`
 --
 ALTER TABLE `ic_role_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ic_settings`
 --
 ALTER TABLE `ic_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `ic_users`
 --
 ALTER TABLE `ic_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables

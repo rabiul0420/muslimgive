@@ -9,14 +9,14 @@
                 </span>
             </span>
             <ol class="breadcrumb">
-                <li>Home</li><li>Charity Profile List</li>
+                <li>Home</li><li>Charity Profile Reports</li>
             </ol>
         </div>
         <div id="content">
             <div class="row">
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
                     <h1 class="page-title txt-color-blueDark">
-                        <i class="fa fa-table fa-fw "></i>Charity Profile <span>> Charity Profile List</span>
+                        <i class="fa fa-table fa-fw "></i>Reports <span>> Charity Profile Reports</span>
                     </h1>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
                             <header>
                                 <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                                <h2>Charity Profile List <a href="{{ action('Admin\CharityProfileController@create') }}" title=""><i class="fa fa-lg fa-fw fa-plus"></i></a></h2></h2>
+                                <h2>Charity Profile Reports </h2></h2>
                             </header>
 
                             <div class="">
@@ -41,10 +41,18 @@
                                 <div class="jarviswidget-editbox">
                                 </div>
 
-                                <div class="widget-body no-padding">
-                                    <table id="datatable_fixed_column" class="table table-striped table-bordered" width="100%">
+                                <div style="overflow: auto" class="widget-body no-padding">
+                                    <table   class="table table-striped table-bordered scrollspy-example" width="100%">
                                         <thead>
                                             <tr>
+                                                <th data-class="expand">qsza</th>
+                                                <th data-hide="phone">METRICS</th>
+                                                <th data-hide="phone">POINTS</th>
+                                                <th data-hide="phone">IDRF</th>
+                                                <th data-hide="phone">Auditors</th>
+                                                <th data-hide="phone">Fiscal Year End</th>
+                                                <th data-hide="phone">Logo</th>
+                                                <th data-hide="phone">Notes</th>
                                                 <th data-class="expand">ID</th>
                                                 <th data-hide="phone">Charity Name</th>
                                                 <th data-hide="phone">Website</th>
@@ -53,34 +61,71 @@
                                                 <th data-hide="phone">Fiscal Year End</th>
                                                 <th data-hide="phone">Logo</th>
                                                 <th data-hide="phone">Notes</th>
-                                                <th data-hide="phone">Actions</th>
+
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach($charity_profile as $key=>$row)
+
+
                                             <tr>
-                                                <td>{{$key+1}}</td>
-                                                <td>{{$row->title}}</td>
-                                                <td>{{$row->website}}</td>
-                                                <td>{{$row->link_to_cra_return}}</td>
-                                                <td>{{$row->auditors}}</td>
-                                                <td>{{$row->fiscal_year_end}}</td>
-                                                <td>
-                                                    @if($row->logo)
-                                                        <img height="50" src="{{url($row->logo)}}" alt="">
-                                                    @endif
-                                                </td>
-                                                <td>{{$row->notes}}</td>
-                                                <td>
-                                                    <a href="{{ action('Admin\CharityProfileController@edit',['id'=>$row->id]) }}" class="btn btn-primary">Edit</a>
-                                                    <a target="_blank" href="{{ url('profile/'.$row->id) }}" class="btn btn-success">Profile</a>
-                                                    {!! Form::open(array('route' => array('charity-profile.destroy', $row->id), 'method' => 'delete','style' => 'display:inline')) !!}
-                                                    <button onclick="return confirm('Are You Sure ?')" class='btn btn-danger' type="submit">Delete</button>
-                                                    {!! Form::close() !!}
-                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>https://idrf.ca/</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                           @endforeach
+
+                                        <tr>
+                                            <td>CHARITY STATUS</td>
+                                            <td>Registered, Not registered, Revoked, Annulled, Penalized, Suspended, registration processing</td>
+                                            <td></td>
+                                            <td>Registered
+                                                5 Dec, 1988</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>https://idrf.ca/</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
